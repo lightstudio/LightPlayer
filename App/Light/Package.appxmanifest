@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/3" xmlns:mobile="http://schemas.microsoft.com/appx/manifest/mobile/windows10" IgnorableNamespaces="uap mp uap3 mobile">
+  <Identity Name="LightStudio.LightMediaPlayer" Publisher="CN=41DA35A9-4F7D-4FE7-A07F-E9FF93C6A346" Version="1.1.0.0" />
+  <mp:PhoneIdentity PhoneProductId="9af74209-b167-4a75-82a1-70a38ff5b642" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
+  <Properties>
+    <DisplayName>Light Media Player\</DisplayName>
+    <PublisherDisplayName>Light Studio</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+  </Properties>
+  <Dependencies>
+    <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.14393.0" MaxVersionTested="10.0.15063.0" />
+    <TargetDeviceFamily Name="Windows.Mobile" MinVersion="10.0.14393.0" MaxVersionTested="10.0.15063.0" />
+  </Dependencies>
+  <Resources>
+    <Resource Language="x-generate" />
+  </Resources>
+  <Applications>
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="Light.App">
+      <uap:VisualElements DisplayName="ms-resource:AppName" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="Light Player" BackgroundColor="#424343">
+        <uap:LockScreen Notification="badge" BadgeLogo="Assets\BadgeLogo.png" />
+        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" ShortName="Light" Square310x310Logo="Assets\Square310x310Logo.png" Square71x71Logo="Assets\Square71x71Logo.png">
+          <uap:ShowNameOnTiles>
+            <uap:ShowOn Tile="square150x150Logo" />
+            <uap:ShowOn Tile="wide310x150Logo" />
+            <uap:ShowOn Tile="square310x310Logo" />
+          </uap:ShowNameOnTiles>
+        </uap:DefaultTile>
+        <uap:SplashScreen Image="Assets\SplashScreen.png" BackgroundColor="#424343" />
+      </uap:VisualElements>
+      <Extensions>
+        <mobile:Extension Category="windows.mobileMultiScreenProperties">
+          <mobile:MobileMultiScreenProperties RestrictToInternalScreen="true" />
+        </mobile:Extension>
+        <uap:Extension Category="windows.fileTypeAssociation">
+          <uap:FileTypeAssociation Name="dsf">
+            <uap:DisplayName>DSF</uap:DisplayName>
+            <uap:Logo>Assets\Square44x44Logo.png</uap:Logo>
+            <uap:InfoTip>Direct Stream Digital Stream File</uap:InfoTip>
+            <uap:SupportedFileTypes>
+              <uap:FileType>.dsf</uap:FileType>
+            </uap:SupportedFileTypes>
+          </uap:FileTypeAssociation>
+        </uap:Extension>
+        <uap:Extension Category="windows.fileTypeAssociation">
+          <uap:FileTypeAssociation Name="dff">
+            <uap:DisplayName>DSDIFF</uap:DisplayName>
+            <uap:Logo>Assets\Square44x44Logo.png</uap:Logo>
+            <uap:InfoTip>Direct Stream Digital Interchange File Format</uap:InfoTip>
+            <uap:SupportedFileTypes>
+              <uap:FileType>.dff</uap:FileType>
+            </uap:SupportedFileTypes>
+          </uap:FileTypeAssociation>
+        </uap:Extension>
+        <uap:Extension Category="windows.fileTypeAssociation" EntryPoint="Light.App">
+          <uap:FileTypeAssociation Name="cue">
+            <uap:DisplayName>CUE sheet</uap:DisplayName>
+            <uap:Logo>Assets\Square44x44Logo.png</uap:Logo>
+            <uap:InfoTip>CUE sheet</uap:InfoTip>
+            <uap:SupportedFileTypes>
+              <uap:FileType ContentType="application/x-cue">.cue</uap:FileType>
+            </uap:SupportedFileTypes>
+          </uap:FileTypeAssociation>
+        </uap:Extension>
+        <uap:Extension Category="windows.fileTypeAssociation" EntryPoint="Light.App">
+          <uap:FileTypeAssociation Name="wpl">
+            <uap:DisplayName>Windows Media Playlist</uap:DisplayName>
+            <uap:Logo>Assets\Square44x44Logo.png</uap:Logo>
+            <uap:InfoTip>Windows Media Playlist</uap:InfoTip>
+            <uap:SupportedFileTypes>
+              <uap:FileType>.wpl</uap:FileType>
+            </uap:SupportedFileTypes>
+          </uap:FileTypeAssociation>
+        </uap:Extension>
+        <uap:Extension Category="windows.fileTypeAssociation" EntryPoint="Light.App">
+          <uap:FileTypeAssociation Name="ogg">
+            <uap:DisplayName>Ogg Container File</uap:DisplayName>
+            <uap:Logo>Assets\Square44x44Logo.png</uap:Logo>
+            <uap:InfoTip>Ogg Container File</uap:InfoTip>
+            <uap:SupportedFileTypes>
+              <uap:FileType ContentType="audio/ogg">.ogg</uap:FileType>
+              <uap:FileType ContentType="audio/ogg">.oga</uap:FileType>
+            </uap:SupportedFileTypes>
+          </uap:FileTypeAssociation>
+        </uap:Extension>
+        <uap:Extension Category="windows.fileTypeAssociation" EntryPoint="Light.App">
+          <uap:FileTypeAssociation Name="wav">
+            <uap:DisplayName>Waveform Audio File</uap:DisplayName>
+            <uap:Logo>Assets\Square44x44Logo.png</uap:Logo>
+            <uap:InfoTip>Waveform Audio File</uap:InfoTip>
+            <uap:SupportedFileTypes>
+              <uap:FileType ContentType="audio/wav">.wav</uap:FileType>
+              <uap:FileType ContentType="audio/wave">.wave</uap:FileType>
+            </uap:SupportedFileTypes>
+          </uap:FileTypeAssociation>
+        </uap:Extension>
+        <uap:Extension Category="windows.fileTypeAssociation" EntryPoint="Light.App">
+          <uap:FileTypeAssociation Name="mp3">
+            <uap:DisplayName>MPEG-1 or MPEG-2 Audio Layer III File</uap:DisplayName>
+            <uap:Logo>Assets\Square44x44Logo.png</uap:Logo>
+            <uap:InfoTip>MPEG-1 or MPEG-2 Audio Layer III File</uap:InfoTip>
+            <uap:SupportedFileTypes>
+              <uap:FileType ContentType="audio/mpeg">.mp3</uap:FileType>
+            </uap:SupportedFileTypes>
+          </uap:FileTypeAssociation>
+        </uap:Extension>
+        <uap:Extension Category="windows.fileTypeAssociation" EntryPoint="Light.App">
+          <uap:FileTypeAssociation Name="wma">
+            <uap:DisplayName>Advanced Systems Format File</uap:DisplayName>
+            <uap:Logo>Assets\Square44x44Logo.png</uap:Logo>
+            <uap:InfoTip>Advanced Systems Format File</uap:InfoTip>
+            <uap:SupportedFileTypes>
+              <uap:FileType ContentType="audio/x-ms-wma">.wma</uap:FileType>
+            </uap:SupportedFileTypes>
+          </uap:FileTypeAssociation>
+        </uap:Extension>
+        <uap:Extension Category="windows.fileTypeAssociation" EntryPoint="Light.App">
+          <uap:FileTypeAssociation Name="flac">
+            <uap:DisplayName>Free Loseless Audio Codec File</uap:DisplayName>
+            <uap:Logo>Assets\Square44x44Logo.png</uap:Logo>
+            <uap:InfoTip>Free Loseless Audio Codec File</uap:InfoTip>
+            <uap:SupportedFileTypes>
+              <uap:FileType ContentType="audio/x-flac">.flac</uap:FileType>
+            </uap:SupportedFileTypes>
+          </uap:FileTypeAssociation>
+        </uap:Extension>
+        <uap:Extension Category="windows.fileTypeAssociation" EntryPoint="Light.App">
+          <uap:FileTypeAssociation Name="ape">
+            <uap:DisplayName>Monkey's Audio File</uap:DisplayName>
+            <uap:Logo>Assets\Square44x44Logo.png</uap:Logo>
+            <uap:InfoTip>Monkey's Audio File</uap:InfoTip>
+            <uap:SupportedFileTypes>
+              <uap:FileType ContentType="audio/x-ape">.ape</uap:FileType>
+            </uap:SupportedFileTypes>
+          </uap:FileTypeAssociation>
+        </uap:Extension>
+        <uap:Extension Category="windows.fileTypeAssociation" EntryPoint="Light.App">
+          <uap:FileTypeAssociation Name="tak">
+            <uap:DisplayName>Tom's lossless Audio Kompressor File</uap:DisplayName>
+            <uap:Logo>Assets\Square44x44Logo.png</uap:Logo>
+            <uap:InfoTip>Tom's lossless Audio Kompressor File</uap:InfoTip>
+            <uap:SupportedFileTypes>
+              <uap:FileType ContentType="audio/x-tak">.tak</uap:FileType>
+            </uap:SupportedFileTypes>
+          </uap:FileTypeAssociation>
+        </uap:Extension>
+        <uap:Extension Category="windows.fileTypeAssociation" EntryPoint="Light.App">
+          <uap:FileTypeAssociation Name="tta">
+            <uap:DisplayName>True Audio File</uap:DisplayName>
+            <uap:Logo>Assets\Square44x44Logo.png</uap:Logo>
+            <uap:InfoTip>True Audio File</uap:InfoTip>
+            <uap:SupportedFileTypes>
+              <uap:FileType ContentType="audio/x-tta">.tta</uap:FileType>
+            </uap:SupportedFileTypes>
+          </uap:FileTypeAssociation>
+        </uap:Extension>
+        <uap:Extension Category="windows.fileTypeAssociation" EntryPoint="Light.App">
+          <uap:FileTypeAssociation Name="m3u">
+            <uap:DisplayName>M3u playlist</uap:DisplayName>
+            <uap:Logo>Assets\Square44x44Logo.png</uap:Logo>
+            <uap:InfoTip>M3u playlist</uap:InfoTip>
+            <uap:SupportedFileTypes>
+              <uap:FileType>.m3u</uap:FileType>
+              <uap:FileType>.m3u8</uap:FileType>
+            </uap:SupportedFileTypes>
+          </uap:FileTypeAssociation>
+        </uap:Extension>
+        <uap:Extension Category="windows.fileTypeAssociation" EntryPoint="Light.App">
+          <uap:FileTypeAssociation Name="m4a">
+            <uap:DisplayName>MPEG-4 Part 14 File</uap:DisplayName>
+            <uap:Logo>Assets\Square44x44Logo.png</uap:Logo>
+            <uap:InfoTip>MPEG-4 Part 14 File</uap:InfoTip>
+            <uap:SupportedFileTypes>
+              <uap:FileType ContentType="audio/m4a">.m4a</uap:FileType>
+              <uap:FileType ContentType="audio/m4a">.aac</uap:FileType>
+            </uap:SupportedFileTypes>
+          </uap:FileTypeAssociation>
+        </uap:Extension>
+      </Extensions>
+    </Application>
+  </Applications>
+  <Capabilities>
+    <Capability Name="internetClient" />
+    <uap:Capability Name="musicLibrary" />
+    <uap:Capability Name="videosLibrary" />
+    <uap3:Capability Name="backgroundMediaPlayback" />
+  </Capabilities>
+  <Extensions>
+    <Extension Category="windows.certificates">
+      <Certificates>
+        <Certificate StoreName="Root" Content="TrustedCertificateBundles\BaltimoreCyberTrustRootSha1.cer" />
+        <Certificate StoreName="Root" Content="TrustedCertificateBundles\GlobalSignSha1.cer" />
+        <Certificate StoreName="Root" Content="TrustedCertificateBundles\VeriSignSha1.cer" />
+        <Certificate StoreName="Root" Content="TrustedCertificateBundles\VeriSignSha1G3.cer" />
+        <Certificate StoreName="Root" Content="TrustedCertificateBundles\VeriSignUni.cer" />
+        <Certificate StoreName="Root" Content="TrustedCertificateBundles\SymantecEVG3.cer" />
+        <Certificate StoreName="Root" Content="TrustedCertificateBundles\DigicertHS.cer" />
+        <TrustFlags ExclusiveTrust="true" />
+      </Certificates>
+    </Extension>
+  </Extensions>
+</Package>

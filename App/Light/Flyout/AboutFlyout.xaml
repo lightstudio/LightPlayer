@@ -1,0 +1,84 @@
+﻿<ContentDialog
+    x:Class="Light.Flyout.AboutFlyout"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Light.Flyout"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    SecondaryButtonText="OK"
+    IsPrimaryButtonEnabled="False"
+    IsSecondaryButtonEnabled="True"
+    Style="{StaticResource LightContentDialogStyle}">
+
+    <StackPanel x:Name="AboutSettings" MaxWidth="450">
+        <TextBlock 
+            x:Uid="AboutTextBox"
+            Text="About this app" 
+            FontWeight="SemiLight"
+            Style="{StaticResource SubtitleTextBlockStyle}" 
+            Foreground="{ThemeResource GroupTitleForeground}" 
+            Margin="0,15,0,10" />
+        <Grid 
+            x:Name="AboutFlyoutGrid" 
+            Margin="0,0,0,10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Image 
+                DoubleTapped="OnLightTileDoubleTapped"
+                Grid.Column="0" 
+                VerticalAlignment="Center"
+                Source="ms-appx:///Assets/StoreLogo.png" />
+            <StackPanel 
+                Margin="15,0,10,5"
+                Grid.Column="1">
+                <TextBlock 
+                    Text="Light Player" 
+                    Margin="0,0,0,5" 
+                    FontWeight="SemiBold"
+                    CharacterSpacing="50"
+                    FontSize="22"
+                    Style="{StaticResource HeaderTextBlockStyle}" />
+                <TextBlock 
+                    Margin="-2,0,0,0"
+                    Style="{StaticResource BodyTextBlockStyle}">
+                    <Run Text="Build"/>
+                    <Run Text="{x:Bind BuildInfo.VersionString, Mode=OneWay}"/>
+                    <Run Text="{x:Bind BuildInfo.BuildEnv, Mode=OneWay}"/>
+                    <Run Text="{x:Bind BuildInfo.Branch, Mode=OneWay}"/>
+                </TextBlock>
+            </StackPanel>
+        </Grid>
+        <TextBlock 
+            x:Uid="Copyright"
+            Text="© 2015 - 2018 Little Moe, LLC and Open Source Authors. For OSS licenses, click the link below to learn more." 
+            Margin="0,0,0,5" 
+            Style="{StaticResource BodyTextBlockStyle}" />
+        <TextBlock Visibility="Collapsed"
+            x:Name="EtwIdTextBlock">
+            <Run>ETW Channel ID: </Run>
+            <Run Text="{x:Bind EtwLoggerId}" />
+        </TextBlock>
+        <HyperlinkButton 
+            x:Name="m_hlbtnLicenseLink"
+            x:Uid="OSSLicenseLink"
+            Content="OSS Software License"
+            Tapped="OnOssLicenseLinkClick"/>
+        <ScrollViewer x:Name="m_svLicenseContainer" 
+            MinHeight="100"
+            MaxHeight="300"
+            MaxWidth="450"
+            Visibility="Collapsed"
+            HorizontalScrollMode="Disabled"
+            HorizontalScrollBarVisibility="Disabled"
+            HorizontalAlignment="Stretch">
+            <RichTextBlock x:Name="m_rtbLicenseTextBlock" MaxWidth="450" />
+        </ScrollViewer>
+        <HyperlinkButton 
+            x:Uid="PrivacyPolicyLick"
+            Content="Privacy Policy" 
+            NavigateUri="https://www.littlemoenew.com/apps/privacypolicy"/>
+    </StackPanel>
+</ContentDialog>

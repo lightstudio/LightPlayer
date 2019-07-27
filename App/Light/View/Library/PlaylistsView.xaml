@@ -1,0 +1,243 @@
+﻿<Page
+    x:Class="Light.View.Library.PlaylistsView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Light.View.Library"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:c="using:Light.Controls"
+    xmlns:light="using:Light.Core"
+    xmlns:ex="using:Light.Utilities.UserInterfaceExtensions"
+    xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:detailedVm="using:Light.ViewModel.Library.Detailed"
+    Loaded="OnLoaded"
+    Unloaded="OnUnloaded"
+    NavigationCacheMode="Required"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <Style TargetType="ListViewItem">
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+            <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+        </Style>
+    </Page.Resources>
+
+    <Grid
+        Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <toolkit:MasterDetailsView
+            x:Name="PlaylistView"
+            MasterPaneBackground="{ThemeResource AppBarBackground}"
+            BorderBrush="{x:Null}"
+            ItemsSource="{x:Bind Playlists, Mode=OneWay}">
+            <toolkit:MasterDetailsView.MasterHeader>
+                <Grid
+                    Background="Transparent"
+                    Tapped="OnNewPlaylistClicked"
+                    Height="45"
+                    Margin="0,8">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="36" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <SymbolIcon Symbol="Add" Grid.Column="0" />
+                    <TextBlock
+                        Grid.Column="1"
+                        Margin="5,0"
+                        VerticalAlignment="Center"
+                        x:Uid="MenuNewPlaylist"
+                        Text="New playlist" />
+                </Grid>
+            </toolkit:MasterDetailsView.MasterHeader>
+            <toolkit:MasterDetailsView.ItemTemplate>
+                <DataTemplate x:DataType="light:Playlist">
+                    <Grid
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        DropCompleted="OnDropCompleted"
+                        DragStarting="OnDragStarting"
+                        CanDrag="True"
+                        Tapped="OnPlaylistItemTapped"
+                        Background="Transparent"
+                        Margin="0,8">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="36" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <SymbolIcon Symbol="List" Grid.Column="0" />
+                        <TextBlock 
+                            Grid.Column="1"
+                            Margin="5,0"
+                            VerticalAlignment="Center"
+                            Text="{x:Bind Title}" />
+                        <ex:MenuFlyoutService.MenuFlyout>
+                            <MenuFlyout>
+                                <MenuFlyoutItem 
+                                    x:Uid="MenuPlayItem"
+                                    Text="Play"
+                                    Click="OnMenuPlayClicked">
+                                </MenuFlyoutItem>
+                                <MenuFlyoutItem 
+                                    x:Uid="MenuAddToListItem"
+                                    Text="Add to Playlist"
+                                    Click="OnMenuAddClicked">
+                                </MenuFlyoutItem>
+                                <MenuFlyoutSeparator/>
+                                <MenuFlyoutItem
+                                    x:Uid="RenameItem"
+                                    ex:IsVisible.Inversion="{x:Bind IsFavorite}"
+                                    Text="Rename"
+                                    Click="OnMenuRenameClicked"/>
+                                <MenuFlyoutItem 
+                                    Text="{x:Bind DeleteText}"
+                                    Click="OnMenuDeleteClicked"/>
+                                <MenuFlyoutItem 
+                                    x:Uid="MenuShareItem"
+                                    Text="Share"
+                                    Click="OnMenuShareClicked">
+                                </MenuFlyoutItem>
+                                <MenuFlyoutSeparator/>
+                                <MenuFlyoutSubItem
+                                    x:Uid="MenuExportPlaylist"
+                                    Text="Export as">
+                                    <MenuFlyoutItem
+                                        x:Uid="MenuExportM3u"
+                                        Text="M3u Playlist"
+                                        Click="OnExportM3uClicked"/>
+                                    <MenuFlyoutItem
+                                        x:Uid="MenuExportWpl"
+                                        Text="Windows Media Playlist"
+                                        ex:IsVisible.Condition="{x:Bind CanExportPlaylist}"
+                                        Click="OnExportWplClicked"/>
+                                </MenuFlyoutSubItem>
+                            </MenuFlyout>
+                        </ex:MenuFlyoutService.MenuFlyout>
+                    </Grid>
+                </DataTemplate>
+            </toolkit:MasterDetailsView.ItemTemplate>
+            <toolkit:MasterDetailsView.DetailsTemplate>
+                <DataTemplate x:DataType="detailedVm:PlaylistDetailViewModel">
+                    <RelativePanel 
+                        x:Name="ContentContainer" 
+                        DataContextChanged="OnDetailsViewDataContextChanged">
+                        <c:EmptyCollectionIndicator
+                            RelativePanel.AlignHorizontalCenterWithPanel="True"
+                            RelativePanel.AlignVerticalCenterWithPanel="True"
+                            ex:IsVisible.Condition="{x:Bind IsEmpty, Mode=OneWay}" />
+                        <StackPanel
+                            RelativePanel.AlignTopWithPanel="True"
+                            RelativePanel.AlignLeftWithPanel="True"
+                            Orientation="Horizontal"
+                            Height="48"
+                            x:Name="PlaylistOpPanel">
+                            <Button
+                                x:Name="SaveButton"
+                                Width="48"
+                                Height="48"
+                                Margin="5,0"
+                                Command="{Binding SaveCommand}"
+                                ex:IsVisible.Condition="{x:Bind PlaylistUnsaved, Mode=OneWay}"
+                                Style="{StaticResource PlaybackButtonStyle}">
+                                <Button.Content>
+                                    <SymbolIcon Symbol="Save"/>
+                                </Button.Content>
+                            </Button>
+                            <Button
+                                Margin="5,0,0,0" 
+                                Style="{StaticResource ListViewButtonStyle}"
+                                ex:IsVisible.Condition="{x:Bind IsEditToggleButtonChecked, Mode=OneWay}" 
+                                Width="48"
+                                Height="48"
+                                Command="{Binding DeleteCommand}">
+                                <Button.Content>
+                                    <SymbolIcon Symbol="Delete" />
+                                </Button.Content>
+                            </Button>
+                            <ToggleButton 
+                                x:Name="EditToggleButton" 
+                                Width="48"
+                                Height="48"
+                                Margin="5,0"
+                                Click="OnEditToggleButtonClicked" 
+                                IsThreeState="False" 
+                                IsChecked="{x:Bind IsEditToggleButtonChecked, Mode=TwoWay}" 
+                                Style="{StaticResource ToggleButtonStyle}">
+                                <ToggleButton.Content>
+                                    <SymbolIcon Symbol="Edit" />
+                                </ToggleButton.Content>
+                            </ToggleButton>
+                            <Button
+                                x:Name="PlayButton"
+                                Width="48"
+                                Height="48"
+                                Margin="5,0"
+                                Command="{Binding PlayAllCommand}"
+                                Style="{StaticResource PlaybackButtonStyle}">
+                                <Button.Content>
+                                    <SymbolIcon Symbol="Play"/>
+                                </Button.Content>
+                            </Button>
+                            <Button
+                                x:Name="AddToListButton"
+                                Width="48"
+                                Height="48"
+                                Margin="5,0"
+                                Command="{Binding AddToListCommand}"
+                                Style="{StaticResource PlaybackButtonStyle}">
+                                <Button.Content>
+                                    <SymbolIcon Symbol="Add"/>
+                                </Button.Content>
+                            </Button>
+                            <Button
+                                x:Name="ShareButton"
+                                Width="48"
+                                Height="48"
+                                Margin="5,0"
+                                Command="{Binding ShareCommand}"
+                                Style="{StaticResource PlaybackButtonStyle}">
+                                <Button.Content>
+                                    <FontIcon
+                                       FontFamily="Segoe MDL2 Assets"
+                                       Glyph="&#xE72D;"/>
+                                </Button.Content>
+                            </Button>
+                        </StackPanel>
+                        <ListView
+                            x:Name="PlaylistListView"
+                            Margin="0,10,0,0"
+                            IsItemClickEnabled="True"
+                            ReorderMode="Enabled"
+                            CanReorderItems="True"
+                            CanDragItems="True"
+                            AllowDrop="True"
+                            SelectionMode="{x:Bind PlaylistListViewSelectionMode, Mode=OneWay}"
+                            RelativePanel.Below="PlaylistOpPanel"
+                            RelativePanel.AlignLeftWithPanel="True"
+                            RelativePanel.AlignRightWithPanel="True"
+                            SelectionChanged="OnPlaylistListViewSelectionChanged"
+                            RelativePanel.AlignBottomWithPanel="True"
+                            ItemContainerStyle="{StaticResource ListViewItemContainerStretchStyle}"
+                            ItemsSource="{Binding ViewItems, Mode=OneWay}">
+                            <ListView.ItemTemplate>
+                                <DataTemplate x:DataType="light:PlaylistItem">
+                                    <c:PlaylistItemControl
+                                        Title="{x:Bind Title}"
+                                        Subtitle="{x:Bind Content}"
+                                        PlaylistItem="{x:Bind}"
+                                        DisableTapToPlay="{Binding IsChecked, Mode=OneWay, ElementName=EditToggleButton}"
+                                        Playlist="{Binding Path=DataContext.TempPlaylist, Mode=OneWay, ElementName=ContentContainer}"/>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </RelativePanel>
+                </DataTemplate>
+            </toolkit:MasterDetailsView.DetailsTemplate>
+            <toolkit:MasterDetailsView.NoSelectionContentTemplate>
+                <DataTemplate>
+                    <Grid>
+
+                    </Grid>
+                </DataTemplate>
+            </toolkit:MasterDetailsView.NoSelectionContentTemplate>
+        </toolkit:MasterDetailsView>
+    </Grid>
+</Page>

@@ -1,0 +1,336 @@
+﻿<Page
+    x:Class="Light.View.Library.HomeView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Light.View.Library"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:c="using:Light.Controls"
+    xmlns:l="using:Light.Core"
+    xmlns:conv="using:Light.Converter"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:ex="using:Light.Utilities.UserInterfaceExtensions"
+    xmlns:db="using:Light.Managed.Database.Entities"
+    xmlns:tcontrols="using:Telerik.UI.Xaml.Controls.Primitives"
+    NavigationCacheMode="Required"
+    Loaded="OnLoaded"
+    Unloaded="OnUnloaded"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <conv:DbMediaFileToImageTagConverter x:Key="DbMediaFileToImageTagConverter" />
+    </Page.Resources>
+
+    <Grid>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="850"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="AlbumImage.Visibility" Value="Visible"/>
+                        <Setter Target="ContinuePlay.Visibility" Value="Visible"/>
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="200"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="AlbumImage.Visibility" Value="Collapsed"/>
+                        <Setter Target="ContinuePlay.Visibility" Value="Collapsed"/>
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <ScrollViewer VerticalScrollBarVisibility="Hidden">
+            <Grid 
+                x:Name="RootGrid"
+                Visibility="Collapsed"
+                Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="400"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Border
+                    Grid.Row="0">
+                    <c:MediaThumbnail
+                        x:Name="ArtistImage"
+                        ThumbnailTag="{Binding ArtistImageTag, Mode=OneWay}"
+                        Stretch="UniformToFill"/>
+                </Border>
+                <Rectangle
+                    x:Name="ArtistImageForegroundGradient"
+                    Grid.Row="0"
+                    Margin="0,0,0,-5">
+                    <Rectangle.Fill>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="{ThemeResource FillGradientStop0}" Offset="0"/>
+                            <GradientStop Color="{ThemeResource FillGradientStop1}" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <RelativePanel Grid.Row="0" Margin="54,0" VerticalAlignment="Bottom" HorizontalAlignment="Stretch">
+                    <c:MediaThumbnail
+                        x:Name="AlbumImage"
+                        ThumbnailTag="{Binding AlbumImageTag, Mode=OneWay}"
+                        RelativePanel.AlignLeftWithPanel="True"
+                        RelativePanel.AlignBottomWithPanel="True"
+                        Margin="0,5,28,5"
+                        Width="160"
+                        Height="160"/>
+                    <TextBlock
+                        x:Name="AlbumName"
+                        Text="{Binding NowPlayingAlbum, Mode=OneWay}"
+                        FontSize="14"
+                        RelativePanel.AlignBottomWithPanel="True"
+                        RelativePanel.RightOf="AlbumImage"
+                        RelativePanel.LeftOf="ContinuePlay"
+                        TextTrimming="CharacterEllipsis"
+                        HorizontalAlignment="Left"
+                        MaxWidth="400"
+                        Margin="0,6,0,15">
+                        <ToolTipService.ToolTip>
+                            <ToolTip Content="{Binding NowPlayingAlbum, Mode=OneWay}"/>
+                        </ToolTipService.ToolTip>
+                    </TextBlock>
+                    <TextBlock
+                        x:Name="MusicTitle"
+                        Text="{Binding NowPlayingTitle, Mode=OneWay}"
+                        FontSize="36"
+                        TextTrimming="CharacterEllipsis"
+                        RelativePanel.Above="AlbumName"
+                        RelativePanel.RightOf="AlbumImage"
+                        MaxWidth="320"
+                        Margin="-2,0,0,0">
+                        <ToolTipService.ToolTip>
+                            <ToolTip Content="{Binding NowPlayingTitle, Mode=OneWay}"/>
+                        </ToolTipService.ToolTip>
+                    </TextBlock>
+                    <TextBlock
+                        x:Name="ArtistName"
+                        FontSize="18"
+                        RelativePanel.RightOf="MusicTitle"
+                        RelativePanel.Above="AlbumName"
+                        RelativePanel.LeftOf="ContinuePlay"
+                        TextTrimming="CharacterEllipsis"
+                        HorizontalAlignment="Left"
+                        Margin="12,5">
+                        <Run x:Uid="ByText" Text="by "/><Run Text="{Binding NowPlayingArtist, Mode=OneWay}"/>
+                        <ToolTipService.ToolTip>
+                            <ToolTip Content="{Binding NowPlayingArtist, Mode=OneWay}"/>
+                        </ToolTipService.ToolTip>
+                    </TextBlock>
+                    <TextBlock
+                        x:Uid="NowPlayingText"
+                        Text="Now Playing"
+                        Typography.Capitals="PetiteCaps"
+                        FontSize="18"
+                        FontWeight="Bold"
+                        CharacterSpacing="90"
+                        RelativePanel.Above="MusicTitle"
+                        RelativePanel.RightOf="AlbumImage"
+                        Margin="0,5"/>
+                    <StackPanel
+                        Tapped="OnContinuePlaylistTapped"
+                        x:Name="ContinuePlay"
+                        RelativePanel.AlignRightWithPanel="True"
+                        RelativePanel.AlignBottomWithPanel="True"
+                        HorizontalAlignment="Right"
+                        Orientation="Horizontal">
+                        <Grid
+                            Height="36"
+                            Width="36"
+                            Margin="0,10,15,10">
+                            <Ellipse
+                                Stroke="{ThemeResource SystemControlForegroundBaseHighBrush}"
+                                StrokeThickness="3"/>
+                            <SymbolIcon
+                                Symbol="Play"/>
+                        </Grid>
+                        <TextBlock
+                            x:Name="NowPlayingButtonText"
+                            VerticalAlignment="Center"
+                            TextTrimming="CharacterEllipsis"
+                            Typography.Capitals="PetiteCaps"
+                            Text="Continue Playlist"
+                            CharacterSpacing="90"
+                            FontSize="21"
+                            FontWeight="Bold"/>
+                    </StackPanel>
+                </RelativePanel>
+                <StackPanel Margin="54,12,54,20" Orientation="Vertical" Grid.Row="1">
+                    <tcontrols:RadExpanderControl x:Name="m_expUpcomingPanel" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch">
+                        <tcontrols:RadExpanderControl.Content>
+                            <StackPanel x:Name="UpcomingPanel" Orientation="Horizontal">
+                                <Viewbox Height="24">
+                                    <FontIcon VerticalAlignment="Center" Margin="0,0,10,0" Glyph="&#xEA37;"/>
+                                </Viewbox>
+                                <TextBlock x:Uid="UpcomingText" VerticalAlignment="Center" Margin="10,10,10,15"
+                                           FontWeight="SemiBold" Text="Upcoming" Typography.Capitals="PetiteCaps" CharacterSpacing="90" FontSize="21"/>
+                                <Button Tapped="OnButtonTapped" Click="OnOpenPlaylistClick" VerticalAlignment="Center" Margin="10" FontSize="16">
+                                    <TextBlock x:Uid="OpenPlaylistText" Margin="0,-2,0,2" Text="Open playlist"/>
+                                </Button>
+                            </StackPanel>
+                        </tcontrols:RadExpanderControl.Content>
+                        <tcontrols:RadExpanderControl.ExpandableContent>
+                            <ListView Margin="-12,0,-12,0" Height="200" x:Name="NextPlayList"
+                                      Style="{StaticResource BaseNonSelectableListViewStyle}"
+                                      ItemsSource="{Binding NextTracks, Mode=OneWay}">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate x:DataType="l:MusicPlaybackItem">
+                                        <StackPanel Tapped="OnNextPlayItemTapped" Background="{ThemeResource Background4}"
+                                                    Orientation="Vertical" Margin="-1,0" Height="180"  Width="140">
+                                            <c:MediaThumbnail VerticalAlignment="Top" ThumbnailTag="{x:Bind AlbumImageTag}" 
+                                                              Width="120" Height="120" Margin="10,10,10,0"/>
+                                            <TextBlock FontSize="14" Text="{x:Bind Title}" 
+                                                       TextTrimming="CharacterEllipsis" Margin="13,3,13,0">
+                                        <ToolTipService.ToolTip>
+                                            <ToolTip Content="{x:Bind Title}"/>
+                                        </ToolTipService.ToolTip>
+                                            </TextBlock>
+                                            <TextBlock FontSize="12" Text="{x:Bind Artist}" TextTrimming="CharacterEllipsis" Margin="13,0">
+                                        <ToolTipService.ToolTip>
+                                            <ToolTip Content="{x:Bind Artist}"/>
+                                        </ToolTipService.ToolTip>
+                                            </TextBlock>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </tcontrols:RadExpanderControl.ExpandableContent>
+                    </tcontrols:RadExpanderControl>
+                    <tcontrols:RadExpanderControl x:Name="m_expMrHistoryPanel" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch">
+                        <tcontrols:RadExpanderControl.Content>
+                            <StackPanel x:Name="HistoryPanel" Orientation="Horizontal">
+                                <Viewbox Height="24">
+                                    <FontIcon VerticalAlignment="Center" Margin="0,0,10,0" Glyph="&#xEA37;"/>
+                                </Viewbox>
+                                <TextBlock x:Uid="RecentlyText" VerticalAlignment="Center" Margin="10,10,10,15"
+                                           FontWeight="SemiBold" Text="Recently" Typography.Capitals="PetiteCaps"
+                                           CharacterSpacing="90" FontSize="21"/>
+                            </StackPanel>
+                        </tcontrols:RadExpanderControl.Content>
+                        <tcontrols:RadExpanderControl.ExpandableContent>
+                            <ListView Margin="-12,0,-12,0" Height="200" x:Name="HistoryList"
+                                      Style="{StaticResource BaseNonSelectableListViewStyle}"
+                                      ItemsSource="{Binding HistoryItems, Mode=OneWay}">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate x:DataType="l:MusicPlaybackItem">
+                                        <StackPanel Tapped="OnHistoryItemTapped" Background="{ThemeResource Background4}"
+                                                    Orientation="Vertical" Margin="-1,0"
+                                                    Height="180" Width="140">
+                                            <c:MediaThumbnail VerticalAlignment="Top" ThumbnailTag="{x:Bind AlbumImageTag}"
+                                                              Width="120" Height="120" Margin="10,10,10,0"/>
+                                            <TextBlock FontSize="14" Text="{x:Bind Title}" TextTrimming="CharacterEllipsis" Margin="13,3,13,0">
+                                            <ToolTipService.ToolTip>
+                                                <ToolTip Content="{x:Bind Title}"/>
+                                            </ToolTipService.ToolTip>
+                                            </TextBlock>
+                                            <TextBlock FontSize="12" Text="{x:Bind Artist}" TextTrimming="CharacterEllipsis" Margin="13,0">
+                                            <ToolTipService.ToolTip>
+                                                <ToolTip Content="{x:Bind Artist}"/>
+                                            </ToolTipService.ToolTip>
+                                            </TextBlock>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </tcontrols:RadExpanderControl.ExpandableContent>
+                    </tcontrols:RadExpanderControl>
+                </StackPanel>
+            </Grid>
+        </ScrollViewer>
+        <RelativePanel
+            x:Name="SecondaryGrid"
+            Visibility="Collapsed"
+            Margin="54,12,54,20"
+            Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+            <StackPanel
+                x:Name="AllMusicPrompt"
+                RelativePanel.AlignTopWithPanel="True"
+                RelativePanel.AlignLeftWithPanel="True"
+                RelativePanel.AlignRightWithPanel="True"
+                Margin="0,20,0,0"
+                Orientation="Horizontal">
+                <Viewbox Height="24">
+                    <FontIcon
+                        VerticalAlignment="Center"
+                        Margin="0,0,10,0"
+                        Glyph="&#xEA37;"/>
+                </Viewbox>
+                <TextBlock
+                    x:Uid="AllMusicText"
+                    VerticalAlignment="Center"
+                    Margin="10,10,10,15"
+                    FontWeight="SemiBold"
+                    Typography.Capitals="PetiteCaps"
+                    Text="All Music"
+                    CharacterSpacing="90"
+                    FontSize="21"/>
+            </StackPanel>
+            <c:EmptyCollectionIndicator
+                x:Name="EmptyIndicator"
+                RelativePanel.AlignHorizontalCenterWithPanel="True"
+                RelativePanel.AlignVerticalCenterWithPanel="True" />
+            <controls:AdaptiveGridView 
+                ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                RelativePanel.AlignBottomWithPanel="True"
+                RelativePanel.AlignLeftWithPanel="True"
+                RelativePanel.AlignRightWithPanel="True"
+                RelativePanel.Below="AllMusicPrompt"
+                ItemsSource="{x:Bind AllFiles}"
+                OneRowModeEnabled="False"
+                DesiredWidth="150"
+                SelectionMode="Single"
+                StretchContentForSingleRow="False"
+                IsItemClickEnabled="True">
+                <controls:AdaptiveGridView.ItemTemplate>
+                    <DataTemplate x:DataType="db:DbMediaFile">
+                        <Viewbox
+                            Margin="7,3"
+                            Stretch="Uniform">
+                            <StackPanel
+                                Tapped="OnAllMusicItemTapped"
+                                Background="{ThemeResource Background4}"
+                                Orientation="Vertical"
+                                Height="180" 
+                                Width="140">
+                                <c:MediaThumbnail
+                                    VerticalAlignment="Top"
+                                    ThumbnailTag="{x:Bind Converter={StaticResource DbMediaFileToImageTagConverter}}"
+                                    Width="120"
+                                    Height="120"
+                                    Margin="10,10,10,0"/>
+                                <TextBlock
+                                    FontSize="14"
+                                    Text="{x:Bind Title}"
+                                    TextTrimming="CharacterEllipsis"
+                                    Margin="13,3,13,0">
+                                    <ToolTipService.ToolTip>
+                                        <ToolTip Content="{x:Bind Title}"/>
+                                    </ToolTipService.ToolTip>
+                                </TextBlock>
+                                <TextBlock 
+                                    FontSize="12"
+                                    Text="{x:Bind Artist}"
+                                    TextTrimming="CharacterEllipsis"
+                                    Margin="13,0">
+                                    <ToolTipService.ToolTip>
+                                        <ToolTip Content="{x:Bind Artist}"/>
+                                    </ToolTipService.ToolTip>
+                                </TextBlock>
+                            </StackPanel>
+                        </Viewbox>
+                    </DataTemplate>
+                </controls:AdaptiveGridView.ItemTemplate>
+            </controls:AdaptiveGridView>
+        </RelativePanel>
+        <ProgressRing
+            Height="100"
+            Width="100"
+            x:Name="HomeViewLoadProgress"
+            IsActive="True"/>
+    </Grid>
+</Page>

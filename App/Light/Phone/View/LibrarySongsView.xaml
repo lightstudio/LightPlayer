@@ -1,0 +1,197 @@
+﻿<local:MobileBasePage
+    x:Class="Light.Phone.View.LibrarySongsView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Light.Phone.View"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ex="using:Light.Utilities.UserInterfaceExtensions"
+    xmlns:model="using:Light.Model"
+    xmlns:c="using:Light.Controls"
+    xmlns:commands="using:Light.ViewModel.Library.Commands"
+    xmlns:grouping="using:Light.Utilities.Grouping"
+    xmlns:conv="using:Light.Converter"
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:utilities="using:Light.Utilities"
+    Loaded="OnLoaded"
+    x:Name="LibraryContentView"
+    NavigationCacheMode="Enabled"
+    mc:Ignorable="d">
+    <Page.Resources>
+        <CollectionViewSource 
+            x:Name="GroupedCvs" />
+        <commands:CommonGridViewItemCommand
+            x:Name="CommonGridViewItemCommand"/>
+        <commands:OpenFileLocationCommand
+            x:Name="OpenFileLocationommand" />
+        <DataTemplate x:Key="ZoomedInGroupHeaderTemplate" x:DataType="grouping:IGroupedItems">
+            <TextBlock 
+                Margin="10,0,0,0"
+                Text="{x:Bind Title}" 
+                Foreground="{ThemeResource ApplicationForegroundThemeBrush}" 
+                Style="{StaticResource SubtitleTextBlockStyle}"/>
+        </DataTemplate>
+        <conv:TimeSpanToStringConverter x:Name="TimeSpanToStringConverter"/>
+        <DataTemplate x:Key="ZoomedOutTemplate" x:DataType="ICollectionViewGroup">
+            <TextBlock 
+                Text="{x:Bind Group.(grouping:IGroupedItems.Title)}" 
+                TextWrapping="NoWrap"
+                TextTrimming="CharacterEllipsis"
+                MaxLines="1"
+                FontSize="24"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Left"
+                Foreground="White" />
+        </DataTemplate>
+        <DataTemplate x:Key="MusicListTemplate" x:DataType="model:CommonViewItemModel">
+            <c:MusicListItemControl
+                Title="{x:Bind Title}"
+                Artist="{x:Bind ExtendedArtistName}"
+                Album="{x:Bind File.Album}"
+                Year="{x:Bind ReleaseDate}"
+                Genre="{x:Bind Genre}"
+                Duration="{x:Bind File.Duration, Converter={StaticResource TimeSpanToStringConverter}}"
+                FileList="{Binding Path=DataContext.Items, ElementName=ContentGridView, Mode=OneWay}"
+                File="{x:Bind}"/>
+        </DataTemplate>
+        <DataTemplate x:Key="AlbumArtistListTemplate" x:DataType="model:CommonViewItemModel">
+            <c:PhoneListItemControl
+                InfoPanelTapped="OnListItemInfoPanelTapped"
+                Height="100"
+                HorizontalAlignment="Stretch"/>
+        </DataTemplate>
+        <interactivity:BehaviorCollection
+            x:Key="AlternatingColorBehavior">
+            <utilities:ListViewAlternatingColorBehavior
+                Margin="0"
+                EvenBrush="{ThemeResource ListViewContainerEvenBrush}"
+                OddBrush="{ThemeResource SystemControlBackgroundAltHighBrush}"/>
+        </interactivity:BehaviorCollection>
+    </Page.Resources>
+    <Page.Transitions>
+        <TransitionCollection>
+            <NavigationThemeTransition>
+                <NavigationThemeTransition.DefaultNavigationTransitionInfo>
+                    <CommonNavigationTransitionInfo/>
+                </NavigationThemeTransition.DefaultNavigationTransitionInfo>
+            </NavigationThemeTransition>
+        </TransitionCollection>
+    </Page.Transitions>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <SemanticZoom
+            Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+            <SemanticZoom.ZoomedInView>
+                <!-- Grouped Content -->
+                <ListView
+                    Margin="0,15,0,0"
+                    RelativePanel.AlignLeftWithPanel="True"
+                    RelativePanel.AlignRightWithPanel="True"
+                    x:Name="ContentGridView"
+                    ItemsSource="{x:Bind GroupedCvs.View}" 
+                    IsItemClickEnabled="True"
+                    SelectionMode="None">
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                    <ListView.Header>
+                        <StackPanel
+                            ex:IsVisible.Inversion="{x:Bind ViewModel.GroupedItems.IsEmpty, Mode=OneWay}"
+                            Margin="15,0,0,0"
+                            x:Name="OptionsPanel">
+                            <StackPanel 
+                                Height="28"
+                                Margin="6,0,0,0"
+                                Orientation="Horizontal">
+                                <TextBlock
+                                    x:Uid="LibraryHstViewGroupRefineTextBlk"
+                                    VerticalAlignment="Center"
+                                    Text="Refine: "/>
+                                <ComboBox
+                                    ItemsSource="{x:Bind SortingOptions, Mode=OneWay}"
+                                    SelectedIndex="{x:Bind SortingMethod, Mode=TwoWay}"
+                                    PlaceholderText="Options"
+                                    VerticalAlignment="Center"
+                                    Margin="-8,0,0,1"
+                                    Style="{StaticResource BorderlessComboBoxStyle}">
+                                    <ComboBox.ItemTemplate>
+                                        <DataTemplate x:DataType="grouping:IndexerComparerPair">
+                                            <Grid>
+                                                <TextBlock 
+                                                    Text="{x:Bind DisplayName}"
+                                                    FontSize="14"
+                                                    FontWeight="Normal"
+                                                    VerticalAlignment="Center"
+                                                    Style="{StaticResource BaseTextBlockStyle}" />
+                                                <ToolTipService.ToolTip>
+                                                    <ToolTip Content="{x:Bind Description}" />
+                                                </ToolTipService.ToolTip>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </ComboBox.ItemTemplate>
+                                </ComboBox>
+                            </StackPanel>
+                            <Button
+                                Margin="0,15,0,0"
+                                Click="OnShuffleAllClick"
+                                Style="{StaticResource PlaybackButtonStyle}">
+                                <StackPanel
+                                    VerticalAlignment="Center"
+                                    Orientation="Horizontal"
+                                    Background="Transparent">
+                                    <TextBlock FontFamily="Segoe MDL2 Assets" VerticalAlignment="Center" Text="&#xE8B1;"/>
+                                    <TextBlock
+                                        x:Uid="ShuffleAllMenuItem"
+                                        FontFamily="Segoe UI" 
+                                        Margin="10,0,0,0"
+                                        VerticalAlignment="Center"
+                                        Text="Shuffle all"/>
+                                </StackPanel>
+                            </Button>
+                        </StackPanel>
+                    </ListView.Header>
+                    <ListView.GroupStyle>
+                        <GroupStyle 
+                            HeaderTemplate="{StaticResource ZoomedInGroupHeaderTemplate}" />
+                    </ListView.GroupStyle>
+                </ListView>
+            </SemanticZoom.ZoomedInView>
+            <SemanticZoom.ZoomedOutView>
+                <!-- Index -->
+                <GridView
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                    ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                    ItemTemplate="{StaticResource ZoomedOutTemplate}"
+                    ItemsSource="{x:Bind GroupedCvs.View.CollectionGroups}" >
+                    <GridView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <ItemsWrapGrid 
+                                MaximumRowsOrColumns="6"
+                                Orientation="Horizontal"
+                                Margin="7.5" />
+                        </ItemsPanelTemplate>
+                    </GridView.ItemsPanel>
+                </GridView>
+            </SemanticZoom.ZoomedOutView>
+        </SemanticZoom>
+        <!-- Empty collection placeholder -->
+        <c:EmptyCollectionIndicator
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            ex:IsVisible.Condition="{x:Bind ViewModel.GroupedItems.IsEmpty, Mode=OneWay}" />
+        <!-- Progress Ring -->
+        <Grid
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            ex:IsVisible.Condition="{x:Bind ViewModel.IsLoading, Mode=OneWay}"
+            Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+            <ProgressRing 
+                Width="100" 
+                Height="100" 
+                IsActive="{x:Bind ViewModel.IsLoading, Mode=OneWay}" />
+        </Grid>
+    </Grid>
+</local:MobileBasePage>

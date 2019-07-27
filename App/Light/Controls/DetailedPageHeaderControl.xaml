@@ -1,0 +1,71 @@
+﻿<UserControl
+    x:Class="Light.Controls.DetailedPageHeaderControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Light.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModel="using:Light.Controls.ViewModel"
+    mc:Ignorable="d"
+    d:DesignHeight="48"
+    d:DesignWidth="460">
+    
+    <UserControl.Resources>
+        <viewModel:PlaybackAppBarCommand
+            x:Name="PlaybackAppBarCommand"
+            EntityId="{x:Bind DataEntityId, Mode=OneWay}"
+            Type="{x:Bind DataType, Mode=OneWay}"/>
+    </UserControl.Resources>
+    
+
+    <RelativePanel 
+        VerticalAlignment="Stretch"
+        HorizontalAlignment="Stretch"
+        Background="{ThemeResource Background1}">
+        <!-- Media library detailed controls -->
+        <StackPanel
+            x:Name="LibraryButtons"
+            Orientation="Horizontal"
+            RelativePanel.AlignVerticalCenterWithPanel="True"
+            RelativePanel.AlignRightWithPanel="True">
+            <Button
+                x:Name="PlayButton"
+                Width="48"
+                Height="48"
+                Margin="5,0"
+                Command="{StaticResource PlaybackAppBarCommand}"
+                CommandParameter="Play"
+                Style="{StaticResource PlaybackButtonStyle}">
+                <Button.Content>
+                    <SymbolIcon Symbol="Play"/>
+                </Button.Content>
+            </Button>
+            <Button
+                x:Name="AddToListButton"
+                Width="48"
+                Height="48"
+                Margin="5,0"
+                Command="{StaticResource PlaybackAppBarCommand}"
+                CommandParameter="AddToNowPlaying"
+                Style="{StaticResource PlaybackButtonStyle}">
+                <Button.Content>
+                    <SymbolIcon Symbol="Add"/>
+                </Button.Content>
+            </Button>
+            <Button
+                x:Name="ShareButton"
+                Width="48"
+                Height="48"
+                Margin="5,0"
+                Command="{StaticResource PlaybackAppBarCommand}"
+                CommandParameter="Share"
+                Style="{StaticResource PlaybackButtonStyle}">
+                <Button.Content>
+                   <FontIcon
+                       FontFamily="Segoe MDL2 Assets"
+                       Glyph="&#xE72D;"/>
+                </Button.Content>
+            </Button>
+        </StackPanel>
+    </RelativePanel>
+</UserControl>

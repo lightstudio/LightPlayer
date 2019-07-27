@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<provision:SettingsProvisionFile
+  Id="5F098859-2F79-4000-BC4A-429A1795D828"
+  Version="2"
+  xmlns:provision="http://schemas.ligstd.com/schema/SettingsProvisionFile.xsd"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <provision:SettingsEntry Key="AutoMedialibraryRefresh" Value="True" Type="System.Boolean">
+    <provision:Availability>
+      <provision:DeviceFamily>Windows.Universal</provision:DeviceFamily>
+    </provision:Availability>
+  </provision:SettingsEntry>
+  <provision:SettingsEntry Key="AutoIgnoreDrmProtectedFiles" Value="True" Type="System.Boolean">
+    <provision:Availability>
+      <provision:DeviceFamily>Windows.Universal</provision:DeviceFamily>
+    </provision:Availability>
+  </provision:SettingsEntry>
+  <provision:SettingsEntry Key="OptinTelemetry" Value="True" Type="System.Boolean">
+    <provision:Availability>
+      <provision:DeviceFamily>Windows.Universal</provision:DeviceFamily>
+    </provision:Availability>
+  </provision:SettingsEntry>
+  <provision:SettingsEntry Key="AutoNavigateToLyric" Value="False" Type="System.Boolean">
+    <provision:Availability>
+      <provision:DeviceFamily>Windows.Universal</provision:DeviceFamily>
+    </provision:Availability>
+  </provision:SettingsEntry>
+  <provision:SettingsEntry Key="AlwaysResample" Value="False" Type="System.Boolean">
+    <provision:Availability>
+      <provision:DeviceFamily>Windows.Universal</provision:DeviceFamily>
+    </provision:Availability>
+  </provision:SettingsEntry>
+  <provision:SettingsEntry Key="PreferredSampleRate" Value="0" Type="System.Int32">
+    <provision:Availability>
+      <provision:DeviceFamily>Windows.Universal</provision:DeviceFamily>
+    </provision:Availability>
+  </provision:SettingsEntry>
+  <provision:SettingsEntry Key="InterfaceLanguage" Value="" Type="System.String">
+    <provision:Availability>
+      <provision:DeviceFamily>Windows.Universal</provision:DeviceFamily>
+    </provision:Availability>
+  </provision:SettingsEntry>
+  <provision:SettingsEntry Key="InterfaceTheme" Value="Dark" Type="System.String">
+    <provision:Availability>
+      <provision:DeviceFamily>Windows.Universal</provision:DeviceFamily>
+    </provision:Availability>
+  </provision:SettingsEntry>
+  <provision:SettingsEntry Key="AutoTrackChanges" Value="True" Type="System.Boolean">
+    <provision:Availability>
+      <provision:DeviceFamily>Windows.Universal</provision:DeviceFamily>
+    </provision:Availability>
+  </provision:SettingsEntry>
+  <provision:SettingsEntry Key="EnablePlaybackHistory" Value="True" Type="System.Boolean">
+    <provision:Availability>
+      <provision:DeviceFamily>Windows.Universal</provision:DeviceFamily>
+    </provision:Availability>
+  </provision:SettingsEntry>
+  <provision:SettingsEntry Key="HistoryEntryLimit" Value="1000" Type="System.Int32">
+    <provision:Availability>
+      <provision:DeviceFamily>Windows.Universal</provision:DeviceFamily>
+    </provision:Availability>
+  </provision:SettingsEntry>
+</provision:SettingsProvisionFile>

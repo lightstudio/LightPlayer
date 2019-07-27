@@ -1,0 +1,1516 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="About.Text" xml:space="preserve">
+    <value>ABOUT</value>
+  </data>
+  <data name="AlbumCompactViewTextBlock.Text" xml:space="preserve">
+    <value>In the Collection</value>
+  </data>
+  <data name="AllAlbumTextBlock.Text" xml:space="preserve">
+    <value>ALL ALBUMS</value>
+  </data>
+  <data name="AllowUntrustedInstallation.Header" xml:space="preserve">
+    <value>Allow untrusted installation</value>
+  </data>
+  <data name="AllSongTextBlock.Text" xml:space="preserve">
+    <value>ALL SONGS</value>
+  </data>
+  <data name="ArtistIntroTextBlock.Text" xml:space="preserve">
+    <value>Artist Introduction</value>
+  </data>
+  <data name="AutoFetchSwitch.Header" xml:space="preserve">
+    <value>Auto fetch files when plugged</value>
+  </data>
+  <data name="BrowseByCategoryTextBlock.Text" xml:space="preserve">
+    <value>Browse by Category</value>
+  </data>
+  <data name="ComingSoonIntroTextBlock.Text" xml:space="preserve">
+    <value>We're working on this great feature with HomeRadio.moe. When it is available, you can get the update from Windows Store.</value>
+  </data>
+  <data name="ComingSoonTextBlock.Text" xml:space="preserve">
+    <value>Coming Soon</value>
+  </data>
+  <data name="Copyright.Text" xml:space="preserve">
+    <value>© 2015 - 2018 Little Moe, LLC and Open Source Authors. For OSS licenses, click the link below to learn more.</value>
+  </data>
+  <data name="Extensibility.Text" xml:space="preserve">
+    <value>EXTENSIBILITY</value>
+  </data>
+  <data name="GettingReadyTextBlock.Text" xml:space="preserve">
+    <value>Getting Ready</value>
+  </data>
+  <data name="IgnoreArticleInSortSwitch.Header" xml:space="preserve">
+    <value>Ignore articles in sort</value>
+  </data>
+  <data name="LibraryTextBlock.Text" xml:space="preserve">
+    <value>Library</value>
+  </data>
+  <data name="MedialibraryHeaderTitle.Text" xml:space="preserve">
+    <value>Media Library</value>
+  </data>
+  <data name="NativeFirstCodecSwitch.Header" xml:space="preserve">
+    <value>Native decoder first</value>
+  </data>
+  <data name="OnlineTextBlock.Text" xml:space="preserve">
+    <value>Online</value>
+  </data>
+  <data name="OSSInfo.Text" xml:space="preserve">
+    <value>This software contains open-source components.</value>
+  </data>
+  <data name="OSSLink.Content" xml:space="preserve">
+    <value>Open Source Portal</value>
+  </data>
+  <data name="PlaybackTextBlock.Text" xml:space="preserve">
+    <value>PLAYBACK</value>
+  </data>
+  <data name="PluginManagement.Content" xml:space="preserve">
+    <value>Manage plugins</value>
+  </data>
+  <data name="RelatedArtistTextBlock.Text" xml:space="preserve">
+    <value>Related Artists</value>
+  </data>
+  <data name="UseOnlineMetadata.Header" xml:space="preserve">
+    <value>Use Online Metadata</value>
+  </data>
+  <data name="WhatsNewTextBlock.Text" xml:space="preserve">
+    <value>What's New</value>
+  </data>
+  <data name="AllAlbums" xml:space="preserve">
+    <value>All Albums</value>
+  </data>
+  <data name="AllArtists" xml:space="preserve">
+    <value>All Artists</value>
+  </data>
+  <data name="AllGenres" xml:space="preserve">
+    <value>All Genres</value>
+  </data>
+  <data name="AllItems" xml:space="preserve">
+    <value>All Songs</value>
+  </data>
+  <data name="AllPlaylists" xml:space="preserve">
+    <value>All Playlists</value>
+  </data>
+  <data name="Collapse" xml:space="preserve">
+    <value>COLLAPSE</value>
+  </data>
+  <data name="CollapseSymbol" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="Expand.Text" xml:space="preserve">
+    <value>EXPAND</value>
+  </data>
+  <data name="ExpandSymbol" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="AddToListButtonTooltip.Content" xml:space="preserve">
+    <value>Add to list</value>
+  </data>
+  <data name="AdfsUnauthorizedContent" xml:space="preserve">
+    <value>You are not authorized to use internal release, or you've installed package which requires valid Windows Store license. Check your installation source, or contact IT for help.</value>
+  </data>
+  <data name="AdfsUnauthorizedTitle" xml:space="preserve">
+    <value>Authorization Failed</value>
+  </data>
+  <data name="Album.Text" xml:space="preserve">
+    <value>Album</value>
+  </data>
+  <data name="AlbumArtist.Text" xml:space="preserve">
+    <value>Album Artist</value>
+  </data>
+  <data name="Albums.Text" xml:space="preserve">
+    <value>Albums</value>
+  </data>
+  <data name="AlbumToggleTooltip.Content" xml:space="preserve">
+    <value>Albums</value>
+  </data>
+  <data name="Artist.Text" xml:space="preserve">
+    <value>Artist</value>
+  </data>
+  <data name="Artists.Text" xml:space="preserve">
+    <value>Artists</value>
+  </data>
+  <data name="ArtistToggleTooltip.Content" xml:space="preserve">
+    <value>Artists</value>
+  </data>
+  <data name="PoweredBy.Text" xml:space="preserve">
+    <value>Tagging Powered By</value>
+  </data>
+  <data name="AutoMatching.SecondaryButtonText" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="AutoMatching.Title" xml:space="preserve">
+    <value>Matching...</value>
+  </data>
+  <data name="CapAlbums" xml:space="preserve">
+    <value>ALBUMS</value>
+  </data>
+  <data name="CapArtists" xml:space="preserve">
+    <value>ARTISTS</value>
+  </data>
+  <data name="CapSettings" xml:space="preserve">
+    <value>SETTINGS</value>
+  </data>
+  <data name="CapSongs" xml:space="preserve">
+    <value>SONGS</value>
+  </data>
+  <data name="CheckingProgressTextBlock.Text" xml:space="preserve">
+    <value>Checking Changes</value>
+  </data>
+  <data name="CloseSearchButtonTooltip.Content" xml:space="preserve">
+    <value>Close Search</value>
+  </data>
+  <data name="Continue.Text" xml:space="preserve">
+    <value>Continue</value>
+  </data>
+  <data name="DatabaseOnlyTipTextBlock.Text" xml:space="preserve">
+    <value>All the modifications will be effective only in library.</value>
+  </data>
+  <data name="DrmNotDupportedContent.Text" xml:space="preserve">
+    <value>Either the we don't support the file, or you are trying to play a Groove Music cached file. Due to copyright restriction, we cannot play this file in Light. Try playing it in Groove Music.</value>
+  </data>
+  <data name="DrmNotSupported.PrimaryButtonText" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="DrmNotSupported.Title" xml:space="preserve">
+    <value>Something happened</value>
+  </data>
+  <data name="EditButtonTooltip.Content" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="EditMetadata.PrimaryButtonText" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="EditMetadata.SecondaryButtonText" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="EditMetadata.Title" xml:space="preserve">
+    <value>EDIT METADATA IN LIBRARY</value>
+  </data>
+  <data name="ExtensionDescription.Text" xml:space="preserve">
+    <value>Extension is not available in current version yet.</value>
+  </data>
+  <data name="ExtensionManageButton.Content" xml:space="preserve">
+    <value>Manage Extension</value>
+  </data>
+  <data name="ExtensionManageDescription.Text" xml:space="preserve">
+    <value>Manage your extension here.</value>
+  </data>
+  <data name="ExtensionTextBlock.Text" xml:space="preserve">
+    <value>Extension</value>
+  </data>
+  <data name="ExtensionToggle.Header" xml:space="preserve">
+    <value>Enable Extension</value>
+  </data>
+  <data name="FrameSearchAutoSuggestBox.PlaceholderText" xml:space="preserve">
+    <value>Search...</value>
+  </data>
+  <data name="Genre.Text" xml:space="preserve">
+    <value>Genre</value>
+  </data>
+  <data name="IgnoreDrmToggle.Header" xml:space="preserve">
+    <value>Automatically Ignore DRM-protected files</value>
+  </data>
+  <data name="InitialProvisionSubTextBlock.Text" xml:space="preserve">
+    <value>With Light, focus on music again.</value>
+  </data>
+  <data name="InitialProvisionTextBlock.Text" xml:space="preserve">
+    <value>Welcome to Light</value>
+  </data>
+  <data name="InitialSettingsSubHeader.Text" xml:space="preserve">
+    <value>Before we get started, please review the initial settings.</value>
+  </data>
+  <data name="LibraryFolderAddButton.Text" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="LibraryFolderSelectionTextBlock.Text" xml:space="preserve">
+    <value>Choose where we look your music files</value>
+  </data>
+  <data name="MenuAddToListItem.Text" xml:space="preserve">
+    <value>Append to Now Playing</value>
+  </data>
+  <data name="MenuDeleteItem.Text" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="MenuEditItem.Text" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="MenuMatchItem.Text" xml:space="preserve">
+    <value>Search pictures</value>
+  </data>
+  <data name="MenuPlayItem.Text" xml:space="preserve">
+    <value>Play</value>
+  </data>
+  <data name="MenuShareItem.Text" xml:space="preserve">
+    <value>Share</value>
+  </data>
+  <data name="Name.Text" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="PlayButtonTooltip.Content" xml:space="preserve">
+    <value>Play</value>
+  </data>
+  <data name="PrivacyConsentTextBlock.Text" xml:space="preserve">
+    <value>Your Privacy</value>
+  </data>
+  <data name="RefineTextBlock.Text" xml:space="preserve">
+    <value>Refine:</value>
+  </data>
+  <data name="RefreshInBackgroundToggle.Header" xml:space="preserve">
+    <value>Refresh library in background</value>
+  </data>
+  <data name="SearchButtonTooltip.Content" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="ShareButtonTooltip.Content" xml:space="preserve">
+    <value>Share</value>
+  </data>
+  <data name="SongToggleTooltip.Content" xml:space="preserve">
+    <value>Songs</value>
+  </data>
+  <data name="SplitViewLibraryItemTextBlock.Text" xml:space="preserve">
+    <value>Library</value>
+  </data>
+  <data name="SplitViewNowPlayingItemTextBlock.Text" xml:space="preserve">
+    <value>Now Playing</value>
+  </data>
+  <data name="SplitViewSettingsItemTextBlock.Text" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="TelemetryDescription.Text" xml:space="preserve">
+    <value>Enabling Telemetry can help us improve Light. Telemetry data contains crash info, device OEM and model, performance statistics. No personal identity or data will be collected, and you can change it later.</value>
+  </data>
+  <data name="TelemetryToggle.Header" xml:space="preserve">
+    <value>Enable Application Telemetry</value>
+  </data>
+  <data name="Title.Text" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="GAtoZ" xml:space="preserve">
+    <value>A to Z</value>
+  </data>
+  <data name="GGenre" xml:space="preserve">
+    <value>Genre</value>
+  </data>
+  <data name="GReleaseDate" xml:space="preserve">
+    <value>Release Date</value>
+  </data>
+  <data name="GZtoA" xml:space="preserve">
+    <value>Z to A</value>
+  </data>
+  <data name="MultipleFileSharing" xml:space="preserve">
+    <value>Share songs</value>
+  </data>
+  <data name="SingleArtistSharing" xml:space="preserve">
+    <value>Share Artist</value>
+  </data>
+  <data name="SingleFileSharing" xml:space="preserve">
+    <value>Share a song</value>
+  </data>
+  <data name="Failure" xml:space="preserve">
+    <value>Something happened.</value>
+  </data>
+  <data name="GNoGroup" xml:space="preserve">
+    <value>No Grouping</value>
+  </data>
+  <data name="AboutTextBox.Text" xml:space="preserve">
+    <value>About this app</value>
+  </data>
+  <data name="AtoZItem.Content" xml:space="preserve">
+    <value>A to Z</value>
+  </data>
+  <data name="CheckingProgressTextBlock.FontWeight" xml:space="preserve">
+    <value>Semibold</value>
+  </data>
+  <data name="ClearLyricLink.Content" xml:space="preserve">
+    <value>Clear the lyrics</value>
+  </data>
+  <data name="CycleAllMenuItem.Text" xml:space="preserve">
+    <value>Cycle All</value>
+  </data>
+  <data name="CycleSingleMenuItem.Text" xml:space="preserve">
+    <value>Cycle Single</value>
+  </data>
+  <data name="DeleteConfirmationContentDialog.Title" xml:space="preserve">
+    <value>Confirm deletion</value>
+  </data>
+  <data name="DeleteConfirmationContentDialogContent" xml:space="preserve">
+    <value>You are about to delete {0} from your collection.</value>
+  </data>
+  <data name="ImportExtLyricLink.Content" xml:space="preserve">
+    <value>Import external lyrics</value>
+  </data>
+  <data name="InputAutoSuggestBox.PlaceholderText" xml:space="preserve">
+    <value>Input format: Title and artist</value>
+  </data>
+  <data name="JumpToLyricToggle.Header" xml:space="preserve">
+    <value>Go to now playing after playback started</value>
+  </data>
+  <data name="LyricSelectionDialog.PrimaryButtonText" xml:space="preserve">
+    <value>Select</value>
+  </data>
+  <data name="LyricSelectionDialog.SecondaryButtonText" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="LyricSelectionDialog.Title" xml:space="preserve">
+    <value>CHOOSE LYRIC FROM CATALOG</value>
+  </data>
+  <data name="OSSLicenseLink.Content" xml:space="preserve">
+    <value>OSS License</value>
+  </data>
+  <data name="PrivacyPolicyLick.Content" xml:space="preserve">
+    <value>Privacy Policy</value>
+  </data>
+  <data name="RandomMenuItem.Text" xml:space="preserve">
+    <value>Random</value>
+  </data>
+  <data name="RefineTextBlock.FontWeight" xml:space="preserve">
+    <value>Semibold</value>
+  </data>
+  <data name="SeqMenuItem.Text" xml:space="preserve">
+    <value>Sequence</value>
+  </data>
+  <data name="TrackNumberItem.Content" xml:space="preserve">
+    <value>Track Number</value>
+  </data>
+  <data name="UseOrigCoverToggle.Header" xml:space="preserve">
+    <value>Use original cover image (may increase disk usage)</value>
+  </data>
+  <data name="ZtoAItem.Content" xml:space="preserve">
+    <value>Z to A</value>
+  </data>
+  <data name="PlaybackTitleTextbox.Text" xml:space="preserve">
+    <value>Playback</value>
+  </data>
+  <data name="PlaylistTextBox.Text" xml:space="preserve">
+    <value>NOW PLAYING</value>
+  </data>
+  <data name="IntroVideoMediaElement.Source" xml:space="preserve">
+    <value>ms-appx:///Assets/IntroVideo/Intro.mp4</value>
+  </data>
+  <data name="AtoZTitleGroupDescription" xml:space="preserve">
+    <value>Sort and group items with their title, from A to Z.</value>
+  </data>
+  <data name="AtoZTitleGroupName" xml:space="preserve">
+    <value>A to Z</value>
+  </data>
+  <data name="GenreGroupDescription" xml:space="preserve">
+    <value>Sort and group albums with genre property.</value>
+  </data>
+  <data name="GenreGroupName" xml:space="preserve">
+    <value>Genre</value>
+  </data>
+  <data name="ReleaseYearGroupDescription" xml:space="preserve">
+    <value>Sort and group albums with release year.</value>
+  </data>
+  <data name="ReleaseYearGroupName" xml:space="preserve">
+    <value>Year</value>
+  </data>
+  <data name="ZtoATitleGroupDescription" xml:space="preserve">
+    <value>Sort and group items with their title, from Z to A.</value>
+  </data>
+  <data name="ZtoATitleGroupName" xml:space="preserve">
+    <value>Z to A</value>
+  </data>
+  <data name="AlbumSubtitleFallbackFormat" xml:space="preserve">
+    <value>Album by {0}</value>
+  </data>
+  <data name="ArtistSubtitleFallbackFormat" xml:space="preserve">
+    <value>Artist</value>
+  </data>
+  <data name="ArtistSubtitleFormat" xml:space="preserve">
+    <value>{0} albums, {1} songs</value>
+  </data>
+  <data name="CategoryGroupName" xml:space="preserve">
+    <value>Categories</value>
+  </data>
+  <data name="DefaultAlbumName" xml:space="preserve">
+    <value>Album</value>
+  </data>
+  <data name="DefaultArtistName" xml:space="preserve">
+    <value>Artist</value>
+  </data>
+  <data name="DefaultFileName" xml:space="preserve">
+    <value>File</value>
+  </data>
+  <data name="DefaultPlaylistTempalte" xml:space="preserve">
+    <value>Playlist {0}</value>
+  </data>
+  <data name="DeleteConfirmationText" xml:space="preserve">
+    <value>You are going to remove this file.</value>
+  </data>
+  <data name="DeviceNotSupportedString" xml:space="preserve">
+    <value>Not supported on this device</value>
+  </data>
+  <data name="IapBuildNotSupportedErrorPrompt" xml:space="preserve">
+    <value>The specific action is not supported in release version.</value>
+  </data>
+  <data name="IapBuildNotSupportedErrorTitle" xml:space="preserve">
+    <value>Not Supported</value>
+  </data>
+  <data name="IapPurchaseSucceededPrompt" xml:space="preserve">
+    <value>You have unlocked all features.</value>
+  </data>
+  <data name="IapPurchaseSucceededTitle" xml:space="preserve">
+    <value>Thank you</value>
+  </data>
+  <data name="JumplistAlbumText" xml:space="preserve">
+    <value>View all albums</value>
+  </data>
+  <data name="JumplistArtistText" xml:space="preserve">
+    <value>View all artists</value>
+  </data>
+  <data name="JumplistPlaylistText" xml:space="preserve">
+    <value>View all playlists</value>
+  </data>
+  <data name="JumplistSongText" xml:space="preserve">
+    <value>View all songs</value>
+  </data>
+  <data name="LibraryTitle" xml:space="preserve">
+    <value>Library</value>
+  </data>
+  <data name="LiveTileLine3" xml:space="preserve">
+    <value>Playing in Light</value>
+  </data>
+  <data name="ManualSelectLyricButtonText" xml:space="preserve">
+    <value>Select Lyric File</value>
+  </data>
+  <data name="PlaylisFallbackSubtitle" xml:space="preserve">
+    <value>Playlist</value>
+  </data>
+  <data name="PlaylistSaveErrorTitle" xml:space="preserve">
+    <value>Failed to save playlist</value>
+  </data>
+  <data name="PlaylistSubtitle" xml:space="preserve">
+    <value>{0} songs</value>
+  </data>
+  <data name="PlaylisySaveSucceededTitle" xml:space="preserve">
+    <value>Playlist saved</value>
+  </data>
+  <data name="PropertyTitle" xml:space="preserve">
+    <value>Properties</value>
+  </data>
+  <data name="ProvisionPrompt" xml:space="preserve">
+    <value>Getting ready for first time use</value>
+  </data>
+  <data name="SearchError" xml:space="preserve">
+    <value>Something happened: {0}</value>
+  </data>
+  <data name="SearchTitleTemplate" xml:space="preserve">
+    <value>Search for {0}</value>
+  </data>
+  <data name="SettingsTitle" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="SongSubtitleFormat" xml:space="preserve">
+    <value>{0} by {1}, {2}</value>
+  </data>
+  <data name="UnknownAlbumTitle" xml:space="preserve">
+    <value>Unknown Album</value>
+  </data>
+  <data name="UnknownArtistTitle" xml:space="preserve">
+    <value>Unknown Artist</value>
+  </data>
+  <data name="UnknownDate" xml:space="preserve">
+    <value>Unknown Date</value>
+  </data>
+  <data name="LibraryHstViewGroupRefineTextBlk.Text" xml:space="preserve">
+    <value>Refine: </value>
+  </data>
+  <data name="OMtSetAppleMusicMrktRegionTextBlock.Text" xml:space="preserve">
+    <value>Market region</value>
+  </data>
+  <data name="OMtSetExcludedAlbumsHeaderTextBlock.Text" xml:space="preserve">
+    <value>Excluded Albums</value>
+  </data>
+  <data name="OMtSetExcludedArtistsHeaderTextBlock.Text" xml:space="preserve">
+    <value>Excluded Artists</value>
+  </data>
+  <data name="OMtSetViewEnableRetrievalToggle.Header" xml:space="preserve">
+    <value>Enable Online Metadata Retrieval</value>
+  </data>
+  <data name="OMtSetViewOptReminder.Text" xml:space="preserve">
+    <value>This setting only applies to new albums and artists.</value>
+  </data>
+  <data name="OMtSetViewOverView.Text" xml:space="preserve">
+    <value>Overview</value>
+  </data>
+  <data name="OnlineMetadataRetrievalSettings.Text" xml:space="preserve">
+    <value>Online Metadata Retrieval Settings</value>
+  </data>
+  <data name="ProvisionStatusTextBlock.Text" xml:space="preserve">
+    <value>Getting Ready</value>
+  </data>
+  <data name="FilePropTitleTextBlkInitialRun.Text" xml:space="preserve">
+    <value>File Properties:</value>
+  </data>
+  <data name="MenuAddAsNext.Text" xml:space="preserve">
+    <value>Add as Next Song</value>
+  </data>
+  <data name="MenuOpenFileLoc.Text" xml:space="preserve">
+    <value>Open File Location</value>
+  </data>
+  <data name="MenuShowProp.Text" xml:space="preserve">
+    <value>Show Properties</value>
+  </data>
+  <data name="SetViewTitleTextBlk.Text" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="EmptyCollectionIndicatorSubtitleTextBlk.Text" xml:space="preserve">
+    <value>Add something to here to get started.</value>
+  </data>
+  <data name="EmptyCollectionIndicatorTitleTextBlk.Text" xml:space="preserve">
+    <value>It's lonely here.</value>
+  </data>
+  <data name="ArtistDetailedPageAlbumsHeaderTxtBlk.Text" xml:space="preserve">
+    <value>Albums by this artist</value>
+  </data>
+  <data name="ArtistDetailedPageIntroHeaderTxtBlk.Text" xml:space="preserve">
+    <value>Introduction</value>
+  </data>
+  <data name="ArtistDetailedPageSongsHeaderTxtBlk.Text" xml:space="preserve">
+    <value>Songs by this artist</value>
+  </data>
+  <data name="LrcSourceSelectionTextBlock.Text" xml:space="preserve">
+    <value>Choose how we look up lyrics for you.</value>
+  </data>
+  <data name="MetadataRetrievalBtn.Content" xml:space="preserve">
+    <value>Manage</value>
+  </data>
+  <data name="MetadataRetrievalDescriptionTxtBlk.Text" xml:space="preserve">
+    <value>Manage online metadata retrieval here.</value>
+  </data>
+  <data name="LrcMissingPrompt.Text" xml:space="preserve">
+    <value>No lyrics for this track.</value>
+  </data>
+  <data name="LyricsPivotItem.Header" xml:space="preserve">
+    <value>LYRICS</value>
+  </data>
+  <data name="NowPlayingPivotItem.Header" xml:space="preserve">
+    <value>Now Playing</value>
+  </data>
+  <data name="ArtistTextBox.PlaceholderText" xml:space="preserve">
+    <value>Artist</value>
+  </data>
+  <data name="TitleTextBox.PlaceholderText" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="RefreshConfirmButton.Content" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
+  <data name="RefreshConfirmPrompt.Text" xml:space="preserve">
+    <value>The media library database will be cleared. It will take some time to scan your files.</value>
+  </data>
+  <data name="AppleMusicMrktenAU" xml:space="preserve">
+    <value>English (Australia)</value>
+  </data>
+  <data name="AppleMusicMrktenGB" xml:space="preserve">
+    <value>English (United Kingdom)</value>
+  </data>
+  <data name="AppleMusicMrktenUS" xml:space="preserve">
+    <value>English (United States)</value>
+  </data>
+  <data name="AppleMusicMrktjaJP" xml:space="preserve">
+    <value>Japanese (Japan)</value>
+  </data>
+  <data name="AppleMusicMrktzhCN" xml:space="preserve">
+    <value>Simplified Chinese (China)</value>
+  </data>
+  <data name="AppleMusicMrktzhHK" xml:space="preserve">
+    <value>Traditional Chinese (Hong Kong SAR)</value>
+  </data>
+  <data name="AppleMusicMrktzhSG" xml:space="preserve">
+    <value>Simplified Chinese (Singapore)</value>
+  </data>
+  <data name="AppleMusicMrktzhTW" xml:space="preserve">
+    <value>Traditional Chinese (Taiwan)</value>
+  </data>
+  <data name="FeedbackPrivacyNotice.Text" xml:space="preserve">
+    <value>Please note that, if you have enabled telemetry in settings, your anonymous tracking ID will be sent altogether with your feedback for product analysis. These information cannot be used for tracking purpose. For more details, refer to our privacy policy.</value>
+  </data>
+  <data name="CertValidationFailureMessage" xml:space="preserve">
+    <value>Light cannot verify app server's identity. To protect your privacy, feedback will not be sent. Check your network condition (Wi-Fi captive authentication portal or something else) and continue.</value>
+  </data>
+  <data name="CertValidationFailureTitle" xml:space="preserve">
+    <value>Security Warning!</value>
+  </data>
+  <data name="FeedbackAcceptedMessage" xml:space="preserve">
+    <value>Your feedback can help us improve product quality.</value>
+  </data>
+  <data name="FeedbackAcceptedTitle" xml:space="preserve">
+    <value>Thank you</value>
+  </data>
+  <data name="FeedbackAttachScreenshotCheckbox.Content" xml:space="preserve">
+    <value>Attach my screenshot</value>
+  </data>
+  <data name="FeedbackPageHeader.Text" xml:space="preserve">
+    <value>Tell us your experience.</value>
+  </data>
+  <data name="FeedbackProgressIndicator.Text" xml:space="preserve">
+    <value>Submitting…</value>
+  </data>
+  <data name="FeedbackSubmitButton.Content" xml:space="preserve">
+    <value>Submit</value>
+  </data>
+  <data name="FeedbackTitle.Text" xml:space="preserve">
+    <value>Feedback to Little Moe, LLC</value>
+  </data>
+  <data name="FeedbackTypeBug.Content" xml:space="preserve">
+    <value>Bug</value>
+  </data>
+  <data name="FeedbackTypeIndicatorText.Text" xml:space="preserve">
+    <value>The problem I want to report is a</value>
+  </data>
+  <data name="FeedbackTypeSuggestion.Content" xml:space="preserve">
+    <value>Suggestion</value>
+  </data>
+  <data name="FeedbackUserFillContactTextBox.PlaceholderText" xml:space="preserve">
+    <value>Email (optional)</value>
+  </data>
+  <data name="FeedbackUserFillContentTextBox.PlaceholderText" xml:space="preserve">
+    <value>Feel free to add additional details. (Optional)</value>
+  </data>
+  <data name="FeedbackUserFillTitleTextBox.PlaceholderText" xml:space="preserve">
+    <value>Briefly describe issue in 50 words.</value>
+  </data>
+  <data name="InternalErrorMessage" xml:space="preserve">
+    <value>Something happened in our end.</value>
+  </data>
+  <data name="InternalErrorTitle" xml:space="preserve">
+    <value>Something happened</value>
+  </data>
+  <data name="RequestThrottledMessage" xml:space="preserve">
+    <value>You sent feedbacks too fast. Please try again later.</value>
+  </data>
+  <data name="RequestThrottledTitle" xml:space="preserve">
+    <value>Calm down</value>
+  </data>
+  <data name="FeedbackPrivacyNotice.FontWeight" xml:space="preserve">
+    <value>Semibold</value>
+  </data>
+  <data name="FeedbackContentTypeStackPanel.Margin" xml:space="preserve">
+    <value>10,10,0,0</value>
+  </data>
+  <data name="NetworkConnectionMessage" xml:space="preserve">
+    <value>Please check your connection.</value>
+  </data>
+  <data name="NetworkConnectionTitle" xml:space="preserve">
+    <value>Cannot connect to Internet</value>
+  </data>
+  <data name="UnknownProperty" xml:space="preserve">
+    <value>Unknown Property: {0}</value>
+  </data>
+  <data name="FeedbackTooltip.Content" xml:space="preserve">
+    <value>Feedback to Little Moe, LLC</value>
+  </data>
+  <data name="FullscreenTooltip.Content" xml:space="preserve">
+    <value>Switch window/fullscreen mode</value>
+  </data>
+  <data name="DarkThemeRadioButton.Content" xml:space="preserve">
+    <value>Dark</value>
+  </data>
+  <data name="LanguageHeader.Text" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="LightThemeRadioButton.Content" xml:space="preserve">
+    <value>Light</value>
+  </data>
+  <data name="OsReleaseUnsupportedPrompt.Text" xml:space="preserve">
+    <value>Your OS release version is not supported to use theme settings.</value>
+  </data>
+  <data name="RestartToApplySettingsPrompt.Text" xml:space="preserve">
+    <value>Please restart the app to apply settings.</value>
+  </data>
+  <data name="ThemeHeader.Text" xml:space="preserve">
+    <value>Theme</value>
+  </data>
+  <data name="UseOSLanguageSettings" xml:space="preserve">
+    <value>Use OS settings</value>
+  </data>
+  <data name="UseOsThemeRadioButton.Content" xml:space="preserve">
+    <value>Use OS settings</value>
+  </data>
+  <data name="MultipleResultsText" xml:space="preserve">
+    <value>{0} results found.</value>
+  </data>
+  <data name="NoResultText" xml:space="preserve">
+    <value>No result.</value>
+  </data>
+  <data name="NowPlayingEmptyTitle" xml:space="preserve">
+    <value>Now Playing</value>
+  </data>
+  <data name="NowPlayingTitle" xml:space="preserve">
+    <value>Now Playing - {0}</value>
+  </data>
+  <data name="OneResultText" xml:space="preserve">
+    <value>1 result found.</value>
+  </data>
+  <data name="PlaylistNoItemSubtitle" xml:space="preserve">
+    <value>Empty</value>
+  </data>
+  <data name="PlaylistSingleItemSubtitle" xml:space="preserve">
+    <value>1 song</value>
+  </data>
+  <data name="LrcDownloadFailed" xml:space="preserve">
+    <value>Failed to download lyrics: {0}</value>
+  </data>
+  <data name="LrcNotFound" xml:space="preserve">
+    <value>No lyrics can be downloaded from this search result.</value>
+  </data>
+  <data name="FavoritesLocalizedText" xml:space="preserve">
+    <value>Favorites</value>
+  </data>
+  <data name="OMtSetViewEnableOverMeteredNetworkToggle.Header" xml:space="preserve">
+    <value>Enable under metered network</value>
+  </data>
+  <data name="PlaylistSelectDialog.PrimaryButtonText" xml:space="preserve">
+    <value>Select</value>
+  </data>
+  <data name="PlaylistSelectDialog.SecondaryButtonText" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="PlaylistSelectDialog.Title" xml:space="preserve">
+    <value>Choose a playlist</value>
+  </data>
+  <data name="CannotRenameFavoritePrompt" xml:space="preserve">
+    <value>Favorite list cannot be renamed.</value>
+  </data>
+  <data name="FieldEditor.PrimaryButtonText" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
+  <data name="FieldEditor.SecondaryButtonText" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="NewNameEmptyPrompt" xml:space="preserve">
+    <value>The new name cannot be empty.</value>
+  </data>
+  <data name="PlaylistAlreadyExistPrompt" xml:space="preserve">
+    <value>Playlist "{0}" already exists.</value>
+  </data>
+  <data name="RenameItem.Text" xml:space="preserve">
+    <value>Rename</value>
+  </data>
+  <data name="CancelString" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="ClearString" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="ConfirmString" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
+  <data name="DeleteString" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="FavoriteClearTitle" xml:space="preserve">
+    <value>Confirm clear</value>
+  </data>
+  <data name="FavoriteDeleteDescription" xml:space="preserve">
+    <value>Are you sure to clear the favorite list? This operation cannot be undone.</value>
+  </data>
+  <data name="MenuNewPlaylist.Text" xml:space="preserve">
+    <value>Create playlist</value>
+  </data>
+  <data name="NewPlaylistString" xml:space="preserve">
+    <value>Create playlist</value>
+  </data>
+  <data name="PlaylistDefaultname" xml:space="preserve">
+    <value>New playlist</value>
+  </data>
+  <data name="PlaylistDeleteDescription" xml:space="preserve">
+    <value>Are you sure to delete "{0}"? This operation cannot be undone.</value>
+  </data>
+  <data name="PlaylistDeleteTitle" xml:space="preserve">
+    <value>Confirm delete</value>
+  </data>
+  <data name="RenameString" xml:space="preserve">
+    <value>Rename</value>
+  </data>
+  <data name="ChooseFileName" xml:space="preserve">
+    <value>Choose a file name</value>
+  </data>
+  <data name="FailedToSavePlaylist" xml:space="preserve">
+    <value>Failed to save playlist</value>
+  </data>
+  <data name="M3u" xml:space="preserve">
+    <value>M3u playlist</value>
+  </data>
+  <data name="PlaylistSaved" xml:space="preserve">
+    <value>Playlist Saved.</value>
+  </data>
+  <data name="ValidFilenameRequired" xml:space="preserve">
+    <value>You must enter a valid file name.</value>
+  </data>
+  <data name="MenuExportM3u.Text" xml:space="preserve">
+    <value>M3u Playlist</value>
+  </data>
+  <data name="MenuExportPlaylist.Text" xml:space="preserve">
+    <value>Export as</value>
+  </data>
+  <data name="MenuExportWpl.Text" xml:space="preserve">
+    <value>Windows Media Playlist</value>
+  </data>
+  <data name="FileOpenFailure.SecondaryButtonText" xml:space="preserve">
+    <value>Okay</value>
+  </data>
+  <data name="FileOpenFailure.Title" xml:space="preserve">
+    <value>File access authorization</value>
+  </data>
+  <data name="FileOpenFailureDescription.Text" xml:space="preserve">
+    <value>Light does not have access to these files or they do not exist. Please use file picker to authorize the access, or drag the file here.</value>
+  </data>
+  <data name="NoLrcSourcePromptPart1.Text" xml:space="preserve">
+    <value>No lyrics download source available.
+Please </value>
+  </data>
+  <data name="NoLrcSourcePromptPart2.Text" xml:space="preserve">
+    <value>add</value>
+  </data>
+  <data name="NoLrcSourcePromptPart3.Text" xml:space="preserve">
+    <value> lyrics extension or </value>
+  </data>
+  <data name="NoLrcSourcePromptPart4.Text" xml:space="preserve">
+    <value>import</value>
+  </data>
+  <data name="NoLrcSourcePromptPart5.Text" xml:space="preserve">
+    <value> lyrics manually.</value>
+  </data>
+  <data name="AccessAuthorizeSuggestDetailed.Text" xml:space="preserve">
+    <value>Light Player will not scan these folders by default, but in case you open cue files or playlists which contain audio tracks in these folders, Light Player will be able to open them without bothering you.</value>
+  </data>
+  <data name="AlreadyHaveAccessPrompt" xml:space="preserve">
+    <value>Light Player already have access to this folder.</value>
+  </data>
+  <data name="FileAccessIntro.Text" xml:space="preserve">
+    <value>Choose where we can access your files.</value>
+  </data>
+  <data name="LearnMore.Text" xml:space="preserve">
+    <value>Learn more</value>
+  </data>
+  <data name="AllMusicText.Text" xml:space="preserve">
+    <value>All Music</value>
+  </data>
+  <data name="ByText.Text" xml:space="preserve">
+    <value>by </value>
+  </data>
+  <data name="ContinuePlaylistUpper" xml:space="preserve">
+    <value>CONTINUE PLAYLIST</value>
+  </data>
+  <data name="NowPlayingText.Text" xml:space="preserve">
+    <value>Now playing</value>
+  </data>
+  <data name="NowPlayingUpper" xml:space="preserve">
+    <value>NOW PLAYING</value>
+  </data>
+  <data name="OpenPlaylistText.Text" xml:space="preserve">
+    <value>Open playlist</value>
+  </data>
+  <data name="UpcomingText.Text" xml:space="preserve">
+    <value>Upcoming</value>
+  </data>
+  <data name="AboutButton.Label" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="AlbumsSeparator.Text" xml:space="preserve">
+    <value>Albums,</value>
+  </data>
+  <data name="DefaultPageTitle.Text" xml:space="preserve">
+    <value>MY MUSIC</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="HomeToolTip.Content" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="LyricsTitle.Text" xml:space="preserve">
+    <value>LYRICS</value>
+  </data>
+  <data name="MyMusicUpper" xml:space="preserve">
+    <value>MY MUSIC</value>
+  </data>
+  <data name="NowPlayingTooltip.Content" xml:space="preserve">
+    <value>Now playing</value>
+  </data>
+  <data name="PlaylistTooltip.Content" xml:space="preserve">
+    <value>Playlist</value>
+  </data>
+  <data name="RefreshLibraryButton.Label" xml:space="preserve">
+    <value>Refresh library</value>
+  </data>
+  <data name="SettingsButton.Label" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="SettingsView.PageTitle" xml:space="preserve">
+    <value>SETTINGS</value>
+  </data>
+  <data name="ShuffleAll.Text" xml:space="preserve">
+    <value>SHUFFLE ALL</value>
+  </data>
+  <data name="LikeToolTip.Content" xml:space="preserve">
+    <value>Like</value>
+  </data>
+  <data name="ModeToolTip.Content" xml:space="preserve">
+    <value>Mode</value>
+  </data>
+  <data name="NextToolTip.Content" xml:space="preserve">
+    <value>Next track</value>
+  </data>
+  <data name="PrevToolTip.Content" xml:space="preserve">
+    <value>Previous track</value>
+  </data>
+  <data name="ToolTipPause" xml:space="preserve">
+    <value>Pause</value>
+  </data>
+  <data name="ToolTipPlay" xml:space="preserve">
+    <value>Play</value>
+  </data>
+  <data name="VolumeToolTip.Content" xml:space="preserve">
+    <value>Volume</value>
+  </data>
+  <data name="AlbumSubtitleFormat" xml:space="preserve">
+    <value>{0} songs by {1}</value>
+  </data>
+  <data name="ArchARM" xml:space="preserve">
+    <value>ARM</value>
+  </data>
+  <data name="ArchARM64" xml:space="preserve">
+    <value>ARM (64-Bit)</value>
+  </data>
+  <data name="ArchNetural" xml:space="preserve">
+    <value>Platform Netural</value>
+  </data>
+  <data name="ArchUnknown" xml:space="preserve">
+    <value>Unknown Architecture</value>
+  </data>
+  <data name="Archx64" xml:space="preserve">
+    <value>Intel (64-Bit)</value>
+  </data>
+  <data name="Archx86" xml:space="preserve">
+    <value>Intel</value>
+  </data>
+  <data name="Local Instllation" xml:space="preserve">
+    <value>External Installation</value>
+  </data>
+  <data name="Store Release" xml:space="preserve">
+    <value>Windows Store Release</value>
+  </data>
+  <data name="EnableThirdPartyLyricsReminder.Text" xml:space="preserve">
+    <value>Terms of Use from 3rd-party services may apply.</value>
+  </data>
+  <data name="EnableThirdPartyLyricsToggle.Header" xml:space="preserve">
+    <value>Enable 3rd-party Lyrics Services</value>
+  </data>
+  <data name="AlwaysResampleToggle.Header" xml:space="preserve">
+    <value>Always resample audio to specific sample rate</value>
+  </data>
+  <data name="ApplyNextTrackPrompt.Text" xml:space="preserve">
+    <value>Sample rate settings will be applied when playing next track.</value>
+  </data>
+  <data name="CurrentSampleRateDesc.Text" xml:space="preserve">
+    <value>Current system sample rate:</value>
+  </data>
+  <data name="RefreshText.Text" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="SampleRateDesc.Text" xml:space="preserve">
+    <value>Choose preferred sample rate</value>
+  </data>
+  <data name="UseSystemSampleRate" xml:space="preserve">
+    <value>System sample rate</value>
+  </data>
+  <data name="SecDebug" xml:space="preserve">
+    <value>Debug</value>
+  </data>
+  <data name="SecLibrary" xml:space="preserve">
+    <value>Library</value>
+  </data>
+  <data name="SecPlaybackAndLyrics" xml:space="preserve">
+    <value>Playback &amp; Lyrics</value>
+  </data>
+  <data name="SecPrivacy" xml:space="preserve">
+    <value>Privacy</value>
+  </data>
+  <data name="SecThemeAndLanguage" xml:space="preserve">
+    <value>Theme &amp; Language</value>
+  </data>
+  <data name="AppName" xml:space="preserve">
+    <value>Light Media Player</value>
+  </data>
+  <data name="AlbumNameGroupDescription" xml:space="preserve">
+    <value>Sort and group items by their album name.</value>
+  </data>
+  <data name="AlbumNameGroupName" xml:space="preserve">
+    <value>Album</value>
+  </data>
+  <data name="ArtistNameGroupDescription" xml:space="preserve">
+    <value>Sort and group items by their artist name.</value>
+  </data>
+  <data name="ArtistNameGroupName" xml:space="preserve">
+    <value>Artist</value>
+  </data>
+  <data name="EarlierAddedGroupDescription" xml:space="preserve">
+    <value>Sort and group items by time added to database. (Earlier first)</value>
+  </data>
+  <data name="EarlierAddedGroupName" xml:space="preserve">
+    <value>Earlier added</value>
+  </data>
+  <data name="RecentAddedGroupDescription" xml:space="preserve">
+    <value>Sort and group items by time added to database. (Recent first)</value>
+  </data>
+  <data name="RecentAddedGroupName" xml:space="preserve">
+    <value>Recently added</value>
+  </data>
+  <data name="AllMusic" xml:space="preserve">
+    <value>All Music</value>
+  </data>
+  <data name="NoGroupingDescription" xml:space="preserve">
+    <value>Sort items from A to Z without grouping.</value>
+  </data>
+  <data name="NoGroupingName" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="MenuAddToPlaylistItem.Text" xml:space="preserve">
+    <value>Add to Playlist</value>
+  </data>
+  <data name="AlbumArtistText" xml:space="preserve">
+    <value>Album Artist</value>
+  </data>
+  <data name="AlbumText" xml:space="preserve">
+    <value>Album</value>
+  </data>
+  <data name="ArtistText" xml:space="preserve">
+    <value>Artist</value>
+  </data>
+  <data name="Comment" xml:space="preserve">
+    <value>Comment</value>
+  </data>
+  <data name="Composer" xml:space="preserve">
+    <value>Composer</value>
+  </data>
+  <data name="CopyrightText" xml:space="preserve">
+    <value>Copyright</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Disc" xml:space="preserve">
+    <value>Disc</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="FileNotFound" xml:space="preserve">
+    <value>File "{0}" not found.</value>
+  </data>
+  <data name="GenreText" xml:space="preserve">
+    <value>Genre</value>
+  </data>
+  <data name="Grouping" xml:space="preserve">
+    <value>Grouping</value>
+  </data>
+  <data name="MediaFilePropertiesDialog.PrimaryButtonText" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="MediaFilePropertiesDialog.Title" xml:space="preserve">
+    <value>File Properties</value>
+  </data>
+  <data name="Performer" xml:space="preserve">
+    <value>Performer</value>
+  </data>
+  <data name="Time" xml:space="preserve">
+    <value>Time</value>
+  </data>
+  <data name="TitleText" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="TotalDiscs" xml:space="preserve">
+    <value>Total Discs</value>
+  </data>
+  <data name="TotalTracks" xml:space="preserve">
+    <value>Total Tracks</value>
+  </data>
+  <data name="Track" xml:space="preserve">
+    <value>Track</value>
+  </data>
+  <data name="EncoderText" xml:space="preserve">
+    <value>Encoder</value>
+  </data>
+  <data name="PublisherText" xml:space="preserve">
+    <value>Publisher</value>
+  </data>
+  <data name="SortedAlbumText" xml:space="preserve">
+    <value>Sorted Album</value>
+  </data>
+  <data name="SortedArtistText" xml:space="preserve">
+    <value>Sorted Artist</value>
+  </data>
+  <data name="SortedTitleText" xml:space="preserve">
+    <value>Sorted Title</value>
+  </data>
+  <data name="TsrcText" xml:space="preserve">
+    <value>ISRC</value>
+  </data>
+  <data name="Select" xml:space="preserve">
+    <value>Select</value>
+  </data>
+  <data name="AlbumNameTextBox.PlaceholderText" xml:space="preserve">
+    <value>Album</value>
+  </data>
+  <data name="ClearImageLink.Content" xml:space="preserve">
+    <value>Remove the image</value>
+  </data>
+  <data name="DownloadFailedPrompt" xml:space="preserve">
+    <value>Download failed.</value>
+  </data>
+  <data name="FileSizeLimitPrompt" xml:space="preserve">
+    <value>File too large. Size limit is 10MB.</value>
+  </data>
+  <data name="ImportExtImageLink.Content" xml:space="preserve">
+    <value>Import image from disk</value>
+  </data>
+  <data name="NoValidThumbnailPrompt" xml:space="preserve">
+    <value>The item you selected does not contain a valid thumbnail.</value>
+  </data>
+  <data name="ThumbnailSearchFlyout.PrimaryButtonText" xml:space="preserve">
+    <value>Select</value>
+  </data>
+  <data name="ThumbnailSearchFlyout.SecondaryButtonText" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="ThumbnailSearchFlyout.Title" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="TrackLibraryChangeToggle.Header" xml:space="preserve">
+    <value>Monitor library changes</value>
+  </data>
+  <data name="TrackLibraryWarningTextBlock.Text" xml:space="preserve">
+    <value>All library changes will be reflected in app without refreshing library manually, even when the app is not opened. This slightly consumes more power.</value>
+  </data>
+  <data name="LibraryUpdatedContentAdded" xml:space="preserve">
+    <value>{0} item(s) added</value>
+  </data>
+  <data name="LibraryUpdatedContentOther" xml:space="preserve">
+    <value>Your library is up to date!</value>
+  </data>
+  <data name="LibraryUpdatedTitle" xml:space="preserve">
+    <value>Library has been updated</value>
+  </data>
+  <data name="LibraryFolderExclusionTextBlock.Text" xml:space="preserve">
+    <value>Excluded folders</value>
+  </data>
+  <data name="SelectionNotInLibraryPrompt" xml:space="preserve">
+    <value>The selected folder is not in any music library.</value>
+  </data>
+  <data name="KeepHistoryToggle.Header" xml:space="preserve">
+    <value>Keep playback history</value>
+  </data>
+  <data name="RecentlyText.Text" xml:space="preserve">
+    <value>Recently</value>
+  </data>
+  <data name="LibraryFilesAddedFormat" xml:space="preserve">
+    <value>{0} files added</value>
+  </data>
+  <data name="LibraryScanErrorDesc.Text" xml:space="preserve">
+    <value>During the last media library scan, we failed to add these files to the library.</value>
+  </data>
+  <data name="LibraryWarningDialog.SecondaryButtonText" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="LibraryWarningDialog.Title" xml:space="preserve">
+    <value>Something happened.</value>
+  </data>
+  <data name="MultipleExceptionsFormat" xml:space="preserve">
+    <value>{0} errors</value>
+  </data>
+  <data name="PlaybackErrorFormat" xml:space="preserve">
+    <value>Error occurred when playing {0}:
+{1}</value>
+  </data>
+  <data name="SingleException" xml:space="preserve">
+    <value>1 error</value>
+  </data>
+  <data name="RecentlyAddedButton.Label" xml:space="preserve">
+    <value>Recently added</value>
+  </data>
+  <data name="ShuffleAllButton.Label" xml:space="preserve">
+    <value>Shuffle all</value>
+  </data>
+  <data name="ArtistSubtitleFallbackFormat2" xml:space="preserve">
+    <value>{0} songs</value>
+    <comment>Fallback</comment>
+  </data>
+  <data name="ScMasterDetailsView.NoSelectionContent" xml:space="preserve">
+    <value>Select a category to view settings</value>
+  </data>
+  <data name="AboutMenuItem.Text" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="AlbumMenuItem.Text" xml:space="preserve">
+    <value>Albums</value>
+  </data>
+  <data name="ArtistMenuItem.Text" xml:space="preserve">
+    <value>Artists</value>
+  </data>
+  <data name="DeviceText.Text" xml:space="preserve">
+    <value>Device</value>
+  </data>
+  <data name="FeedbackMenuItem.Text" xml:space="preserve">
+    <value>Feedback</value>
+  </data>
+  <data name="LibraryHeader.Header" xml:space="preserve">
+    <value>Library</value>
+  </data>
+  <data name="MediaLibraryScanWarningText" xml:space="preserve">
+    <value>This will scan all your media files and it could take a long time on slower devices. Proceed?</value>
+  </data>
+  <data name="MoreHeader.Header" xml:space="preserve">
+    <value>More</value>
+  </data>
+  <data name="MyMusicHeader.Header" xml:space="preserve">
+    <value>My Music</value>
+  </data>
+  <data name="NowPlayingHeader.Text" xml:space="preserve">
+    <value>Now Playing</value>
+  </data>
+  <data name="PlaylistMenuItem.Text" xml:space="preserve">
+    <value>Playlists</value>
+  </data>
+  <data name="RecentlyAddedText.Text" xml:space="preserve">
+    <value>Recently Added</value>
+  </data>
+  <data name="RecentlyHeader.Text" xml:space="preserve">
+    <value>Recently</value>
+  </data>
+  <data name="RecentlyMenuItem.Text" xml:space="preserve">
+    <value>Recently Listened</value>
+  </data>
+  <data name="RefreshLibraryMenuItem.Text" xml:space="preserve">
+    <value>Refresh Library</value>
+  </data>
+  <data name="SettingsMenuItem.Text" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="ShuffleAllMenuItem.Text" xml:space="preserve">
+    <value>Shuffle All</value>
+  </data>
+  <data name="SongMenuItem.Text" xml:space="preserve">
+    <value>Songs</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Warning</value>
+  </data>
+  <data name="AddButton.Label" xml:space="preserve">
+    <value>Append</value>
+  </data>
+  <data name="AddToButtonText.Text" xml:space="preserve">
+    <value>Add to</value>
+  </data>
+  <data name="AddToFavoriteMenuItem.Text" xml:space="preserve">
+    <value>Add to favorite list</value>
+  </data>
+  <data name="AddToNowPlayingMenuItem.Text" xml:space="preserve">
+    <value>Now playing</value>
+  </data>
+  <data name="AddToPlaylistMenuItem.Text" xml:space="preserve">
+    <value>Add to a playlist</value>
+  </data>
+  <data name="AlbumsResultHeader.Text" xml:space="preserve">
+    <value>Albums (</value>
+  </data>
+  <data name="ArtistsResultHeader.Text" xml:space="preserve">
+    <value>Artists (</value>
+  </data>
+  <data name="DeleteButton.Label" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="DetailsMenuItem.Text" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="EditButton.Label" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="GoToAlbumMenuItem.Text" xml:space="preserve">
+    <value>Go to the album</value>
+  </data>
+  <data name="GoToArtistMenuItem.Text" xml:space="preserve">
+    <value>Go to the artist</value>
+  </data>
+  <data name="HideLyricsMenuItem.Text" xml:space="preserve">
+    <value>Hide lyrics</value>
+  </data>
+  <data name="LibraryText.Text" xml:space="preserve">
+    <value>LIBRARY</value>
+  </data>
+  <data name="MobilePlaylistHeader.Text" xml:space="preserve">
+    <value>Playlist:</value>
+  </data>
+  <data name="Music" xml:space="preserve">
+    <value>Music</value>
+  </data>
+  <data name="NewButton.Label" xml:space="preserve">
+    <value>New</value>
+  </data>
+  <data name="NowPlayingFromText.Text" xml:space="preserve">
+    <value>NOW PLAYING FROM</value>
+  </data>
+  <data name="PlayAllButtonText.Text" xml:space="preserve">
+    <value>Play all</value>
+  </data>
+  <data name="PlayButton.Label" xml:space="preserve">
+    <value>Play</value>
+  </data>
+  <data name="PlaylistNameTextBox.PlaceholderText" xml:space="preserve">
+    <value>Playlist Name</value>
+  </data>
+  <data name="RemoveFromFavoriteMenuItem.Text" xml:space="preserve">
+    <value>Remove from favorite list</value>
+  </data>
+  <data name="SaveButton.Label" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="SavePlaylistButton.Content" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="SearchForLyricsMenuItem.Text" xml:space="preserve">
+    <value>Search for lyrics</value>
+  </data>
+  <data name="ShareButton.Label" xml:space="preserve">
+    <value>Share</value>
+  </data>
+  <data name="ShowLyricsMenuItem.Text" xml:space="preserve">
+    <value>Show lyrics</value>
+  </data>
+  <data name="SongsResultHeader.Text" xml:space="preserve">
+    <value>Songs (</value>
+  </data>
+  <data name="LibraryTrackingDisabled" xml:space="preserve">
+    <value>Your library does not support content monitoring. This feature only works with NTFS partitions.
+Library file tracking has been disabled.</value>
+  </data>
+  <data name="MediaLibraryText" xml:space="preserve">
+    <value>Media Library</value>
+  </data>
+  <data name="NarrowPlaylistToggleButton.Label" xml:space="preserve">
+    <value>Now Playing</value>
+  </data>
+</root>

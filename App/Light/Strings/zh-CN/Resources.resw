@@ -1,0 +1,1517 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="About.Text" xml:space="preserve">
+    <value>有关</value>
+  </data>
+  <data name="AlbumCompactViewTextBlock.Text" xml:space="preserve">
+    <value>收藏中的内容</value>
+  </data>
+  <data name="AllAlbumTextBlock.Text" xml:space="preserve">
+    <value>所有专辑</value>
+  </data>
+  <data name="AllSongTextBlock.Text" xml:space="preserve">
+    <value>所有歌曲</value>
+  </data>
+  <data name="ArtistIntroTextBlock.Text" xml:space="preserve">
+    <value>艺术家简介</value>
+  </data>
+  <data name="AutoFetchSwitch.Header" xml:space="preserve">
+    <value>当设备已接通电源时，自动获取文件</value>
+  </data>
+  <data name="BrowseByCategoryTextBlock.Text" xml:space="preserve">
+    <value>按类别浏览</value>
+  </data>
+  <data name="ComingSoonIntroTextBlock.Text" xml:space="preserve">
+    <value>我们正在与 HomeRadio.moe 共同努力完成此功能。 当该功能可用时，你可以从 Windows 应用商店获取含有此功能的更新版本。</value>
+  </data>
+  <data name="ComingSoonTextBlock.Text" xml:space="preserve">
+    <value>即将推出</value>
+  </data>
+  <data name="Copyright.Text" xml:space="preserve">
+    <value>© 2015 - 2018 Little Moe, LLC 和开源组件作者们。若需了解更多有关开放源代码许可的信息，请点击下面的链接。</value>
+  </data>
+  <data name="Extensibility.Text" xml:space="preserve">
+    <value>插件</value>
+  </data>
+  <data name="GettingReadyTextBlock.Text" xml:space="preserve">
+    <value>正在进行准备工作</value>
+  </data>
+  <data name="IgnoreArticleInSortSwitch.Header" xml:space="preserve">
+    <value>在排序中忽略冠词</value>
+  </data>
+  <data name="LibraryTextBlock.Text" xml:space="preserve">
+    <value>媒体库</value>
+  </data>
+  <data name="MedialibraryHeaderTitle.Text" xml:space="preserve">
+    <value>媒体库</value>
+  </data>
+  <data name="NativeFirstCodecSwitch.Header" xml:space="preserve">
+    <value>优先使用内置解码器</value>
+  </data>
+  <data name="OnlineTextBlock.Text" xml:space="preserve">
+    <value>在线</value>
+  </data>
+  <data name="OSSInfo.Text" xml:space="preserve">
+    <value>该软件使用了第三方开源组件。</value>
+  </data>
+  <data name="OSSLink.Content" xml:space="preserve">
+    <value>开放源代码门户</value>
+  </data>
+  <data name="PlaybackTextBlock.Text" xml:space="preserve">
+    <value>回放</value>
+  </data>
+  <data name="PluginManagement.Content" xml:space="preserve">
+    <value>管理插件</value>
+  </data>
+  <data name="RelatedArtistTextBlock.Text" xml:space="preserve">
+    <value>相关艺术家</value>
+  </data>
+  <data name="UseOnlineMetadata.Header" xml:space="preserve">
+    <value>使用在线元数据</value>
+  </data>
+  <data name="WhatsNewTextBlock.Text" xml:space="preserve">
+    <value>最新功能</value>
+  </data>
+  <data name="AllAlbums" xml:space="preserve">
+    <value>所有专辑</value>
+  </data>
+  <data name="AllArtists" xml:space="preserve">
+    <value>所有艺术家</value>
+  </data>
+  <data name="AllGenres" xml:space="preserve">
+    <value>所有流派</value>
+  </data>
+  <data name="AllItems" xml:space="preserve">
+    <value>所有歌曲</value>
+  </data>
+  <data name="AllPlaylists" xml:space="preserve">
+    <value>所有播放列表</value>
+  </data>
+  <data name="Collapse" xml:space="preserve">
+    <value>收起</value>
+  </data>
+  <data name="CollapseSymbol" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="Expand.Text" xml:space="preserve">
+    <value>展开</value>
+  </data>
+  <data name="ExpandSymbol" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="AddToListButtonTooltip.Content" xml:space="preserve">
+    <value>将添加到列表</value>
+  </data>
+  <data name="AdfsUnauthorizedContent" xml:space="preserve">
+    <value>阁下没有使用内部发行版的权限，或是部署了一个未经授权的安装包。阁下需要有效的 Windows 应用商店许可才能够使用 Light 播放器。请检查安装源，或联系 Little Moe, LLC IT 部门。</value>
+    <comment>This translation is different from the original en-US one.</comment>
+  </data>
+  <data name="AdfsUnauthorizedTitle" xml:space="preserve">
+    <value>激活失败</value>
+  </data>
+  <data name="Album.Text" xml:space="preserve">
+    <value>专辑</value>
+  </data>
+  <data name="AlbumArtist.Text" xml:space="preserve">
+    <value>专辑艺术家</value>
+  </data>
+  <data name="Albums.Text" xml:space="preserve">
+    <value>专辑</value>
+  </data>
+  <data name="Artist.Text" xml:space="preserve">
+    <value>艺术家</value>
+  </data>
+  <data name="Artists.Text" xml:space="preserve">
+    <value>艺术家</value>
+  </data>
+  <data name="ArtistToggleTooltip.Content" xml:space="preserve">
+    <value>艺术家</value>
+  </data>
+  <data name="PoweredBy.Text" xml:space="preserve">
+    <value>数据提供商</value>
+  </data>
+  <data name="AutoMatching.SecondaryButtonText" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="AutoMatching.Title" xml:space="preserve">
+    <value>正在匹配......</value>
+  </data>
+  <data name="CapAlbums" xml:space="preserve">
+    <value>专辑</value>
+  </data>
+  <data name="CapArtists" xml:space="preserve">
+    <value>艺术家</value>
+  </data>
+  <data name="CapSettings" xml:space="preserve">
+    <value>设置</value>
+  </data>
+  <data name="CapSongs" xml:space="preserve">
+    <value>歌曲</value>
+  </data>
+  <data name="CheckingProgressTextBlock.Text" xml:space="preserve">
+    <value>检索文件</value>
+  </data>
+  <data name="CloseSearchButtonTooltip.Content" xml:space="preserve">
+    <value>关闭搜索</value>
+  </data>
+  <data name="Continue.Text" xml:space="preserve">
+    <value>继续</value>
+  </data>
+  <data name="DatabaseOnlyTipTextBlock.Text" xml:space="preserve">
+    <value>所有对元数据所进行的修改仅在 Light 播放器内有效。</value>
+  </data>
+  <data name="DrmNotDupportedContent.Text" xml:space="preserve">
+    <value>我们不支持该类型的文件，或是你正在尝试播放由 Groove 音乐 缓存的文件。因相关版权原因，我们暂时无法在 Light 播放器中播放此文件。请尝试使用 Groove 音乐 播放此文件。</value>
+  </data>
+  <data name="DrmNotSupported.PrimaryButtonText" xml:space="preserve">
+    <value>好的</value>
+  </data>
+  <data name="DrmNotSupported.Title" xml:space="preserve">
+    <value>发生了一些问题</value>
+  </data>
+  <data name="EditButtonTooltip.Content" xml:space="preserve">
+    <value>编辑</value>
+  </data>
+  <data name="EditMetadata.PrimaryButtonText" xml:space="preserve">
+    <value>保存</value>
+  </data>
+  <data name="EditMetadata.SecondaryButtonText" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="EditMetadata.Title" xml:space="preserve">
+    <value>修改元数据</value>
+  </data>
+  <data name="ExtensionDescription.Text" xml:space="preserve">
+    <value>插件功能在当前版本中暂不可用。</value>
+  </data>
+  <data name="ExtensionManageButton.Content" xml:space="preserve">
+    <value>管理插件</value>
+  </data>
+  <data name="ExtensionManageDescription.Text" xml:space="preserve">
+    <value>在此处管理阁下的插件。</value>
+  </data>
+  <data name="ExtensionTextBlock.Text" xml:space="preserve">
+    <value>插件</value>
+  </data>
+  <data name="ExtensionToggle.Header" xml:space="preserve">
+    <value>启用插件</value>
+  </data>
+  <data name="FrameSearchAutoSuggestBox.PlaceholderText" xml:space="preserve">
+    <value>搜索...</value>
+  </data>
+  <data name="Genre.Text" xml:space="preserve">
+    <value>流派</value>
+  </data>
+  <data name="IgnoreDrmToggle.Header" xml:space="preserve">
+    <value>自动忽略含有 DRM 版权保护的文件</value>
+  </data>
+  <data name="InitialProvisionSubTextBlock.Text" xml:space="preserve">
+    <value>Light 播放器，回归音乐的本源。</value>
+  </data>
+  <data name="InitialProvisionTextBlock.Text" xml:space="preserve">
+    <value>欢迎来到 Light 播放器</value>
+  </data>
+  <data name="InitialSettingsSubHeader.Text" xml:space="preserve">
+    <value>在我们开始之前，请确定各项设置符合阁下的需求。</value>
+  </data>
+  <data name="LibraryFolderAddButton.Text" xml:space="preserve">
+    <value>添加</value>
+  </data>
+  <data name="LibraryFolderSelectionTextBlock.Text" xml:space="preserve">
+    <value>选择查找音乐文件的位置</value>
+  </data>
+  <data name="MenuAddToListItem.Text" xml:space="preserve">
+    <value>添加到 "正在播放"</value>
+  </data>
+  <data name="MenuDeleteItem.Text" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="MenuEditItem.Text" xml:space="preserve">
+    <value>编辑</value>
+  </data>
+  <data name="MenuMatchItem.Text" xml:space="preserve">
+    <value>搜索图片</value>
+  </data>
+  <data name="MenuPlayItem.Text" xml:space="preserve">
+    <value>播放</value>
+  </data>
+  <data name="MenuShareItem.Text" xml:space="preserve">
+    <value>分享</value>
+  </data>
+  <data name="Name.Text" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="PlayButtonTooltip.Content" xml:space="preserve">
+    <value>播放</value>
+  </data>
+  <data name="PrivacyConsentTextBlock.Text" xml:space="preserve">
+    <value>隐私</value>
+  </data>
+  <data name="RefineTextBlock.Text" xml:space="preserve">
+    <value>类别 </value>
+  </data>
+  <data name="RefreshInBackgroundToggle.Header" xml:space="preserve">
+    <value>后台刷新媒体库</value>
+  </data>
+  <data name="SearchButtonTooltip.Content" xml:space="preserve">
+    <value>搜索</value>
+  </data>
+  <data name="ShareButtonTooltip.Content" xml:space="preserve">
+    <value>分享</value>
+  </data>
+  <data name="SongToggleTooltip.Content" xml:space="preserve">
+    <value>歌曲</value>
+  </data>
+  <data name="SplitViewLibraryItemTextBlock.Text" xml:space="preserve">
+    <value>库</value>
+  </data>
+  <data name="SplitViewNowPlayingItemTextBlock.Text" xml:space="preserve">
+    <value>正在播放</value>
+  </data>
+  <data name="SplitViewSettingsItemTextBlock.Text" xml:space="preserve">
+    <value>设置</value>
+  </data>
+  <data name="TelemetryDescription.Text" xml:space="preserve">
+    <value>启用遥测数据能够帮助我们不断对 Light 播放器进行改进。遥测数据包括应用崩溃报告、设备制造商、设备型号及性能统计数据。我们不会收集任何可识别的个人信息，你也可以于稍后开启 / 关闭遥测数据。</value>
+  </data>
+  <data name="TelemetryToggle.Header" xml:space="preserve">
+    <value>启用遥测数据</value>
+  </data>
+  <data name="Title.Text" xml:space="preserve">
+    <value>标题</value>
+  </data>
+  <data name="GAtoZ" xml:space="preserve">
+    <value>从 A 到 Z</value>
+  </data>
+  <data name="GGenre" xml:space="preserve">
+    <value>流派</value>
+  </data>
+  <data name="GReleaseDate" xml:space="preserve">
+    <value>发布日期</value>
+  </data>
+  <data name="GZtoA" xml:space="preserve">
+    <value>从 Z 到 A</value>
+  </data>
+  <data name="MultipleFileSharing" xml:space="preserve">
+    <value>分享</value>
+  </data>
+  <data name="SingleArtistSharing" xml:space="preserve">
+    <value>分享</value>
+  </data>
+  <data name="SingleFileSharing" xml:space="preserve">
+    <value>分享</value>
+  </data>
+  <data name="Failure" xml:space="preserve">
+    <value>出现了一些错误</value>
+  </data>
+  <data name="AlbumToggleTooltip.Content" xml:space="preserve">
+    <value>专辑</value>
+  </data>
+  <data name="AllowUntrustedInstallation.Header" xml:space="preserve">
+    <value>允许不受信任的安装源</value>
+  </data>
+  <data name="GNoGroup" xml:space="preserve">
+    <value>不分组</value>
+  </data>
+  <data name="AboutTextBox.Text" xml:space="preserve">
+    <value>关于本应用</value>
+  </data>
+  <data name="AtoZItem.Content" xml:space="preserve">
+    <value>从 A 到 Z</value>
+  </data>
+  <data name="CheckingProgressTextBlock.FontWeight" xml:space="preserve">
+    <value>Normal</value>
+  </data>
+  <data name="ClearLyricLink.Content" xml:space="preserve">
+    <value>清除这首歌的歌词缓存</value>
+  </data>
+  <data name="CycleAllMenuItem.Text" xml:space="preserve">
+    <value>列表循环</value>
+  </data>
+  <data name="CycleSingleMenuItem.Text" xml:space="preserve">
+    <value>单曲循环</value>
+  </data>
+  <data name="DeleteConfirmationContentDialog.Title" xml:space="preserve">
+    <value>确认删除</value>
+  </data>
+  <data name="DeleteConfirmationContentDialogContent" xml:space="preserve">
+    <value>阁下将从媒体库中删除 {0} 。</value>
+  </data>
+  <data name="ImportExtLyricLink.Content" xml:space="preserve">
+    <value>选取歌词文件</value>
+  </data>
+  <data name="InputAutoSuggestBox.PlaceholderText" xml:space="preserve">
+    <value>按照 标题和歌手 的格式输入...</value>
+  </data>
+  <data name="JumpToLyricToggle.Header" xml:space="preserve">
+    <value>开始播放后立即跳转到正在播放页面</value>
+  </data>
+  <data name="LyricSelectionDialog.PrimaryButtonText" xml:space="preserve">
+    <value>选择</value>
+  </data>
+  <data name="LyricSelectionDialog.SecondaryButtonText" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="LyricSelectionDialog.Title" xml:space="preserve">
+    <value>从目录中搜索歌词</value>
+  </data>
+  <data name="OSSLicenseLink.Content" xml:space="preserve">
+    <value>开放源代码组件许可协议</value>
+  </data>
+  <data name="PrivacyPolicyLick.Content" xml:space="preserve">
+    <value>隐私策略</value>
+  </data>
+  <data name="RandomMenuItem.Text" xml:space="preserve">
+    <value>随机播放</value>
+  </data>
+  <data name="RefineTextBlock.FontWeight" xml:space="preserve">
+    <value>Normal</value>
+  </data>
+  <data name="SeqMenuItem.Text" xml:space="preserve">
+    <value>顺序播放</value>
+  </data>
+  <data name="TrackNumberItem.Content" xml:space="preserve">
+    <value>曲目序号</value>
+  </data>
+  <data name="UseOrigCoverToggle.Header" xml:space="preserve">
+    <value>使用原始专辑图片 (可能增大磁盘用量)</value>
+  </data>
+  <data name="ZtoAItem.Content" xml:space="preserve">
+    <value>从 Z 到 A</value>
+  </data>
+  <data name="PlaybackTitleTextbox.Text" xml:space="preserve">
+    <value>播放</value>
+  </data>
+  <data name="PlaylistTextBox.Text" xml:space="preserve">
+    <value>正在播放</value>
+  </data>
+  <data name="IntroVideoMediaElement.Source" xml:space="preserve">
+    <value>ms-appx:///Assets/IntroVideo/Intro-zh-CN.mp4</value>
+  </data>
+  <data name="AtoZTitleGroupDescription" xml:space="preserve">
+    <value>按标题对内容使用升序排序进行排序和分组。</value>
+  </data>
+  <data name="AtoZTitleGroupName" xml:space="preserve">
+    <value>从 A 到 Z</value>
+  </data>
+  <data name="GenreGroupDescription" xml:space="preserve">
+    <value>按流派对专辑进行排序和分组。</value>
+  </data>
+  <data name="GenreGroupName" xml:space="preserve">
+    <value>流派</value>
+  </data>
+  <data name="ReleaseYearGroupDescription" xml:space="preserve">
+    <value>按发行年份对专辑进行排序和分组。</value>
+  </data>
+  <data name="ReleaseYearGroupName" xml:space="preserve">
+    <value>发行年份</value>
+  </data>
+  <data name="ZtoATitleGroupDescription" xml:space="preserve">
+    <value>按标题对内容使用降序排序进行排序和分组。</value>
+  </data>
+  <data name="ZtoATitleGroupName" xml:space="preserve">
+    <value>从 Z 到 A</value>
+  </data>
+  <data name="AlbumSubtitleFallbackFormat" xml:space="preserve">
+    <value>{0} 的专辑</value>
+  </data>
+  <data name="AlbumSubtitleFormat" xml:space="preserve">
+    <value>{0} 首 {1} 的歌曲</value>
+  </data>
+  <data name="ArtistSubtitleFallbackFormat" xml:space="preserve">
+    <value>艺术家</value>
+  </data>
+  <data name="ArtistSubtitleFormat" xml:space="preserve">
+    <value>共 {0} 张专辑， {1} 首歌曲</value>
+  </data>
+  <data name="CategoryGroupName" xml:space="preserve">
+    <value>分类</value>
+  </data>
+  <data name="DefaultAlbumName" xml:space="preserve">
+    <value>专辑</value>
+  </data>
+  <data name="DefaultArtistName" xml:space="preserve">
+    <value>艺术家</value>
+  </data>
+  <data name="DefaultFileName" xml:space="preserve">
+    <value>文件</value>
+  </data>
+  <data name="DefaultPlaylistTempalte" xml:space="preserve">
+    <value>播放列表 {0}</value>
+  </data>
+  <data name="DeleteConfirmationText" xml:space="preserve">
+    <value>阁下将要删除这个文件</value>
+  </data>
+  <data name="DeviceNotSupportedString" xml:space="preserve">
+    <value>在本设备上不受支持</value>
+  </data>
+  <data name="IapBuildNotSupportedErrorPrompt" xml:space="preserve">
+    <value>这个功能在发布版本中不可用</value>
+  </data>
+  <data name="IapBuildNotSupportedErrorTitle" xml:space="preserve">
+    <value>不支持的功能</value>
+  </data>
+  <data name="IapPurchaseSucceededPrompt" xml:space="preserve">
+    <value>阁下已经解锁所有功能。</value>
+  </data>
+  <data name="IapPurchaseSucceededTitle" xml:space="preserve">
+    <value>谢谢</value>
+  </data>
+  <data name="JumplistAlbumText" xml:space="preserve">
+    <value>查看所有专辑</value>
+  </data>
+  <data name="JumplistArtistText" xml:space="preserve">
+    <value>查看所有歌手</value>
+  </data>
+  <data name="JumplistPlaylistText" xml:space="preserve">
+    <value>查看所有播放列表</value>
+  </data>
+  <data name="JumplistSongText" xml:space="preserve">
+    <value>查看所有歌曲</value>
+  </data>
+  <data name="LibraryTitle" xml:space="preserve">
+    <value>媒体库</value>
+  </data>
+  <data name="LiveTileLine3" xml:space="preserve">
+    <value>在 Light 中播放</value>
+  </data>
+  <data name="ManualSelectLyricButtonText" xml:space="preserve">
+    <value>选择歌词文件</value>
+  </data>
+  <data name="PlaylisFallbackSubtitle" xml:space="preserve">
+    <value>播放列表</value>
+  </data>
+  <data name="PlaylistSaveErrorTitle" xml:space="preserve">
+    <value>保存播放列表失败</value>
+  </data>
+  <data name="PlaylistSubtitle" xml:space="preserve">
+    <value>{0} 首歌曲</value>
+  </data>
+  <data name="PlaylisySaveSucceededTitle" xml:space="preserve">
+    <value>播放列表已经保存</value>
+  </data>
+  <data name="PropertyTitle" xml:space="preserve">
+    <value>文件属性</value>
+  </data>
+  <data name="ProvisionPrompt" xml:space="preserve">
+    <value>正在为首次使用做好准备</value>
+  </data>
+  <data name="SearchError" xml:space="preserve">
+    <value>发生了一些问题: {0}</value>
+  </data>
+  <data name="SearchTitleTemplate" xml:space="preserve">
+    <value>搜索 {0}</value>
+  </data>
+  <data name="SettingsTitle" xml:space="preserve">
+    <value>设置</value>
+  </data>
+  <data name="SongSubtitleFormat" xml:space="preserve">
+    <value>{1} 的 {0}，时长 {2}</value>
+  </data>
+  <data name="UnknownAlbumTitle" xml:space="preserve">
+    <value>迷之专辑</value>
+  </data>
+  <data name="UnknownArtistTitle" xml:space="preserve">
+    <value>迷之歌手</value>
+  </data>
+  <data name="UnknownDate" xml:space="preserve">
+    <value>未知日期</value>
+  </data>
+  <data name="LibraryHstViewGroupRefineTextBlk.Text" xml:space="preserve">
+    <value>筛选：</value>
+  </data>
+  <data name="OMtSetAppleMusicMrktRegionTextBlock.Text" xml:space="preserve">
+    <value>市场区域</value>
+  </data>
+  <data name="OMtSetExcludedAlbumsHeaderTextBlock.Text" xml:space="preserve">
+    <value>专辑例外</value>
+  </data>
+  <data name="OMtSetExcludedArtistsHeaderTextBlock.Text" xml:space="preserve">
+    <value>艺术家例外</value>
+  </data>
+  <data name="OMtSetViewEnableRetrievalToggle.Header" xml:space="preserve">
+    <value>启用在线媒体元数据获取</value>
+  </data>
+  <data name="OMtSetViewOptReminder.Text" xml:space="preserve">
+    <value>本设置仅对新增加的专辑和艺术家生效。</value>
+  </data>
+  <data name="OMtSetViewOverView.Text" xml:space="preserve">
+    <value>概览</value>
+  </data>
+  <data name="OnlineMetadataRetrievalSettings.Text" xml:space="preserve">
+    <value>在线媒体元数据获取设置</value>
+  </data>
+  <data name="ProvisionStatusTextBlock.Text" xml:space="preserve">
+    <value>正在准备就绪</value>
+  </data>
+  <data name="FilePropTitleTextBlkInitialRun.Text" xml:space="preserve">
+    <value>文件属性：</value>
+  </data>
+  <data name="MenuAddAsNext.Text" xml:space="preserve">
+    <value>下一首播放</value>
+  </data>
+  <data name="MenuOpenFileLoc.Text" xml:space="preserve">
+    <value>前往所在位置</value>
+  </data>
+  <data name="MenuShowProp.Text" xml:space="preserve">
+    <value>属性</value>
+  </data>
+  <data name="SetViewTitleTextBlk.Text" xml:space="preserve">
+    <value>设置</value>
+  </data>
+  <data name="EmptyCollectionIndicatorSubtitleTextBlk.Text" xml:space="preserve">
+    <value>添加一些东西到这里吧。</value>
+  </data>
+  <data name="EmptyCollectionIndicatorTitleTextBlk.Text" xml:space="preserve">
+    <value>此处冷冷清清。</value>
+  </data>
+  <data name="ArtistDetailedPageAlbumsHeaderTxtBlk.Text" xml:space="preserve">
+    <value>本艺术家的专辑</value>
+  </data>
+  <data name="ArtistDetailedPageIntroHeaderTxtBlk.Text" xml:space="preserve">
+    <value>介绍</value>
+  </data>
+  <data name="ArtistDetailedPageSongsHeaderTxtBlk.Text" xml:space="preserve">
+    <value>本艺术家的歌曲</value>
+  </data>
+  <data name="LrcSourceSelectionTextBlock.Text" xml:space="preserve">
+    <value>配置为阁下获取歌词的数据源。</value>
+  </data>
+  <data name="MetadataRetrievalBtn.Content" xml:space="preserve">
+    <value>管理</value>
+  </data>
+  <data name="MetadataRetrievalDescriptionTxtBlk.Text" xml:space="preserve">
+    <value>在此处管理在线元数据获取。</value>
+  </data>
+  <data name="LrcMissingPrompt.Text" xml:space="preserve">
+    <value>无歌词</value>
+  </data>
+  <data name="LyricsPivotItem.Header" xml:space="preserve">
+    <value>歌词</value>
+  </data>
+  <data name="NowPlayingPivotItem.Header" xml:space="preserve">
+    <value>正在播放</value>
+  </data>
+  <data name="ArtistTextBox.PlaceholderText" xml:space="preserve">
+    <value>艺术家</value>
+  </data>
+  <data name="TitleTextBox.PlaceholderText" xml:space="preserve">
+    <value>歌名</value>
+  </data>
+  <data name="RefreshConfirmButton.Content" xml:space="preserve">
+    <value>确认</value>
+  </data>
+  <data name="RefreshConfirmPrompt.Text" xml:space="preserve">
+    <value>媒体数据库将被清除，重新扫描将会需要一些时间，请阁下耐心等待。</value>
+  </data>
+  <data name="AppleMusicMrktenAU" xml:space="preserve">
+    <value>英语 (澳大利亚)</value>
+  </data>
+  <data name="AppleMusicMrktenGB" xml:space="preserve">
+    <value>英语 (英国)</value>
+  </data>
+  <data name="AppleMusicMrktenUS" xml:space="preserve">
+    <value>英语 (美国)</value>
+  </data>
+  <data name="AppleMusicMrktjaJP" xml:space="preserve">
+    <value>日语 (日本)</value>
+  </data>
+  <data name="AppleMusicMrktzhCN" xml:space="preserve">
+    <value>简体中文 (中国)</value>
+  </data>
+  <data name="AppleMusicMrktzhHK" xml:space="preserve">
+    <value>繁体中文 (香港特别行政区)</value>
+  </data>
+  <data name="AppleMusicMrktzhSG" xml:space="preserve">
+    <value>简体中文 (新加坡)</value>
+  </data>
+  <data name="AppleMusicMrktzhTW" xml:space="preserve">
+    <value>繁体中文 (台湾)</value>
+  </data>
+  <data name="FeedbackPrivacyNotice.Text" xml:space="preserve">
+    <value>请注意：如果阁下在设置中启用了遥测，则一个用于分析产品质量匿名 ID 将会随反馈一起发送。这些信息将不能用于跟踪阁下的活动。关于具体信息，请参见我们的隐私声明。</value>
+  </data>
+  <data name="CertValidationFailureMessage" xml:space="preserve">
+    <value>Light 不能验证服务器的身份。为了保证阁下的信息安全，反馈将不会被发送。请检查网络环境（例如 Wi-Fi 认证服务器等）并再试一次。</value>
+  </data>
+  <data name="CertValidationFailureTitle" xml:space="preserve">
+    <value>安全警告！</value>
+  </data>
+  <data name="FeedbackAcceptedMessage" xml:space="preserve">
+    <value>阁下的反馈可以帮助我们改善产品质量。</value>
+  </data>
+  <data name="FeedbackAcceptedTitle" xml:space="preserve">
+    <value>谢谢您</value>
+  </data>
+  <data name="FeedbackAttachScreenshotCheckbox.Content" xml:space="preserve">
+    <value>附上屏幕截图</value>
+  </data>
+  <data name="FeedbackPageHeader.Text" xml:space="preserve">
+    <value>告诉我们阁下的使用体验</value>
+  </data>
+  <data name="FeedbackProgressIndicator.Text" xml:space="preserve">
+    <value>提交中…</value>
+  </data>
+  <data name="FeedbackSubmitButton.Content" xml:space="preserve">
+    <value>提交</value>
+  </data>
+  <data name="FeedbackTitle.Text" xml:space="preserve">
+    <value>向 Little Moe, LLC 反馈</value>
+  </data>
+  <data name="FeedbackTypeBug.Content" xml:space="preserve">
+    <value>问题</value>
+  </data>
+  <data name="FeedbackTypeIndicatorText.Text" xml:space="preserve">
+    <value>阁下想报告的内容是</value>
+  </data>
+  <data name="FeedbackTypeSuggestion.Content" xml:space="preserve">
+    <value>建议</value>
+  </data>
+  <data name="FeedbackUserFillContactTextBox.PlaceholderText" xml:space="preserve">
+    <value>电子邮箱地址 (可选)</value>
+  </data>
+  <data name="FeedbackUserFillContentTextBox.PlaceholderText" xml:space="preserve">
+    <value>在此处填写具体信息 (可选)</value>
+  </data>
+  <data name="FeedbackUserFillTitleTextBox.PlaceholderText" xml:space="preserve">
+    <value>在五十字内简要描述问题或者建议</value>
+  </data>
+  <data name="InternalErrorMessage" xml:space="preserve">
+    <value>在我们这儿发生了一些问题</value>
+  </data>
+  <data name="InternalErrorTitle" xml:space="preserve">
+    <value>发生了一些问题</value>
+  </data>
+  <data name="RequestThrottledMessage" xml:space="preserve">
+    <value>阁下发送反馈的频率过快。请稍后再试。</value>
+  </data>
+  <data name="RequestThrottledTitle" xml:space="preserve">
+    <value>冷静一下……</value>
+  </data>
+  <data name="FeedbackPrivacyNotice.FontWeight" xml:space="preserve">
+    <value>Normal</value>
+  </data>
+  <data name="FeedbackContentTypeStackPanel.Margin" xml:space="preserve">
+    <value>50,10,0,0</value>
+  </data>
+  <data name="NetworkConnectionMessage" xml:space="preserve">
+    <value>请检查网络连接。</value>
+  </data>
+  <data name="NetworkConnectionTitle" xml:space="preserve">
+    <value>无法连接到互联网</value>
+  </data>
+  <data name="UnknownProperty" xml:space="preserve">
+    <value>未知属性: {0}</value>
+  </data>
+  <data name="FeedbackTooltip.Content" xml:space="preserve">
+    <value>向 Little Moe, LLC 反馈</value>
+  </data>
+  <data name="FullscreenTooltip.Content" xml:space="preserve">
+    <value>切换 窗口/全屏 模式</value>
+  </data>
+  <data name="RestartToApplySettingsPrompt.Text" xml:space="preserve">
+    <value>重启应用来应用设置。</value>
+  </data>
+  <data name="DarkThemeRadioButton.Content" xml:space="preserve">
+    <value>暗色</value>
+  </data>
+  <data name="LanguageHeader.Text" xml:space="preserve">
+    <value>语言</value>
+  </data>
+  <data name="LightThemeRadioButton.Content" xml:space="preserve">
+    <value>亮色</value>
+  </data>
+  <data name="OsReleaseUnsupportedPrompt.Text" xml:space="preserve">
+    <value>阁下的操作系统发布版本无法使用主题功能。</value>
+  </data>
+  <data name="ThemeHeader.Text" xml:space="preserve">
+    <value>主题</value>
+  </data>
+  <data name="UseOSLanguageSettings" xml:space="preserve">
+    <value>使用操作系统的语言设置</value>
+  </data>
+  <data name="UseOsThemeRadioButton.Content" xml:space="preserve">
+    <value>使用系统颜色设置</value>
+  </data>
+  <data name="MultipleResultsText" xml:space="preserve">
+    <value>找到 {0} 个结果</value>
+  </data>
+  <data name="NoResultText" xml:space="preserve">
+    <value>无结果</value>
+  </data>
+  <data name="NowPlayingEmptyTitle" xml:space="preserve">
+    <value>正在播放</value>
+  </data>
+  <data name="NowPlayingTitle" xml:space="preserve">
+    <value>正在播放 - {0}</value>
+  </data>
+  <data name="OneResultText" xml:space="preserve">
+    <value>找到 1 个结果</value>
+  </data>
+  <data name="PlaylistNoItemSubtitle" xml:space="preserve">
+    <value>没有歌曲</value>
+  </data>
+  <data name="PlaylistSingleItemSubtitle" xml:space="preserve">
+    <value>1 首歌曲</value>
+  </data>
+  <data name="LrcDownloadFailed" xml:space="preserve">
+    <value>歌词下载失败： {0}</value>
+  </data>
+  <data name="LrcNotFound" xml:space="preserve">
+    <value>这个搜索结果不包含歌词。</value>
+  </data>
+  <data name="FavoritesLocalizedText" xml:space="preserve">
+    <value>收藏</value>
+  </data>
+  <data name="OMtSetViewEnableOverMeteredNetworkToggle.Header" xml:space="preserve">
+    <value>在按流量计费的连接下自动下载图片</value>
+  </data>
+  <data name="PlaylistSelectDialog.PrimaryButtonText" xml:space="preserve">
+    <value>选择</value>
+  </data>
+  <data name="PlaylistSelectDialog.SecondaryButtonText" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="PlaylistSelectDialog.Title" xml:space="preserve">
+    <value>请选择一个播放列表</value>
+  </data>
+  <data name="CannotRenameFavoritePrompt" xml:space="preserve">
+    <value>不能重命名收藏列表</value>
+  </data>
+  <data name="FieldEditor.PrimaryButtonText" xml:space="preserve">
+    <value>确认</value>
+  </data>
+  <data name="FieldEditor.SecondaryButtonText" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="NewNameEmptyPrompt" xml:space="preserve">
+    <value>播放列表名称不能为空</value>
+  </data>
+  <data name="PlaylistAlreadyExistPrompt" xml:space="preserve">
+    <value>播放列表“{0}”已经存在</value>
+  </data>
+  <data name="RenameItem.Text" xml:space="preserve">
+    <value>重命名</value>
+  </data>
+  <data name="RenameString" xml:space="preserve">
+    <value>重命名</value>
+  </data>
+  <data name="NewPlaylistString" xml:space="preserve">
+    <value>创建播放列表</value>
+  </data>
+  <data name="PlaylistDefaultname" xml:space="preserve">
+    <value>新列表</value>
+  </data>
+  <data name="CancelString" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="ClearString" xml:space="preserve">
+    <value>清空</value>
+  </data>
+  <data name="ConfirmString" xml:space="preserve">
+    <value>确认</value>
+  </data>
+  <data name="DeleteString" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="FavoriteClearTitle" xml:space="preserve">
+    <value>确认清空</value>
+  </data>
+  <data name="FavoriteDeleteDescription" xml:space="preserve">
+    <value>是否确认清空收藏列表？此操作不可恢复。</value>
+  </data>
+  <data name="MenuNewPlaylist.Text" xml:space="preserve">
+    <value>创建播放列表</value>
+  </data>
+  <data name="PlaylistDeleteDescription" xml:space="preserve">
+    <value>是否确认删除播放列表“{0}”？此操作不可恢复。</value>
+  </data>
+  <data name="PlaylistDeleteTitle" xml:space="preserve">
+    <value>确认删除</value>
+  </data>
+  <data name="ChooseFileName" xml:space="preserve">
+    <value>选择一个文件名</value>
+  </data>
+  <data name="FailedToSavePlaylist" xml:space="preserve">
+    <value>播放列表保存失败</value>
+  </data>
+  <data name="M3u" xml:space="preserve">
+    <value>M3u 播放列表</value>
+  </data>
+  <data name="PlaylistSaved" xml:space="preserve">
+    <value>播放列表已保存。</value>
+  </data>
+  <data name="ValidFilenameRequired" xml:space="preserve">
+    <value>请输入一个有效的文件名</value>
+  </data>
+  <data name="MenuExportM3u.Text" xml:space="preserve">
+    <value>M3u 播放列表</value>
+  </data>
+  <data name="MenuExportPlaylist.Text" xml:space="preserve">
+    <value>导出为</value>
+  </data>
+  <data name="MenuExportWpl.Text" xml:space="preserve">
+    <value>Windows Media 播放列表</value>
+  </data>
+  <data name="FileOpenFailure.SecondaryButtonText" xml:space="preserve">
+    <value>确定</value>
+  </data>
+  <data name="FileOpenFailure.Title" xml:space="preserve">
+    <value>授权访问文件</value>
+  </data>
+  <data name="FileOpenFailureDescription.Text" xml:space="preserve">
+    <value>Light 播放器没有访问这些文件的权限，请使用文件选取器授权应用访问，或者将文件拖动到此处。</value>
+  </data>
+  <data name="NoLrcSourcePromptPart1.Text" xml:space="preserve">
+    <value>没有可用的歌词来源。
+请</value>
+  </data>
+  <data name="NoLrcSourcePromptPart2.Text" xml:space="preserve">
+    <value>添加</value>
+  </data>
+  <data name="NoLrcSourcePromptPart3.Text" xml:space="preserve">
+    <value>一些歌词扩展，或者手动</value>
+  </data>
+  <data name="NoLrcSourcePromptPart4.Text" xml:space="preserve">
+    <value>导入</value>
+  </data>
+  <data name="NoLrcSourcePromptPart5.Text" xml:space="preserve">
+    <value>歌词。</value>
+  </data>
+  <data name="AccessAuthorizeSuggestDetailed.Text" xml:space="preserve">
+    <value>Light 播放器默认不会扫描这些目录下的文件，如果你打开了包含这些目录下的音乐的 cue 或者播放列表文件，Light 播放器可以直接播放它们而无需打搅你。</value>
+  </data>
+  <data name="AlreadyHaveAccessPrompt" xml:space="preserve">
+    <value>Light 播放器已经能访问这些目录，无需再次添加。</value>
+  </data>
+  <data name="FileAccessIntro.Text" xml:space="preserve">
+    <value>选择播放器可以访问的目录</value>
+  </data>
+  <data name="LearnMore.Text" xml:space="preserve">
+    <value>了解更多</value>
+  </data>
+  <data name="AllMusicText.Text" xml:space="preserve">
+    <value>所有音乐</value>
+  </data>
+  <data name="ByText.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ContinuePlaylistUpper" xml:space="preserve">
+    <value>继续播放</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>首页</value>
+  </data>
+  <data name="MyMusicUpper" xml:space="preserve">
+    <value>我的音乐</value>
+  </data>
+  <data name="NowPlayingText.Text" xml:space="preserve">
+    <value>正在播放</value>
+  </data>
+  <data name="NowPlayingUpper" xml:space="preserve">
+    <value>正在播放</value>
+  </data>
+  <data name="OpenPlaylistText.Text" xml:space="preserve">
+    <value>打开列表</value>
+  </data>
+  <data name="UpcomingText.Text" xml:space="preserve">
+    <value>下一首</value>
+  </data>
+  <data name="AboutButton.Label" xml:space="preserve">
+    <value>关于</value>
+  </data>
+  <data name="AlbumsSeparator.Text" xml:space="preserve">
+    <value>张专辑，</value>
+  </data>
+  <data name="DefaultPageTitle.Text" xml:space="preserve">
+    <value>我的音乐</value>
+  </data>
+  <data name="HomeToolTip.Content" xml:space="preserve">
+    <value>首页</value>
+  </data>
+  <data name="LyricsTitle.Text" xml:space="preserve">
+    <value>歌词</value>
+  </data>
+  <data name="NowPlayingTooltip.Content" xml:space="preserve">
+    <value>正在播放</value>
+  </data>
+  <data name="PlaylistTooltip.Content" xml:space="preserve">
+    <value>播放列表</value>
+  </data>
+  <data name="RefreshLibraryButton.Label" xml:space="preserve">
+    <value>刷新媒体库</value>
+  </data>
+  <data name="SettingsButton.Label" xml:space="preserve">
+    <value>设置</value>
+  </data>
+  <data name="SettingsView.PageTitle" xml:space="preserve">
+    <value>设置</value>
+  </data>
+  <data name="ShuffleAll.Text" xml:space="preserve">
+    <value>随机播放</value>
+  </data>
+  <data name="LikeToolTip.Content" xml:space="preserve">
+    <value>喜欢</value>
+  </data>
+  <data name="ModeToolTip.Content" xml:space="preserve">
+    <value>播放模式</value>
+  </data>
+  <data name="NextToolTip.Content" xml:space="preserve">
+    <value>下一曲</value>
+  </data>
+  <data name="PrevToolTip.Content" xml:space="preserve">
+    <value>上一曲</value>
+  </data>
+  <data name="ToolTipPause" xml:space="preserve">
+    <value>暂停</value>
+  </data>
+  <data name="ToolTipPlay" xml:space="preserve">
+    <value>播放</value>
+  </data>
+  <data name="VolumeToolTip.Content" xml:space="preserve">
+    <value>音量</value>
+  </data>
+  <data name="ArchARM" xml:space="preserve">
+    <value>ARM</value>
+  </data>
+  <data name="ArchARM64" xml:space="preserve">
+    <value>ARM （64位）</value>
+  </data>
+  <data name="Archx64" xml:space="preserve">
+    <value>Intel （64位）</value>
+  </data>
+  <data name="Archx86" xml:space="preserve">
+    <value>Intel</value>
+  </data>
+  <data name="Local Instllation" xml:space="preserve">
+    <value>外部安装</value>
+  </data>
+  <data name="Store Release" xml:space="preserve">
+    <value>Windows 应用商店发行版本</value>
+  </data>
+  <data name="ArchNetural" xml:space="preserve">
+    <value>平台中立</value>
+  </data>
+  <data name="ArchUnknown" xml:space="preserve">
+    <value>未知架构</value>
+  </data>
+  <data name="EnableThirdPartyLyricsReminder.Text" xml:space="preserve">
+    <value>需要同意第三方服务使用条款。</value>
+  </data>
+  <data name="EnableThirdPartyLyricsToggle.Header" xml:space="preserve">
+    <value>启用第三方歌词服务</value>
+  </data>
+  <data name="AlwaysResampleToggle.Header" xml:space="preserve">
+    <value>总是将音频重采样至指定采样率</value>
+  </data>
+  <data name="ApplyNextTrackPrompt.Text" xml:space="preserve">
+    <value>采样率设置将在下一曲播放时生效。</value>
+  </data>
+  <data name="CurrentSampleRateDesc.Text" xml:space="preserve">
+    <value>当前的系统采样率:</value>
+  </data>
+  <data name="RefreshText.Text" xml:space="preserve">
+    <value>刷新</value>
+  </data>
+  <data name="SampleRateDesc.Text" xml:space="preserve">
+    <value>选择采样率</value>
+  </data>
+  <data name="UseSystemSampleRate" xml:space="preserve">
+    <value>系统采样率</value>
+  </data>
+  <data name="SecDebug" xml:space="preserve">
+    <value>调试</value>
+  </data>
+  <data name="SecLibrary" xml:space="preserve">
+    <value>媒体库</value>
+  </data>
+  <data name="SecPlaybackAndLyrics" xml:space="preserve">
+    <value>播放与歌词</value>
+  </data>
+  <data name="SecPrivacy" xml:space="preserve">
+    <value>隐私</value>
+  </data>
+  <data name="SecThemeAndLanguage" xml:space="preserve">
+    <value>主题与语言</value>
+  </data>
+  <data name="AppName" xml:space="preserve">
+    <value>Light 播放器</value>
+  </data>
+  <data name="AlbumNameGroupDescription" xml:space="preserve">
+    <value>按所属专辑进行排序与分组</value>
+  </data>
+  <data name="AlbumNameGroupName" xml:space="preserve">
+    <value>专辑</value>
+  </data>
+  <data name="ArtistNameGroupDescription" xml:space="preserve">
+    <value>按艺术家名进行排序与分组</value>
+  </data>
+  <data name="ArtistNameGroupName" xml:space="preserve">
+    <value>艺术家</value>
+  </data>
+  <data name="EarlierAddedGroupDescription" xml:space="preserve">
+    <value>按添加到数据库的时间进行排序。</value>
+  </data>
+  <data name="EarlierAddedGroupName" xml:space="preserve">
+    <value>最早添加</value>
+  </data>
+  <data name="RecentAddedGroupDescription" xml:space="preserve">
+    <value>按添加到数据库的时间进行排序。</value>
+  </data>
+  <data name="RecentAddedGroupName" xml:space="preserve">
+    <value>最近添加</value>
+  </data>
+  <data name="AllMusic" xml:space="preserve">
+    <value>所有音乐</value>
+  </data>
+  <data name="NoGroupingDescription" xml:space="preserve">
+    <value>按照标题文字顺序排列，不分组。</value>
+  </data>
+  <data name="NoGroupingName" xml:space="preserve">
+    <value>所有</value>
+  </data>
+  <data name="MenuAddToPlaylistItem.Text" xml:space="preserve">
+    <value>添加到播放列表</value>
+  </data>
+  <data name="AlbumArtistText" xml:space="preserve">
+    <value>专辑艺术家</value>
+  </data>
+  <data name="AlbumText" xml:space="preserve">
+    <value>专辑</value>
+  </data>
+  <data name="ArtistText" xml:space="preserve">
+    <value>艺术家</value>
+  </data>
+  <data name="Comment" xml:space="preserve">
+    <value>说明</value>
+  </data>
+  <data name="Composer" xml:space="preserve">
+    <value>作曲家</value>
+  </data>
+  <data name="CopyrightText" xml:space="preserve">
+    <value>版权</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>日期</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>描述</value>
+  </data>
+  <data name="Disc" xml:space="preserve">
+    <value>唱片</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>错误</value>
+  </data>
+  <data name="FileNotFound" xml:space="preserve">
+    <value>文件 “{0}” 未找到</value>
+  </data>
+  <data name="GenreText" xml:space="preserve">
+    <value>流派</value>
+  </data>
+  <data name="Grouping" xml:space="preserve">
+    <value>归类</value>
+  </data>
+  <data name="MediaFilePropertiesDialog.PrimaryButtonText" xml:space="preserve">
+    <value>确认</value>
+  </data>
+  <data name="MediaFilePropertiesDialog.Title" xml:space="preserve">
+    <value>文件属性</value>
+  </data>
+  <data name="Performer" xml:space="preserve">
+    <value>演奏者</value>
+  </data>
+  <data name="Time" xml:space="preserve">
+    <value>时间</value>
+  </data>
+  <data name="TitleText" xml:space="preserve">
+    <value>标题</value>
+  </data>
+  <data name="TotalDiscs" xml:space="preserve">
+    <value>唱片总数目</value>
+  </data>
+  <data name="TotalTracks" xml:space="preserve">
+    <value>音轨总数目</value>
+  </data>
+  <data name="Track" xml:space="preserve">
+    <value>音轨</value>
+  </data>
+  <data name="EncoderText" xml:space="preserve">
+    <value>编码器</value>
+  </data>
+  <data name="PublisherText" xml:space="preserve">
+    <value>出版公司</value>
+  </data>
+  <data name="SortedAlbumText" xml:space="preserve">
+    <value>经排序的专辑名</value>
+  </data>
+  <data name="SortedArtistText" xml:space="preserve">
+    <value>经排序的艺人名</value>
+  </data>
+  <data name="SortedTitleText" xml:space="preserve">
+    <value>经排序的歌名</value>
+  </data>
+  <data name="TsrcText" xml:space="preserve">
+    <value>国际标准音像制品编码</value>
+  </data>
+  <data name="Select" xml:space="preserve">
+    <value>选择</value>
+  </data>
+  <data name="AlbumNameTextBox.PlaceholderText" xml:space="preserve">
+    <value>专辑</value>
+  </data>
+  <data name="ClearImageLink.Content" xml:space="preserve">
+    <value>删除现有图片</value>
+  </data>
+  <data name="DownloadFailedPrompt" xml:space="preserve">
+    <value>下载失败。</value>
+  </data>
+  <data name="FileSizeLimitPrompt" xml:space="preserve">
+    <value>文件大小超过了10MB的限制。</value>
+  </data>
+  <data name="ImportExtImageLink.Content" xml:space="preserve">
+    <value>选择图片文件</value>
+  </data>
+  <data name="NoValidThumbnailPrompt" xml:space="preserve">
+    <value>你选择的搜索结果不包含有效的图片文件。</value>
+  </data>
+  <data name="ThumbnailSearchFlyout.PrimaryButtonText" xml:space="preserve">
+    <value>选择</value>
+  </data>
+  <data name="ThumbnailSearchFlyout.SecondaryButtonText" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="ThumbnailSearchFlyout.Title" xml:space="preserve">
+    <value>搜索</value>
+  </data>
+  <data name="TrackLibraryChangeToggle.Header" xml:space="preserve">
+    <value>监视媒体库更改</value>
+  </data>
+  <data name="TrackLibraryWarningTextBlock.Text" xml:space="preserve">
+    <value>启用该选项会使得所有媒体库更改自动呈现，无需手动刷新，即便应用关闭时也是如此。这个功能会轻微消耗更多的电池时间。</value>
+  </data>
+  <data name="LibraryUpdatedContentAdded" xml:space="preserve">
+    <value>{0} 个项目被添加</value>
+  </data>
+  <data name="LibraryUpdatedContentOther" xml:space="preserve">
+    <value>媒体库已达到最新状态！</value>
+  </data>
+  <data name="LibraryUpdatedTitle" xml:space="preserve">
+    <value>媒体库已更新</value>
+  </data>
+  <data name="LibraryFolderExclusionTextBlock.Text" xml:space="preserve">
+    <value>排除目录</value>
+  </data>
+  <data name="SelectionNotInLibraryPrompt" xml:space="preserve">
+    <value>所选目录不在音乐库内。</value>
+  </data>
+  <data name="KeepHistoryToggle.Header" xml:space="preserve">
+    <value>保留播放历史记录</value>
+  </data>
+  <data name="RecentlyText.Text" xml:space="preserve">
+    <value>最近播放</value>
+  </data>
+  <data name="LibraryFilesAddedFormat" xml:space="preserve">
+    <value>添加了{0}个文件</value>
+  </data>
+  <data name="LibraryScanErrorDesc.Text" xml:space="preserve">
+    <value>在上一次媒体库扫描过程中，我们没有成功将以下文件添加到库里。</value>
+  </data>
+  <data name="LibraryWarningDialog.SecondaryButtonText" xml:space="preserve">
+    <value>确认</value>
+  </data>
+  <data name="LibraryWarningDialog.Title" xml:space="preserve">
+    <value>发生了一些错误</value>
+  </data>
+  <data name="MultipleExceptionsFormat" xml:space="preserve">
+    <value>{0}个错误</value>
+  </data>
+  <data name="PlaybackErrorFormat" xml:space="preserve">
+    <value>播放{0}时出现错误:
+{1}</value>
+  </data>
+  <data name="SingleException" xml:space="preserve">
+    <value>1个错误</value>
+  </data>
+  <data name="RecentlyAddedButton.Label" xml:space="preserve">
+    <value>最近添加</value>
+  </data>
+  <data name="ShuffleAllButton.Label" xml:space="preserve">
+    <value>随机播放所有音乐</value>
+  </data>
+  <data name="ArtistSubtitleFallbackFormat2" xml:space="preserve">
+    <value>{0} 首歌曲</value>
+    <comment>Fallback</comment>
+  </data>
+  <data name="ScMasterDetailsView.NoSelectionContent" xml:space="preserve">
+    <value>选择一个设置分类</value>
+  </data>
+  <data name="AboutMenuItem.Text" xml:space="preserve">
+    <value>关于</value>
+  </data>
+  <data name="AlbumMenuItem.Text" xml:space="preserve">
+    <value>专辑</value>
+  </data>
+  <data name="ArtistMenuItem.Text" xml:space="preserve">
+    <value>艺术家</value>
+  </data>
+  <data name="DeviceText.Text" xml:space="preserve">
+    <value>此设备</value>
+  </data>
+  <data name="FeedbackMenuItem.Text" xml:space="preserve">
+    <value>反馈</value>
+  </data>
+  <data name="LibraryHeader.Header" xml:space="preserve">
+    <value>资料库</value>
+  </data>
+  <data name="MediaLibraryScanWarningText" xml:space="preserve">
+    <value>此操作将扫描整个媒体库，在移动设备上可能较为耗时，是否继续？</value>
+  </data>
+  <data name="MoreHeader.Header" xml:space="preserve">
+    <value>更多</value>
+  </data>
+  <data name="MyMusicHeader.Header" xml:space="preserve">
+    <value>我的音乐</value>
+  </data>
+  <data name="NowPlayingHeader.Text" xml:space="preserve">
+    <value>正在播放</value>
+  </data>
+  <data name="PlaylistMenuItem.Text" xml:space="preserve">
+    <value>播放列表</value>
+  </data>
+  <data name="RecentlyAddedText.Text" xml:space="preserve">
+    <value>最近添加</value>
+  </data>
+  <data name="RecentlyHeader.Text" xml:space="preserve">
+    <value>最近播放</value>
+  </data>
+  <data name="RecentlyMenuItem.Text" xml:space="preserve">
+    <value>最近播放</value>
+  </data>
+  <data name="RefreshLibraryMenuItem.Text" xml:space="preserve">
+    <value>刷新媒体库</value>
+  </data>
+  <data name="SettingsMenuItem.Text" xml:space="preserve">
+    <value>设置</value>
+  </data>
+  <data name="ShuffleAllMenuItem.Text" xml:space="preserve">
+    <value>随机播放所有音乐</value>
+  </data>
+  <data name="SongMenuItem.Text" xml:space="preserve">
+    <value>所有音乐</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>警告</value>
+  </data>
+  <data name="AddButton.Label" xml:space="preserve">
+    <value>追加</value>
+  </data>
+  <data name="AddToButtonText.Text" xml:space="preserve">
+    <value>添加到</value>
+  </data>
+  <data name="AddToFavoriteMenuItem.Text" xml:space="preserve">
+    <value>添加到收藏列表</value>
+  </data>
+  <data name="AddToNowPlayingMenuItem.Text" xml:space="preserve">
+    <value>正在播放</value>
+  </data>
+  <data name="AddToPlaylistMenuItem.Text" xml:space="preserve">
+    <value>添加到播放列表</value>
+  </data>
+  <data name="AlbumsResultHeader.Text" xml:space="preserve">
+    <value>专辑 (</value>
+  </data>
+  <data name="ArtistsResultHeader.Text" xml:space="preserve">
+    <value>艺术家 (</value>
+  </data>
+  <data name="DeleteButton.Label" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="DetailsMenuItem.Text" xml:space="preserve">
+    <value>详细信息</value>
+  </data>
+  <data name="EditButton.Label" xml:space="preserve">
+    <value>编辑</value>
+  </data>
+  <data name="GoToAlbumMenuItem.Text" xml:space="preserve">
+    <value>查看专辑</value>
+  </data>
+  <data name="GoToArtistMenuItem.Text" xml:space="preserve">
+    <value>查看艺术家</value>
+  </data>
+  <data name="HideLyricsMenuItem.Text" xml:space="preserve">
+    <value>隐藏歌词</value>
+  </data>
+  <data name="LibraryText.Text" xml:space="preserve">
+    <value>媒体库</value>
+  </data>
+  <data name="MobilePlaylistHeader.Text" xml:space="preserve">
+    <value>播放列表：</value>
+  </data>
+  <data name="Music" xml:space="preserve">
+    <value>音乐</value>
+  </data>
+  <data name="NewButton.Label" xml:space="preserve">
+    <value>新建</value>
+  </data>
+  <data name="NowPlayingFromText.Text" xml:space="preserve">
+    <value>正在播放</value>
+  </data>
+  <data name="PlayAllButtonText.Text" xml:space="preserve">
+    <value>播放全部</value>
+  </data>
+  <data name="PlayButton.Label" xml:space="preserve">
+    <value>播放</value>
+  </data>
+  <data name="PlaylistNameTextBox.PlaceholderText" xml:space="preserve">
+    <value>播放列表名</value>
+  </data>
+  <data name="RemoveFromFavoriteMenuItem.Text" xml:space="preserve">
+    <value>从收藏列表移除</value>
+  </data>
+  <data name="SaveButton.Label" xml:space="preserve">
+    <value>保存</value>
+  </data>
+  <data name="SavePlaylistButton.Content" xml:space="preserve">
+    <value>保存</value>
+  </data>
+  <data name="SearchForLyricsMenuItem.Text" xml:space="preserve">
+    <value>搜索歌词</value>
+  </data>
+  <data name="ShareButton.Label" xml:space="preserve">
+    <value>分享</value>
+  </data>
+  <data name="ShowLyricsMenuItem.Text" xml:space="preserve">
+    <value>显示歌词</value>
+  </data>
+  <data name="SongsResultHeader.Text" xml:space="preserve">
+    <value>音乐 (</value>
+  </data>
+  <data name="LibraryTrackingDisabled" xml:space="preserve">
+    <value>你的媒体库不支持监视文件变化。这个功能只支持 NTFS 格式的分区。
+已停止监视媒体库更改。</value>
+  </data>
+  <data name="MediaLibraryText" xml:space="preserve">
+    <value>媒体库</value>
+  </data>
+  <data name="NarrowPlaylistToggleButton.Label" xml:space="preserve">
+    <value>正在播放</value>
+  </data>
+</root>

@@ -1,0 +1,569 @@
+﻿<UserControl
+    x:Class="Light.Controls.CommonSettings"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Light.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:utils="using:Light.Utilities.UserInterfaceExtensions"
+    xmlns:ex="using:Light.Utilities.UserInterfaceExtensions"
+    xmlns:viewModel="using:Light.Controls.ViewModel"
+    xmlns:models="using:Light.Controls.Models"
+    mc:Ignorable="d"
+    d:DesignHeight="3000"
+    d:DesignWidth="400">
+    <UserControl.Resources>
+        <DataTemplate
+            x:Name="LibraryFolderTemplate"
+            x:DataType="models:FolderModel">
+            <Grid 
+                HorizontalAlignment="Stretch"
+                Height="32">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition MinWidth="400"/>
+                    <ColumnDefinition Width="32"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel 
+                    Height="32"
+                    HorizontalAlignment="Stretch"
+                    Orientation="Horizontal">
+                    <SymbolIcon 
+                        Height="32"
+                        Symbol="Folder"/>
+                    <StackPanel
+                        Margin="15,0,0,0"
+                        VerticalAlignment="Center">
+                        <TextBlock
+                            HorizontalAlignment="Stretch"
+                            FontSize="14"
+                            MaxLines="1"
+                            TextTrimming="CharacterEllipsis"
+                            TextWrapping="NoWrap"
+                            Style="{StaticResource BaseTextBlockStyle}"
+                            Text="{x:Bind Name}"/>
+                        <TextBlock
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Stretch"
+                            FontSize="12"
+                            MaxLines="1"
+                            TextTrimming="CharacterEllipsis"
+                            TextWrapping="NoWrap"
+                            Style="{StaticResource BaseTextBlockStyle}"
+                            Text="{x:Bind Path}" 
+                            Foreground="{ThemeResource SystemControlHighlightBaseLowBrush}"/>
+                    </StackPanel>
+                </StackPanel>
+                <Button
+                    Grid.Column="1"
+                    Width="32"
+                    Height="32" 
+                    Style="{StaticResource ListViewButtonStyle}">
+                    <Button.Content>
+                        <SymbolIcon Symbol="Cancel" Width="24" Height="24"/>
+                    </Button.Content>
+                    <ToolTipService.ToolTip>
+                        <ToolTip Content="Remove this folder"/>
+                    </ToolTipService.ToolTip>
+                    <interactivity:Interaction.Behaviors>
+                        <core:EventTriggerBehavior EventName="Click">
+                            <core:InvokeCommandAction Command="{x:Bind RemoveFolderButtonClickedRelayCommand}" />
+                        </core:EventTriggerBehavior>
+                    </interactivity:Interaction.Behaviors>
+                </Button>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate 
+            x:Name="LyricsTemplate"
+            x:DataType="models:LrcSourceModel">
+            <Grid
+                MaxWidth="432"
+                HorizontalAlignment="Stretch"
+                Height="32">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="32"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel
+                    Height="32"
+                    HorizontalAlignment="Stretch"
+                    Orientation="Horizontal">
+                    <SymbolIcon
+                        Height="32"
+                        Symbol="Download"/>
+                    <StackPanel
+                        Margin="15,0,0,0"
+                        VerticalAlignment="Center">
+                        <TextBlock
+                            HorizontalAlignment="Stretch"
+                            FontSize="14"
+                            MaxLines="1"
+                            TextTrimming="CharacterEllipsis"
+                            TextWrapping="NoWrap"
+                            Style="{StaticResource BaseTextBlockStyle}"
+                            Text="{x:Bind Name}"/>
+                    </StackPanel>
+                </StackPanel>
+                <Button
+                    Grid.Column="1"
+                    Width="32"
+                    Height="32" 
+                    Style="{StaticResource ListViewButtonStyle}">
+                    <Button.Content>
+                        <SymbolIcon Symbol="Cancel" Width="24" Height="24"/>
+                    </Button.Content>
+                    <ToolTipService.ToolTip>
+                        <ToolTip Content="Remove this source"/>
+                    </ToolTipService.ToolTip>
+                    <interactivity:Interaction.Behaviors>
+                        <core:EventTriggerBehavior EventName="Click">
+                            <core:InvokeCommandAction Command="{x:Bind RemoveLrcSourceButtonClickedRelayCommand}" />
+                        </core:EventTriggerBehavior>
+                    </interactivity:Interaction.Behaviors>
+                </Button>
+            </Grid>
+        </DataTemplate>
+    </UserControl.Resources>
+    <StackPanel>
+        <!-- Interface and language -->
+        <StackPanel
+            x:Name="InterfaceSettings"
+            ex:IsVisible.Condition="{x:Bind IsInterfaceSettingsVisible, Mode=OneWay}">
+            <TextBlock 
+                x:Uid="ThemeHeader"
+                Text="Theme" 
+                FontWeight="SemiLight"
+                Style="{StaticResource SubtitleTextBlockStyle}" 
+                Foreground="{ThemeResource GroupTitleForeground}" 
+                Margin="0,10,0,0" />
+            <TextBlock
+                x:Uid="OsReleaseUnsupportedPrompt"
+                utils:IsVisible.Inversion="{x:Bind viewModel.ThemeSettingsSubVm.IsThemeSettingsAvailable}"
+                Margin="0,5,0,0"
+                Text="This option is not available on your OS version."
+                Style="{StaticResource BodyTextBlockStyle}" />
+            <TextBlock
+                x:Uid="RestartToApplySettingsPrompt"
+                utils:IsVisible.Condition="{x:Bind viewModel.ThemeSettingsSubVm.IsRestartPromptVisible, Mode=OneWay}"
+                Margin="0,5,0,0"
+                Text="Please restart the app to apply settings."
+                Style="{StaticResource BodyTextBlockStyle}" />
+            <StackPanel
+                 Margin="0,5,0,0">
+                <RadioButton
+                    x:Uid="LightThemeRadioButton"
+                    IsEnabled="{x:Bind viewModel.ThemeSettingsSubVm.IsThemeSettingsAvailable}"
+                    IsChecked="{x:Bind viewModel.ThemeSettingsSubVm.IsLightThemeSettingsChecked, Converter={StaticResource NullableBooleanToBooleanKey}, Mode=TwoWay}"
+                    GroupName="ThemeSettings"
+                    Content="Light" />
+                <RadioButton
+                    x:Uid="DarkThemeRadioButton"
+                    IsEnabled="{x:Bind viewModel.ThemeSettingsSubVm.IsThemeSettingsAvailable}"
+                    IsChecked="{x:Bind viewModel.ThemeSettingsSubVm.IsDarkThemeSettingsChecked, Converter={StaticResource NullableBooleanToBooleanKey}, Mode=TwoWay}"
+                    GroupName="ThemeSettings"
+                    Content="Dark" />
+                <RadioButton
+                    x:Uid="UseOsThemeRadioButton"
+                    IsEnabled="{x:Bind viewModel.ThemeSettingsSubVm.IsThemeSettingsAvailable}"
+                    IsChecked="{x:Bind viewModel.ThemeSettingsSubVm.IsUseOsThemeSettingsChecked, Converter={StaticResource NullableBooleanToBooleanKey}, Mode=TwoWay}"
+                    GroupName="ThemeSettings"
+                    Content="Use System Settings" />
+            </StackPanel>
+            <TextBlock 
+                x:Uid="LanguageHeader"
+                Text="Language" 
+                FontWeight="SemiLight"
+                Style="{StaticResource SubtitleTextBlockStyle}" 
+                Foreground="{ThemeResource GroupTitleForeground}" 
+                Margin="0,10,0,0" />
+            <TextBlock
+                x:Uid="RestartToApplySettingsPrompt"
+                utils:IsVisible.Condition="{x:Bind viewModel.LangSettingsVm.IsRestartPromptVisible, Mode=OneWay}"
+                Margin="0,5,0,0"
+                Text="Please restart the app to apply settings."
+                Style="{StaticResource BodyTextBlockStyle}" />
+            <ComboBox
+                Margin="0,10,0,0"
+                ItemsSource="{x:Bind viewModel.LangSettingsVm.Entries, Mode=OneWay}"
+                SelectedIndex="{x:Bind viewModel.LangSettingsVm.SelectedIndex, Mode=TwoWay}"
+                PlaceholderText="Language">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate x:DataType="viewModel:LanguageSettingsEntry">
+                        <TextBlock Text="{x:Bind Description}" />
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+        </StackPanel>
+        <!-- Library and Metadata -->
+        <StackPanel 
+            x:Name="LibrarySettings"
+            ex:IsVisible.Condition="{x:Bind IsLibrarySettingsVisible, Mode=OneWay}">
+            <TextBlock 
+                x:Uid="LibraryTextBlock"
+                Text="Library" 
+                FontWeight="SemiLight"
+                Style="{StaticResource SubtitleTextBlockStyle}" 
+                Foreground="{ThemeResource GroupTitleForeground}" 
+                Margin="0,10,0,0" />
+            <ToggleSwitch 
+                x:Uid="TrackLibraryChangeToggle"
+                Margin="0,10,0,0"
+                IsOn="{x:Bind viewModel.LibSettingsVm.IsTrackLibraryChangesEnabled, Mode=TwoWay}"
+                Header="Monitor library changes"/>
+            <TextBlock
+                x:Uid="TrackLibraryWarningTextBlock"
+                MaxWidth="500"
+                HorizontalAlignment="Left"
+                Style="{StaticResource BodyTextBlockStyle}"
+                ex:IsVisible.Condition="{x:Bind viewModel.LibSettingsVm.IsTrackLibraryChangesEnabled, Mode=OneWay}"
+                Text="All library changes will be reflected in app without refreshing library manually. This slightly consumes more power."/>
+            <StackPanel
+                Margin="0,10,0,0"
+                x:Name="LibraryFolderLocationSettings"
+                ex:IsVisible.Condition="{x:Bind viewModel.LibSettingsVm.IsLibraryOpsAvailable, Mode=OneWay}">
+                <TextBlock
+                    x:Uid="LibraryFolderSelectionTextBlock"
+                    Text="Choose where we look your music files"
+                    Style="{StaticResource BodyTextBlockStyle}" />
+                <ListView
+                    MaxWidth="500"
+                    HorizontalAlignment="Left"
+                    Margin="0,5,15,5"
+                    SelectionMode="None"
+                    ItemTemplate="{StaticResource LibraryFolderTemplate}"
+                    ItemsSource="{x:Bind viewModel.LibSettingsVm.LibraryFolders, Mode=OneWay}" 
+                    ItemContainerStyle="{StaticResource FolderListViewItemContainerTemplate}" />
+                <Button
+                    Width="125"
+                    Margin="0,0,0,0"
+                    HorizontalAlignment="Left"
+                    Command="{x:Bind viewModel.LibSettingsVm.AddFolderRelayCommand, Mode=OneWay}">
+                    <Button.Content>
+                        <Grid 
+                            Margin="-5,0,0,0"
+                            HorizontalAlignment="Left">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="32"/>
+                                <ColumnDefinition Width="3*"/>
+                            </Grid.ColumnDefinitions>
+                            <SymbolIcon 
+                                Symbol="NewFolder"
+                                Grid.Column="0"/>
+                            <TextBlock
+                                x:Uid="LibraryFolderAddButton"
+                                Margin="10,0,0,0"
+                                Grid.Column="1"
+                                Style="{StaticResource BaseTextBlockStyle}"
+                                Text="Add"/>
+                        </Grid>
+                    </Button.Content>
+                </Button>
+            </StackPanel>
+            <StackPanel
+                Margin="0,10,0,0"
+                x:Name="LibraryFolderExclusionSettings"
+                ex:IsVisible.Condition="{x:Bind viewModel.LibSettingsVm.IsLibraryOpsAvailable, Mode=OneWay}">
+                <TextBlock
+                    x:Uid="LibraryFolderExclusionTextBlock"
+                    Text="Excluded folders"
+                    Style="{StaticResource BodyTextBlockStyle}" />
+                <ListView
+                    MaxWidth="500"
+                    HorizontalAlignment="Left"
+                    Margin="0,5,15,5"
+                    SelectionMode="None"
+                    ItemTemplate="{StaticResource LibraryFolderTemplate}"
+                    ItemsSource="{x:Bind viewModel.LibSettingsVm.ExcludedFolders, Mode=OneWay}" 
+                    ItemContainerStyle="{StaticResource FolderListViewItemContainerTemplate}" />
+                <Button
+                    Width="125"
+                    Margin="0,0,0,0"
+                    HorizontalAlignment="Left"
+                    Command="{x:Bind viewModel.LibSettingsVm.AddExcludedRelayCommand, Mode=OneWay}">
+                    <Button.Content>
+                        <Grid 
+                            Margin="-5,0,0,0"
+                            HorizontalAlignment="Left">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="32"/>
+                                <ColumnDefinition Width="3*"/>
+                            </Grid.ColumnDefinitions>
+                            <SymbolIcon 
+                                Symbol="NewFolder"
+                                Grid.Column="0"/>
+                            <TextBlock
+                                x:Uid="LibraryFolderAddButton"
+                                Margin="10,0,0,0"
+                                Grid.Column="1"
+                                Style="{StaticResource BaseTextBlockStyle}"
+                                Text="Add"/>
+                        </Grid>
+                    </Button.Content>
+                </Button>
+            </StackPanel>
+            <StackPanel
+                Margin="0,10,0,0"
+                x:Name="FileAccessAuthorization">
+                <TextBlock
+                    Margin="0,5,0,0"
+                    Style="{StaticResource BodyTextBlockStyle}">
+                    <Run 
+                        Text="Choose where we can access your files."
+                        x:Uid="FileAccessIntro"/>
+                    <Run Text=" " /> 
+                    <Hyperlink
+                        Click="OnAuthorizeLearnMoreClick">
+                        <Hyperlink.Inlines>
+                            <Run
+                                x:Uid="LearnMore"
+                                Text="Learn more"/>
+                        </Hyperlink.Inlines>
+                    </Hyperlink>
+                </TextBlock>
+                <TextBlock Visibility="Collapsed" Margin="0,5,0,0" 
+                    x:Name="AccessAuthHelpTextBlock"
+                    MaxWidth="500"
+                    HorizontalAlignment="Left"
+                    Style="{StaticResource BodyTextBlockStyle}">
+                    <Run Text="Help PlaceHolder"
+                         x:Uid="AccessAuthorizeSuggestDetailed" />
+                </TextBlock>
+                <ListView
+                    MaxWidth="500"
+                    HorizontalAlignment="Left"
+                    Margin="0,5,15,5"
+                    SelectionMode="None"
+                    ItemTemplate="{StaticResource LibraryFolderTemplate}"
+                    ItemsSource="{x:Bind viewModel.LibSettingsVm.AccessFolders, Mode=OneWay}" 
+                    ItemContainerStyle="{StaticResource FolderListViewItemContainerTemplate}" />
+                <Button
+                    Width="125"
+                    Margin="0,0,0,0"
+                    HorizontalAlignment="Left"
+                    Command="{x:Bind viewModel.LibSettingsVm.AddAccessFolderRelayCommand, Mode=OneWay}">
+                    <Button.Content>
+                        <Grid 
+                            Margin="-5,0,0,0"
+                            HorizontalAlignment="Left">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="32"/>
+                                <ColumnDefinition Width="3*"/>
+                            </Grid.ColumnDefinitions>
+                            <SymbolIcon 
+                                Symbol="NewFolder"
+                                Grid.Column="0"/>
+                            <TextBlock
+                                x:Uid="LibraryFolderAddButton"
+                                Margin="10,0,0,0"
+                                Grid.Column="1"
+                                Style="{StaticResource BaseTextBlockStyle}"
+                                Text="Add"/>
+                        </Grid>
+                    </Button.Content>
+                </Button>
+            </StackPanel>
+            <StackPanel
+                Margin="0,15,0,0"
+                utils:IsVisible.Inversion="{x:Bind IsFullMetadataSettingsVisible, Mode=OneWay}">
+                <ToggleSwitch 
+                    x:Name="MetadataRetrievalToggle"
+                    x:Uid="OMtSetViewEnableRetrievalToggle"
+                    Margin="0,10,0,0"
+                    IsOn="{x:Bind viewModel.OnlineMetadataSettingsVm.IsEnabled, Mode=TwoWay}"
+                    Header="Enable Online Metadata Retrieval"/>
+                <TextBlock
+                    x:Uid="OMtSetViewOptReminder"
+                    HorizontalAlignment="Left"
+                    MaxWidth="500"
+                    Margin="0,5,0,0"
+                    Text="This setting only applies to new albums and artists."
+                    Style="{StaticResource BodyTextBlockStyle}"/>
+            </StackPanel>
+            <StackPanel
+                Margin="0,15,0,0"
+                utils:IsVisible.Condition="{x:Bind IsFullMetadataSettingsVisible, Mode=OneWay}">
+                <TextBlock
+                    x:Uid="MetadataRetrievalDescriptionTxtBlk"
+                    HorizontalAlignment="Left"
+                    MaxWidth="500"
+                    Text="Manage online metadata retrieval here."
+                    Style="{StaticResource BodyTextBlockStyle}"/>
+                <Button
+                    x:Uid="MetadataRetrievalBtn"
+                    Width="125"
+                    Margin="0,10,0,0"
+                    HorizontalAlignment="Left"
+                    Content="Manage"
+                    Command="{x:Bind viewModel.CommonButtonCommand}"
+                    CommandParameter="MetadataMgmt"></Button>
+            </StackPanel>
+        </StackPanel>
+        <!-- Playback and Extensions -->
+        <StackPanel 
+            x:Name="PlaybackSettings"
+            ex:IsVisible.Condition="{x:Bind IsPlaybackAndLyricsSettingsVisible, Mode=OneWay}">
+            <TextBlock 
+                x:Uid="PlaybackTitleTextbox"
+                Margin="0,10,0,0"
+                Text="Playback"
+                Style="{StaticResource SubtitleTextBlockStyle}" 
+                Foreground="{ThemeResource GroupTitleForeground}"  />
+            <ToggleSwitch
+                x:Uid="KeepHistoryToggle"
+                Margin="0,10,0,0"
+                IsOn="{x:Bind viewModel.LibSettingsVm.EnablePlaybackHistory, Mode=TwoWay}"
+                Header="Keep playback history"/>
+            <ToggleSwitch
+                x:Uid="AlwaysResampleToggle"
+                Margin="0,10,0,0"
+                IsOn="{x:Bind viewModel.SampleRateSettingsVm.AlwaysResample, Mode=TwoWay}"
+                Header="Always resample audio to specific sample rate"/>
+            <TextBlock
+                x:Uid="SampleRateDesc"
+                Margin="0,5,0,0"
+                Text="Choose preferred sample rate"
+                Style="{StaticResource BodyTextBlockStyle}" />
+            <ComboBox
+                Margin="0,10,0,0"
+                ItemsSource="{x:Bind viewModel.SampleRateSettingsVm.Entries}"
+                SelectedIndex="{x:Bind viewModel.SampleRateSettingsVm.SelectedIndex, Mode=TwoWay}"
+                PlaceholderText="Sample Rate">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate x:DataType="viewModel:SampleRateSettingsEntry">
+                        <TextBlock Text="{x:Bind Description}" />
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <TextBlock
+                Margin="0,5,0,0"
+                Style="{StaticResource BodyTextBlockStyle}">
+                <Run x:Uid="CurrentSampleRateDesc" Text="Current system sample rate:"/>
+                <Run x:Name="CurrentSampleRateText" Text="{x:Bind viewModel.SampleRateSettingsVm.CurrentSystemSampleRate, Mode=OneWay}"/>
+                <Hyperlink x:Uid="RefreshLink" Click="OnRefreshSampleRateClick">
+                    <Hyperlink.Inlines>
+                        <Run x:Uid="RefreshText" Text="Refresh"/>
+                    </Hyperlink.Inlines>
+                </Hyperlink>
+            </TextBlock>
+            <TextBlock
+                x:Uid="ApplyNextTrackPrompt"
+                utils:IsVisible.Condition="{x:Bind viewModel.SampleRateSettingsVm.IsNextTrackPromptVisible, Mode=OneWay}"
+                Margin="0,5,0,0"
+                Text="Sample rate settings will be applied when playing next track."
+                Style="{StaticResource BodyTextBlockStyle}" />
+            <StackPanel
+                x:Name="ExtensionSettings"
+                ex:IsVisible.Condition="{x:Bind IsExtensionSettingsVisible, Mode=OneWay}">
+                <TextBlock 
+                    x:Uid="ExtensionTextBlock"
+                    Margin="0,10,0,0"
+                    Text="Extension" 
+                    FontWeight="SemiLight"
+                    Style="{StaticResource SubtitleTextBlockStyle}" 
+                    Foreground="{ThemeResource GroupTitleForeground}"  />
+                <StackPanel
+                    x:Name="LyricSettings"
+                    HorizontalAlignment="Left"
+                    ex:IsVisible.Condition="{x:Bind IsLyricSettingsVisible, Mode=OneWay}">
+                    <TextBlock
+                        x:Uid="LrcSourceSelectionTextBlock"
+                        Margin="0,10,0,0"
+                        Text="Choose how we look up lyrics for you."
+                        Style="{StaticResource BodyTextBlockStyle}" />
+                    <ListView
+                        MaxWidth="500"
+                        HorizontalAlignment="Stretch"
+                        Margin="0,5,15,5"
+                        SelectionMode="None"
+                        ItemTemplate="{StaticResource LyricsTemplate}"
+                        ItemsSource="{x:Bind viewModel.ExtensionVm.LrcSources, Mode=OneWay}"
+                        ItemContainerStyle="{StaticResource FolderListViewItemContainerTemplate}" />
+                    <Button
+                        Width="125"
+                        HorizontalAlignment="Left"
+                        Command="{x:Bind viewModel.ExtensionVm.AddLrcSourceRelayCommand}" >
+                        <Button.Content>
+                            <Grid 
+                                Margin="-5,0,0,0"
+                                HorizontalAlignment="Left">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="32"/>
+                                    <ColumnDefinition Width="3*"/>
+                                </Grid.ColumnDefinitions>
+                                <SymbolIcon 
+                                    Symbol="OpenFile"
+                                    Grid.Column="0"/>
+                                <TextBlock
+                                    x:Uid="LibraryFolderAddButton"
+                                    Margin="10,0,0,0"
+                                    Grid.Column="1"
+                                    Style="{StaticResource BaseTextBlockStyle}"
+                                    Text="Add"/>
+                            </Grid>
+                        </Button.Content>
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+        <!-- Privacy Settings -->
+        <StackPanel 
+            x:Name="PrivacySettings"
+            ex:IsVisible.Condition="{x:Bind IsPrivacySettingsVisible, Mode=OneWay}">
+            <TextBlock 
+                Margin="0,10,0,0"
+                Text="Your Privacy"
+                FontWeight="SemiLight"
+                Style="{StaticResource SubtitleTextBlockStyle}" 
+                Foreground="{ThemeResource GroupTitleForeground}" 
+                x:Uid="PrivacyConsentTextBlock" />
+            <TextBlock
+                HorizontalAlignment="Left"
+                MaxWidth="500"
+                x:Uid="TelemetryDescription"
+                Margin="0,10,0,0"
+                Text="Enabling Telemetry can help us improve Light. Telemetry data contains crash info, device OEM and model, performance statistics. No personal identity or data will be collected, and you can change it later."
+                Style="{StaticResource BodyTextBlockStyle}"/>
+            <ToggleSwitch 
+                x:Uid="TelemetryToggle"
+                IsOn="{x:Bind viewModel.PrivacySettingsVm.IsOptinTelemetry, Mode=TwoWay}"
+                Margin="0,5,0,0"
+                Header="Enable Application Telemetry"/>
+        </StackPanel>
+        <!-- Debug Settings -->
+        <StackPanel 
+            x:Name="DebugSettings"
+            ex:IsVisible.Condition="{x:Bind IsDebugSettingsVisible, Mode=OneWay}">
+            <TextBlock 
+                Text="Debug" 
+                FontWeight="SemiLight"
+                Style="{StaticResource SubtitleTextBlockStyle}" 
+                Foreground="{ThemeResource GroupTitleForeground}" 
+                Margin="0,10,0,0" />
+            <TextBlock 
+                Text="These features are for debugging only." 
+                Margin="0,10,0,0"
+                Style="{StaticResource BodyTextBlockStyle}" />
+            <ToggleSwitch 
+                IsOn="{x:Bind IsFramerateCounterEnabled, Mode=TwoWay}"
+                Margin="0,5,0,0"
+                Header="Framerate Counter"/>
+            <TextBlock 
+                Text="ETW Channel ID" 
+                Margin="0,5,0,0"
+                Style="{StaticResource BodyTextBlockStyle}" />
+            <TextBox Text="{x:Bind viewModel.EtwChannelId}" 
+                HorizontalAlignment="Left"
+                MinWidth="300"
+                MaxWidth="500"
+                IsReadOnly="True" 
+                Margin="0,5,0,0"/>
+            <TextBlock Margin="0,5,0,0" 
+                HorizontalAlignment="Left"
+                MaxWidth="500"
+                Style="{StaticResource BodyTextBlockStyle}">
+                Use tool <Bold>xperf</Bold> to trace ETW channel events.
+            </TextBlock>
+        </StackPanel>
+    </StackPanel>
+</UserControl>

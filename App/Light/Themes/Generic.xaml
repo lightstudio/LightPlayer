@@ -1,0 +1,63 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Light" xmlns:ctrls="using:Light.Controls">
+
+    <Style TargetType="ctrls:MediaThumbnail" >
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ctrls:MediaThumbnail">
+                    <Grid
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}">
+                        <Image x:Name="Thumbnail" Stretch="{TemplateBinding Stretch}" />
+                        <Grid.Resources>
+                            <Storyboard x:Name="FadeOut">
+                                <FadeOutThemeAnimation Storyboard.TargetName="Thumbnail" />
+                            </Storyboard>
+                            <Storyboard x:Name="FadeIn">
+                                <FadeInThemeAnimation Storyboard.TargetName="Thumbnail" />
+                            </Storyboard>
+                        </Grid.Resources>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="ctrls:MenuItemControl">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ctrls:MenuItemControl">
+                    <StackPanel
+                        x:Name="RootPanel"
+                        Background="Transparent"
+                        Orientation="Horizontal">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup>
+                                <VisualState x:Name="Normal"/>
+                                <VisualState x:Name="Pressed">
+                                    <Storyboard>
+                                        <PointerDownThemeAnimation Storyboard.TargetName="RootPanel" />
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Released">
+                                    <Storyboard>
+                                        <PointerUpThemeAnimation Storyboard.TargetName="RootPanel" />
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <FontIcon
+                            FontSize="20"
+                            Glyph="{TemplateBinding Glyph}"
+                            Margin="4,10,15,10"/>
+                        <TextBlock
+                            VerticalAlignment="Center"
+                            Text="{TemplateBinding Text}" FontSize="15"/>
+                    </StackPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

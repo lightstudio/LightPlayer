@@ -1,0 +1,181 @@
+﻿<Page
+    x:Class="Light.View.Feedback.FeedbackView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Light.View.Feedback"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:shell="using:Light.Shell"
+    xmlns:utils="using:Light.Utilities.UserInterfaceExtensions"
+    xmlns:converter="using:Light.Converter"
+    xmlns:ex="using:Light.Utilities.UserInterfaceExtensions"
+    mc:Ignorable="d">
+    
+    <Page.Resources>
+        <shell:PageTitleBar 
+            x:Name="TitleBar"
+            TitleBarForegroundColor="{ThemeResource TitleForeground}"
+            TitleBarBackgroundColor="{ThemeResource TitleBackground}" />
+        <SolidColorBrush 
+            x:Name="TitlebarForegroundBrush"
+            Color="{ThemeResource TitleForeground}"/>
+        <SolidColorBrush 
+            x:Name="TitlebarBackgroundBrush"
+            Color="{ThemeResource TitleBackground}"/>
+        <converter:NullableBooleanToBoolean
+            x:Name="NullableBooleanToBooleanConverter" />
+    </Page.Resources>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <!-- XAML Based Title bar on desktop devices -->
+        <Grid 
+            x:Name="XamlTitleBar" 
+            Height="{x:Bind CoreTitleBarHeight, Mode=OneWay}" 
+            VerticalAlignment="Top" 
+            Canvas.ZIndex="3">
+            <Rectangle x:Name="BackgroundElement" Fill="{StaticResource TitlebarBackgroundBrush}" />
+            <Grid Padding="{x:Bind CoreTitleBarPadding, Mode=OneWay}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <!-- App View Title -->
+                <TextBlock 
+                    x:Name="AppName" 
+                    x:Uid="FeedbackTitle"
+                    Foreground="{StaticResource TitlebarForegroundBrush}" 
+                    VerticalAlignment="Center" 
+                    Margin="12,0,0,0" 
+                    Text="Feedback"
+                    FontSize="12" />
+            </Grid>
+        </Grid>
+        <!-- Feedback Content -->
+        <ScrollViewer
+            x:Name="FeedbackControlHostViewer"
+            Grid.Row="1"
+            HorizontalScrollMode="Disabled">
+            <StackPanel
+                HorizontalAlignment="Center"
+                Margin="10,0,10,10">
+                <!-- Progress Indicator -->
+                <StackPanel
+                    utils:IsVisible.Inversion="{x:Bind _viewModel.IsContentEditable, Mode=OneWay}"
+                    Margin="0,10,0,0">
+                    <TextBlock 
+                        x:Uid="FeedbackProgressIndicator"
+                        Text="Uploading..." />
+                    <ProgressBar
+                        Margin="0,2.5,0,0"
+                        Maximum="1"
+                        Minimum="0"
+                        IsIndeterminate="{x:Bind _viewModel.IsImageUploadingFinished, Mode=OneWay}"
+                        Value="{x:Bind _viewModel.ImageUploadProgressValue, Mode=OneWay}"/>
+                </StackPanel>
+                <!-- Feedback Content -->
+                <TextBlock
+                    x:Uid="FeedbackPageHeader"
+                    Margin="0,10,0,0"
+                    Text="Tell us your experience."
+                    FontSize="28"
+                    HorizontalAlignment="Center"
+                    Style="{StaticResource HeaderTextBlockStyle}"/>
+                <!-- Content Type -->
+                <TextBlock
+                    x:Uid="FeedbackTypeIndicatorText"
+                    Margin="0,15,0,0"
+                    HorizontalAlignment="Center"
+                    Style="{StaticResource BaseTextBlockStyle}"
+                    Text="The problem I want to report is a" />
+                <StackPanel
+                    x:Uid="FeedbackContentTypeStackPanel"
+                    Margin="10,10,0,0"
+                    HorizontalAlignment="Center"
+                    Orientation="Horizontal">
+                    <RadioButton 
+                        x:Uid="FeedbackTypeBug"
+                        IsEnabled="{x:Bind _viewModel.IsContentEditable, Mode=OneWay}"
+                        GroupName="IssueType"
+                        IsChecked="{x:Bind _viewModel.IsBugChecked, Converter={StaticResource NullableBooleanToBooleanConverter}, Mode=TwoWay}"
+                        Content="Bug" />
+                    <RadioButton 
+                        x:Uid="FeedbackTypeSuggestion"
+                        IsEnabled="{x:Bind _viewModel.IsContentEditable, Mode=OneWay}"
+                        GroupName="IssueType"
+                        IsChecked="{x:Bind _viewModel.IsSuggestionChecked, Converter={StaticResource NullableBooleanToBooleanConverter}, Mode=TwoWay}"
+                        Content="Suggeestion" />
+                </StackPanel>
+                <TextBox
+                    x:Uid="FeedbackUserFillTitleTextBox"
+                    HorizontalAlignment="Stretch"
+                    Margin="0,10,0,0"
+                    IsEnabled="{x:Bind _viewModel.IsContentEditable, Mode=OneWay}"
+                    PlaceholderText="Briefly describe issue in 50 words."
+                    MaxWidth="450"
+                    Text="{x:Bind _viewModel.Title, Mode=TwoWay}"
+                    MaxLength="50"
+                    Height="20" />
+                <TextBox
+                    x:Uid="FeedbackUserFillContentTextBox"
+                    Margin="0,10,0,0"
+                    HorizontalAlignment="Stretch"
+                    IsEnabled="{x:Bind _viewModel.IsContentEditable, Mode=OneWay}"
+                    PlaceholderText="Feel free to add additional details."
+                    MaxWidth="450"
+                    MaxLength="2000"
+                    Text="{x:Bind _viewModel.Content, Mode=TwoWay}"
+                    Height="150" 
+                    AcceptsReturn="True"
+                    TextWrapping="Wrap" />
+                <TextBox
+                    x:Uid="FeedbackUserFillContactTextBox"
+                    HorizontalAlignment="Stretch"
+                    Margin="0,10,0,0"
+                    IsEnabled="{x:Bind _viewModel.IsContentEditable, Mode=OneWay}"
+                    PlaceholderText="Email (optional)"
+                    Text="{x:Bind _viewModel.Contact, Mode=TwoWay}"
+                    MaxWidth="450"
+                    MaxLength="50"
+                    Height="20" />
+                <CheckBox 
+                    x:Uid="FeedbackAttachScreenshotCheckbox"
+                    x:Name="AttachScreenshotCheckbox"
+                    HorizontalAlignment="Center"
+                    ex:IsVisible.Condition="{x:Bind _viewModel.CanAttachScreenshot}"
+                    IsEnabled="{x:Bind _viewModel.IsContentEditable, Mode=OneWay}"
+                    Margin="0,10,0,0"
+                    IsChecked="{x:Bind _viewModel.IsUploadingImageChecked, Converter={StaticResource NullableBooleanToBooleanConverter}, Mode=TwoWay}"
+                    Content="Attach my screenshot"/>
+                <Image
+                    utils:IsVisible.Condition="{x:Bind AttachScreenshotCheckbox.IsChecked, Converter={StaticResource NullableBooleanToBooleanConverter},Mode=OneWay}"
+                    x:Name="FeedbackImagePreview"
+                    Stretch="UniformToFill"
+                    HorizontalAlignment="Center"
+                    Margin="0,10,0,0"
+                    Width="450" />
+                <TextBlock
+                    x:Uid="FeedbackPrivacyNotice"
+                    Margin="0,20,0,0"
+                    HorizontalAlignment="Stretch"
+                    MaxWidth="450"
+                    Text="PrivacyNoticePlaceholder"
+                    Style="{StaticResource BaseTextBlockStyle}">
+                </TextBlock>
+                <Button
+                    x:Uid="FeedbackSubmitButton"
+                    Content="Submit"
+                    Width="125"
+                    Click="OnFeedbackSubmitButtonClicked"
+                    IsEnabled="{x:Bind _viewModel.IsContentEditable, Mode=OneWay}"
+                    Command="{x:Bind _viewModel.Command}"
+                    HorizontalAlignment="Center"
+                    Margin="0,20,0,0"/>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>

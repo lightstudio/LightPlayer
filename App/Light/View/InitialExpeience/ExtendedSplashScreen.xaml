@@ -1,0 +1,58 @@
+﻿<Page
+    x:Class="Light.View.InitialExpeience.ExtendedSplashScreen"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Light.View.InitialExpeience"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+   
+    <Grid 
+        RequestedTheme="Dark"
+        Background="#424343">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState
+                x:Name="DesktopState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="620"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="ExtendedSplashImage.Width" Value="620" />
+                        <Setter Target="ExtendedSplashImage.Height" Value="300" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <StackPanel
+            Margin="0,55,0,0"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            x:Name="SplashScreenContainer">
+            <Image 
+                Height="150"
+                Width="310" 
+                RequestedTheme="Dark"
+                x:Name="ExtendedSplashImage" 
+                Source="ms-appx:///Assets/SplashScreen.png"/>
+            <StackPanel
+                HorizontalAlignment="Center"
+                Name="SplashProgressRingAndTextContainer">
+                <ProgressRing 
+                    HorizontalContentAlignment="Center"
+                    RequestedTheme="Dark"
+                    Foreground="White"
+                    IsActive="True" 
+                    Width="20" 
+                    HorizontalAlignment="Center" />
+                <TextBlock
+                    x:Uid="ProvisionStatusTextBlock"
+                    x:Name="ProvisionStatusTextBlock"
+                    Margin="0,15,0,0"
+                    RequestedTheme="Dark"
+                    Text="Getting ready" />
+            </StackPanel>
+           
+        </StackPanel>
+    </Grid>
+</Page>

@@ -1,0 +1,417 @@
+﻿<Page
+    x:Class="Light.View.Library.Detailed.ArtistDetailView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="using:Light.View"
+    xmlns:controls="using:Light.Controls"
+    xmlns:commands="using:Light.ViewModel.Library.Commands"
+    xmlns:conv="using:Light.Converter"
+    xmlns:c="using:Light.Controls"
+    xmlns:model="using:Light.Model"
+    xmlns:utilities="using:Light.Utilities"
+    xmlns:db="using:Light.Managed.Database.Entities"
+    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:ex="using:Light.Utilities.UserInterfaceExtensions"
+    Loaded="PageLoaded"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <commands:CommonGridViewItemCommand x:Name="CommonGridViewItemCommand"/>
+        <commands:OpenFileLocationCommand x:Name="OpenFileLocationommand"/>
+        <conv:DbMediaFileToIndexStringConverter x:Name="DbMediaFileToIndexStringConverter"/>
+        <conv:TimeSpanToStringConverter x:Name="TimeSpanToStringConverter"/>
+        <conv:DbAlbumToThumbnailTagConverter x:Name="DbAlbumToThumbnailTagConverter"/>
+    </Page.Resources>
+    <Grid
+        SizeChanged="OnGridSizeChanged"
+        Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <ScrollViewer>
+            <Grid
+                x:Name="RootGrid">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="400"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Border
+                    Grid.Row="0">
+                    <c:MediaThumbnail
+                        x:Name="ArtistImage"
+                        ThumbnailTag="{Binding BackgroundImageTag, Mode=OneWay}"
+                        Stretch="UniformToFill"/>
+                </Border>
+                <Rectangle
+                    x:Name="ArtistImageForegroundGradient"
+                    Grid.Row="0"
+                    Margin="0,0,0,-5">
+                    <Rectangle.Fill>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="{ThemeResource FillGradientStop0}" Offset="0"/>
+                            <GradientStop Color="{ThemeResource FillGradientStop1}" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <RelativePanel
+                    Margin="60,10"
+                    Grid.Row="0">
+                    <StackPanel
+                        x:Name="Title"
+                        HorizontalAlignment="Stretch"
+                        RelativePanel.AlignLeftWithPanel="True"
+                        RelativePanel.AlignBottomWithPanel="True"
+                        RelativePanel.LeftOf="ShuffleAll">
+                        <TextBlock
+                            FontSize="48"
+                            FontWeight="Light"
+                            Margin="0,5"
+                            TextTrimming="CharacterEllipsis"
+                            MaxWidth="600"
+                            HorizontalAlignment="Left"
+                            Text="{x:Bind _vm.ArtistName, Mode=OneWay}"/>
+                        <TextBlock
+                            x:Name="ArtistStatistics"
+                            FontSize="18"
+                            FontWeight="SemiBold"
+                            Margin="0,5"
+                            CharacterSpacing="55"
+                            HorizontalAlignment="Left"
+                            TextTrimming="CharacterEllipsis"
+                            MaxWidth="600"
+                            Foreground="{ThemeResource SystemControlForegroundBaseMediumBrush}">
+                            <Run Text="{x:Bind _vm.TotalAlbums, Mode=OneWay}"/>
+                            <Run x:Uid="AlbumsSeparator" Text="Albums,"/>
+                            <Run Text="{x:Bind _vm.TotalDuration, Mode=OneWay}"/>
+                        </TextBlock>
+                    </StackPanel>
+
+                    <StackPanel
+                        Tapped="OnShuffleAllTapped"
+                        x:Name="ShuffleAll"
+                        Margin="15,0,0,15"
+                        Background="Transparent"
+                        RelativePanel.AlignRightWithPanel="True"
+                        RelativePanel.AlignBottomWithPanel="True"
+                        HorizontalAlignment="Right"
+                        Orientation="Horizontal">
+                        <Grid
+                            Height="36"
+                            Width="36"
+                            Margin="0,10,15,10">
+                            <Ellipse
+                                Stroke="{ThemeResource SystemControlForegroundBaseHighBrush}"
+                                StrokeThickness="3"/>
+                            <SymbolIcon
+                                Symbol="Play"/>
+                        </Grid>
+                        <TextBlock
+                            x:Uid="ShuffleAll"
+                            x:Name="NowPlayingButtonText"
+                            VerticalAlignment="Center"
+                            TextTrimming="CharacterEllipsis"
+                            Text="SHUFFLE ALL"
+                            CharacterSpacing="90"
+                            FontSize="21"
+                            FontWeight="Bold"/>
+                    </StackPanel>
+                </RelativePanel>
+                <Grid Grid.Row="1">
+                    <ListView
+                        SelectionMode="None"
+                        ItemsSource="{x:Bind _vm.ArtistAlbums}">
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                        <ListView.ItemTemplate>
+                            <DataTemplate x:DataType="db:DbAlbum">
+                                <UserControl>
+                                    <RelativePanel>
+                                        <VisualStateManager.VisualStateGroups>
+                                            <VisualStateGroup>
+                                                <VisualState>
+                                                    <VisualState.StateTriggers>
+                                                        <AdaptiveTrigger MinWindowWidth="300"/>
+                                                    </VisualState.StateTriggers>
+                                                    <VisualState.Setters>
+                                                        <Setter Target="AlbumCover.Visibility" Value="Collapsed"/>
+                                                    </VisualState.Setters>
+                                                </VisualState>
+                                                <VisualState>
+                                                    <VisualState.StateTriggers>
+                                                        <AdaptiveTrigger MinWindowWidth="800"/>
+                                                    </VisualState.StateTriggers>
+                                                    <VisualState.Setters>
+                                                        <Setter Target="AlbumCover.Visibility" Value="Visible"/>
+                                                    </VisualState.Setters>
+                                                </VisualState>
+                                            </VisualStateGroup>
+                                        </VisualStateManager.VisualStateGroups>
+                                        <StackPanel
+                                            RelativePanel.AlignTopWithPanel="True"
+                                            RelativePanel.AlignLeftWithPanel="True"
+                                            Margin="60,60,0,10"
+                                            x:Name="AlbumCover">
+                                            <controls:MediaThumbnail
+                                                Width="200"
+                                                Height="200"
+                                                ThumbnailTag="{Binding Converter={StaticResource DbAlbumToThumbnailTagConverter}, Mode=OneWay}"/>
+                                            <TextBlock
+                                                x:Name="YearText"
+                                                Margin="0,3"
+                                                Text="{x:Bind Date, Mode=OneWay}"/>
+                                        </StackPanel>
+
+                                        <RelativePanel
+                                            Margin="60,60,60,0"
+                                            RelativePanel.RightOf="AlbumCover"
+                                            RelativePanel.AlignTopWithPanel="True"
+                                            RelativePanel.AlignRightWithPanel="True"
+                                            x:Name="TitlePanel">
+                                            <TextBlock
+                                                x:Name="TitleText"
+                                                FontSize="25"
+                                                TextTrimming="CharacterEllipsis"
+                                                Text="{x:Bind Title, Mode=OneWay}"
+                                                RelativePanel.AlignLeftWithPanel="True"
+                                                RelativePanel.LeftOf="AddIcon"
+                                                RelativePanel.AlignVerticalCenterWithPanel="True"/>
+                                            <Button
+                                                x:Name="AddIcon"
+                                                RelativePanel.AlignVerticalCenterWithPanel="True"
+                                                RelativePanel.LeftOf="PlayIcon"
+                                                Margin="15,5,5,5"
+                                                Click="OnAddIconClick"
+                                                Style="{StaticResource PlaybackButtonStyle}">
+                                                <Button.Content>
+                                                    <SymbolIcon Symbol="Add"/>
+                                                </Button.Content>
+                                            </Button>
+                                            <Button
+                                                x:Name="PlayIcon"
+                                                RelativePanel.AlignRightWithPanel="True"
+                                                RelativePanel.AlignVerticalCenterWithPanel="True"
+                                                Margin="5,5,0,5"
+                                                Click="OnPlayIconClick"
+                                                Style="{StaticResource PlaybackButtonStyle}">
+                                                <Button.Content>
+                                                    <SymbolIcon Symbol="Play"/>
+                                                </Button.Content>
+                                            </Button>
+                                        </RelativePanel>
+                                        <ListView
+                                            x:Name="AlbumItemList"
+                                            Margin="60,15,60,30"
+                                            RelativePanel.RightOf="AlbumCover"
+                                            RelativePanel.Below="TitlePanel"
+                                            RelativePanel.AlignRightWithPanel="True"
+                                            ItemsSource="{Binding MediaFiles, Mode=OneWay}"
+                                            ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                                            <ListView.ItemTemplate>
+                                                <DataTemplate 
+                                                    x:DataType="db:DbMediaFile">
+                                                    <controls:DetailViewItemControl
+                                                        Index="{Binding Converter={StaticResource DbMediaFileToIndexStringConverter}}"
+                                                        Duration="{Binding Duration, Converter={StaticResource TimeSpanToStringConverter}}"
+                                                        Title="{Binding Title}"
+                                                        Artist="{Binding Artist}"
+                                                        FileList="{Binding Path=DataContext.MediaFiles, ElementName=AlbumItemList, Mode=OneWay}"
+                                                        File="{Binding}"/>
+                                                </DataTemplate>
+                                            </ListView.ItemTemplate>
+                                            <interactivity:Interaction.Behaviors>
+                                                <utilities:ListViewAlternatingColorBehavior
+                                                    EvenBrush="{ThemeResource ListViewContainerEvenBrush}"
+                                                    OddBrush="{ThemeResource SystemControlBackgroundAltHighBrush}"/>
+                                            </interactivity:Interaction.Behaviors>
+                                        </ListView>
+                                    </RelativePanel>
+                                </UserControl>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Grid>
+            </Grid>
+        </ScrollViewer>
+        <!--<VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="700"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="IntroColumnDef.Width" Value="3*"/>
+                        <Setter Target="MainContentColumnDef.Width" Value="2*" />
+                        <Setter Target="MainViewPanel.(Grid.ColumnSpan)" Value="1" />
+                        <Setter Target="WideScreenIntroPanel.Visibility" Value="Visible"/>
+                        <Setter Target="NarrowAlbumView.Visibility" Value="Collapsed" />
+                        <Setter Target="NarrowViewIntroStackPanel.Visibility" Value="Collapsed"/>
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="750"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="IntroColumnDef.Width" Value="3*"/>
+                        <Setter Target="MainContentColumnDef.Width" Value="1.5*" />
+                        <Setter Target="MainViewPanel.(Grid.ColumnSpan)" Value="1" />
+                        <Setter Target="WideScreenIntroPanel.Visibility" Value="Visible"/>
+                        <Setter Target="NarrowAlbumView.Visibility" Value="Collapsed" />
+                        <Setter Target="NarrowViewIntroStackPanel.Visibility" Value="Collapsed"/>
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>-->
+        <!--<controls:MediaThumbnail
+            Grid.Row="0"
+            Grid.RowSpan="2"
+            ThumbnailTag="{x:Bind _vm.BackgroundImageTag, Mode=OneWay}"
+            Stretch="UniformToFill"
+            VerticalAlignment="Stretch"
+            HorizontalAlignment="Stretch"/>
+        <Grid x:Name="ContentContainer" Grid.Row="1">
+
+            -->
+        <!-- Content -->
+        <!--
+            <ScrollViewer
+                Background="{ThemeResource Background3}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition
+                            x:Name="MainContentColumnDef"/>
+                        <ColumnDefinition 
+                            x:Name="IntroColumnDef"
+                            Width="0"/>
+                    </Grid.ColumnDefinitions>
+                    <RelativePanel 
+                        x:Name="MainViewPanel"
+                        Grid.ColumnSpan="2"
+                        RelativePanel.AlignLeftWithPanel="True" 
+                        Margin="0,5,0,0">
+                        <StackPanel 
+                            RelativePanel.AlignLeftWithPanel="True" 
+                            RelativePanel.AlignRightWithPanel="True" 
+                            RelativePanel.AlignBottomWithPanel="True" 
+                            RelativePanel.AlignTopWithPanel="True">
+                            <StackPanel
+                                x:Name="NarrowAlbumView">
+                                <TextBlock
+                                    Text="Albums by this artist"
+                                    Style="{StaticResource TitleTextBlockStyle}"
+                                    Margin="15,0,5,5"/>
+                                <GridView
+                                    Margin="7.5,0,0,0"
+                                    ItemsSource="{x:Bind _vm.ArtistAlbums, Mode=OneWay}"
+                                    IsItemClickEnabled="True"
+                                    SelectionMode="None" >
+                                    <GridView.ItemTemplate>
+                                        <DataTemplate x:DataType="model:CommonViewItemModel">
+                                            <StackPanel>
+                                                <controls:LibraryTileControl />
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </GridView.ItemTemplate>
+                                    <interactivity:Interaction.Behaviors>
+                                        <core:EventTriggerBehavior EventName="ItemClick">
+                                            <core:InvokeCommandAction 
+                                            Command="{x:Bind _vm.AlbumItemCommand, Mode=OneWay}" />
+                                        </core:EventTriggerBehavior>
+                                    </interactivity:Interaction.Behaviors>
+                                </GridView>
+                            </StackPanel>
+
+                            <TextBlock
+                                x:Uid="ArtistDetailedPageSongsHeaderTxtBlk"
+                                Text="Songs by this artist"
+                                Style="{StaticResource TitleTextBlockStyle}"
+                                Margin="15,5,5,5"/>
+                            <ListView 
+                                VerticalAlignment="Center" 
+                                Margin="2.5,0,5,0" 
+                                ItemContainerStyle="{StaticResource ListViewItemContainerStretchStyle}"
+                                ItemsSource="{x:Bind _vm.ArtistSongs, Mode=OneWay}">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate x:DataType="model:CommonViewItemModel">
+                                        <controls:LibraryListItemControl
+                                            Title="{x:Bind Title}"
+                                            Subtitle="{x:Bind Content}"
+                                            ItemType="{x:Bind Type}"
+                                            ExtendedArtistName="{x:Bind ExtendedArtistName}"
+                                            ExtendedFilePath="{x:Bind ExtendedFilePath}"
+                                            FileList="{Binding Path=DataContext.ArtistSongs, ElementName=NarrowAlbumView, Mode=OneWay}"
+                                            File="{x:Bind}"/>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+
+                            <StackPanel
+                                Margin="0,10,0,0"
+                                x:Name="NarrowViewIntroStackPanel">
+                                <TextBlock
+                                    x:Uid="ArtistDetailedPageIntroHeaderTxtBlk"
+                                    Text="Introduction"
+                                    Style="{StaticResource TitleTextBlockStyle}"
+                                    Margin="15,0,5,0"/>
+                                <TextBlock
+                                    Margin="13.5,5,13.5,0"
+                                    Style="{StaticResource BaseTextBlockStyle}"
+                                    TextWrapping="WrapWholeWords"
+                                    Text="{x:Bind _vm.ArtistBio, Mode=OneWay}"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </RelativePanel>
+                    <StackPanel
+                        Grid.Column="1"
+                        Margin="0,0,15,0"
+                        Visibility="Collapsed"
+                        x:Name="WideScreenIntroPanel">
+                        <TextBlock
+                            x:Uid="ArtistDetailedPageAlbumsHeaderTxtBlk"
+                            Text="Albums by this artist"
+                            Style="{StaticResource TitleTextBlockStyle}"
+                            Margin="15,10,5,5"/>
+                        <GridView
+                            Margin="7.5,0,0,0"
+                            ItemsSource="{x:Bind _vm.ArtistAlbums, Mode=OneWay}"
+                            IsItemClickEnabled="True"
+                            SelectionMode="None" >
+                            <GridView.ItemTemplate>
+                                <DataTemplate x:DataType="model:CommonViewItemModel">
+                                    <StackPanel>
+                                        <controls:LibraryTileControl />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </GridView.ItemTemplate>
+                            <interactivity:Interaction.Behaviors>
+                                <core:EventTriggerBehavior EventName="ItemClick">
+                                    <core:InvokeCommandAction 
+                                            Command="{x:Bind _vm.AlbumItemCommand, Mode=OneWay}" />
+                                </core:EventTriggerBehavior>
+                            </interactivity:Interaction.Behaviors>
+                        </GridView>
+                        <TextBlock
+                            x:Uid="ArtistDetailedPageIntroHeaderTxtBlk"
+                            Text="Introduction"
+                            Style="{StaticResource TitleTextBlockStyle}"
+                            Margin="15,10,5,0"/>
+                        <TextBlock
+                            Margin="13.5,5,13.5,0"
+                            Style="{StaticResource BaseTextBlockStyle}"
+                            TextWrapping="WrapWholeWords"
+                            Text="{x:Bind _vm.ArtistBio, Mode=OneWay}"/>
+                    </StackPanel>
+                </Grid>
+            </ScrollViewer>
+        </Grid>-->
+        <!-- Progress Ring -->
+        <ProgressRing 
+            Width="100" 
+            Height="100" 
+            Foreground="{ThemeResource SystemControlForegroundAccentBrush}"
+            ex:IsVisible.Condition="{x:Bind _vm.IsLoading, Mode=OneWay}"/>
+    </Grid>
+</Page>

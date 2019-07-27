@@ -1,0 +1,450 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DBBBBDC5-B913-49C4-9C9F-C82E4ADFF9A2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Light.Managed</RootNamespace>
+    <AssemblyName>Light.Managed</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetPlatformVersion>10.0.17134.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.14393.0</TargetPlatformMinVersion>
+    <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <AllowCrossPlatformRetargeting>false</AllowCrossPlatformRetargeting>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <PlatformTarget>ARM</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <PlatformTarget>ARM</PlatformTarget>
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP;RELEASE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP;RELEASE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP;RELEASE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="NuGet.config" />
+    <None Include="Schema.md" />
+    <PRIResource Include="Strings\zh-CN\Resources.resw" />
+    <PRIResource Include="Strings\en-US\Resources.resw" />
+    <PRIResource Include="Strings\en-GB\Resources.resw" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationServiceBase.cs" />
+    <Compile Include="Background\BackgroundTaskRegisterationHelper.cs" />
+    <Compile Include="Constants\LibraryConstants.cs" />
+    <Compile Include="Database\CacheDbContext.cs" />
+    <Compile Include="Database\Constant\DatabaseConstants.cs" />
+    <Compile Include="Database\Entities\Entities.cs" />
+    <Compile Include="Database\Entities\EntityRetrievalExtensions.cs" />
+    <Compile Include="Database\GlobalLibraryCache.cs" />
+    <Compile Include="Feedback\FeedbackClient.cs" />
+    <Compile Include="Feedback\FeedbackServerErrorException.cs" />
+    <Compile Include="Feedback\Models\Feedback.cs" />
+    <Compile Include="Feedback\Models\FeedbackType.cs" />
+    <Compile Include="Feedback\Models\ImageUploadResult.cs" />
+    <Compile Include="Feedback\RequestThrottledException.cs" />
+    <Compile Include="Library\DrmProtectedException.cs" />
+    <Compile Include="Library\DrmUtils.cs" />
+    <Compile Include="Library\FileIndexer.cs" />
+    <Compile Include="Database\MedialibraryDbContext.cs" />
+    <Compile Include="Database\Native\NativeMethods.cs" />
+    <Compile Include="Extension\DatabaseWorker.cs" />
+    <Compile Include="Extension\ExtensionDbContext.cs" />
+    <Compile Include="Extension\ExtensionManager.cs" />
+    <Compile Include="Extension\Model\ExtPackage.cs" />
+    <Compile Include="Extension\Model\ManifestEntity.cs" />
+    <Compile Include="Extension\SecurityHelper.cs" />
+    <Compile Include="IO\Decompressor.cs" />
+    <Compile Include="IO\FutureAccessList.cs" />
+    <Compile Include="Library\IndexChangeArgs.cs" />
+    <Compile Include="Library\IThumbnailOperations.cs" />
+    <Compile Include="Library\LocalizedStrings.cs" />
+    <Compile Include="Licensing\IProductService.cs" />
+    <Compile Include="Licensing\Model\IProduct.cs" />
+    <Compile Include="Licensing\Model\Product.cs" />
+    <Compile Include="Licensing\Model\Receipt.cs" />
+    <Compile Include="Licensing\ProductService.cs" />
+    <Compile Include="Migrations\20170423103227_FreshStart1704.cs" />
+    <Compile Include="Migrations\20170423103227_FreshStart1704.designer.cs">
+      <DependentUpon>20170423103227_FreshStart1704.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\CacheDb\20160714203130_InitialCacheMigration.cs" />
+    <Compile Include="Migrations\CacheDb\20160714203130_InitialCacheMigration.designer.cs">
+      <DependentUpon>20160714203130_InitialCacheMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\CacheDb\20160720204657_NxtCacheMgmt.cs" />
+    <Compile Include="Migrations\CacheDb\20160720204657_NxtCacheMgmt.designer.cs">
+      <DependentUpon>20160720204657_NxtCacheMgmt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\CacheDb\CacheDbContextModelSnapshot.cs" />
+    <Compile Include="Migrations\ExtensionDb\20160714203218_InitialExtensionMigration.cs" />
+    <Compile Include="Migrations\ExtensionDb\20160714203218_InitialExtensionMigration.designer.cs">
+      <DependentUpon>20160714203218_InitialExtensionMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\ExtensionDb\ExtensionDbContextModelSnapshot.cs" />
+    <Compile Include="Migrations\MedialibraryDbContextModelSnapshot.cs" />
+    <Compile Include="Online\AggreatedOnlineMetadata.cs" />
+    <Compile Include="Online\Apple\AppleMusicMetadata.cs" />
+    <Compile Include="Online\Apple\Model\AppleMusicMetadataResponse.cs" />
+    <Compile Include="Online\ArtistImageFaceCalibration.cs" />
+    <Compile Include="Online\Banlist.cs" />
+    <Compile Include="Online\Groove\GrooveMusicMetadata.cs" />
+    <Compile Include="Online\Groove\Model\AuthRequest.cs" />
+    <Compile Include="Online\Groove\Model\AzureAuthKey.cs" />
+    <Compile Include="Online\Groove\Model\GrooveContentResponse.cs" />
+    <Compile Include="Online\LastFM\LastFmArtistEntity.cs" />
+    <Compile Include="Online\LastFM\LastFmArtistMetadata.cs" />
+    <Compile Include="Online\MetadataQueryCache.cs" />
+    <Compile Include="Online\MetadataRetrieveBanlist.cs" />
+    <Compile Include="Online\MetadataSimilarityComparer.cs" />
+    <Compile Include="Online\OnlineMetadata.cs" />
+    <Compile Include="Online\OnlineQueryCacheManager.cs" />
+    <Compile Include="Online\Xiami\XiamiAudioInfo.cs" />
+    <Compile Include="Online\Xiami\XiamiOnlineServiceProvider.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Servicing\IServicingTask.cs" />
+    <Compile Include="Servicing\MaximumQualifiedRevisionAttribute.cs" />
+    <Compile Include="Servicing\OnlineServicingManager.cs" />
+    <Compile Include="Servicing\QuickFilePurgeServicingTask.cs" />
+    <Compile Include="Settings\ConfigurationManager.cs" />
+    <Compile Include="Settings\Model\SettingEntry.cs" />
+    <Compile Include="Settings\Model\SettingsProvisionFile.cs" />
+    <Compile Include="Settings\Model\SettingsSchema.cs" />
+    <Compile Include="Settings\SettingsManager.cs" />
+    <Compile Include="StringEncodingHelper.cs" />
+    <Compile Include="Tools\CaseInsensitiveCharComparer.cs" />
+    <Compile Include="Tools\CoverExtractor.cs" />
+    <Compile Include="Tools\DBCSEncoding.cs" />
+    <Compile Include="Tools\DirectoryExtensions.cs" />
+    <Compile Include="Tools\ExternalFileHelper.cs" />
+    <Compile Include="Tools\FileLengthHelper.cs" />
+    <Compile Include="Tools\InternetConnectivityDetector.cs" />
+    <Compile Include="Tools\Logger.cs" />
+    <Compile Include="Tools\MusicPropertiesMediaInfo.cs" />
+    <Compile Include="Tools\ParallelExtensions.cs" />
+    <Compile Include="Tools\PathExclusion.cs" />
+    <Compile Include="Tools\PathUtils.cs" />
+    <Compile Include="Tools\SQLiteLike.cs" />
+    <Compile Include="Tools\StateManger.cs" />
+    <Compile Include="Tools\TelemetryHelper.cs" />
+    <Compile Include="Tools\TrieTree.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <SDKReference Include="WindowsDesktop, Version=10.0.17134.0">
+      <Name>Windows Desktop Extensions for the UWP</Name>
+    </SDKReference>
+    <SDKReference Include="WindowsMobile, Version=10.0.17134.0">
+      <Name>Windows Mobile Extensions for the UWP</Name>
+    </SDKReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Configuration\Microsoft.Extensions.Configuration.Json\Microsoft.Extensions.Configuration.Json.csproj">
+      <Project>{a73afbbd-3322-4aac-a894-16b5696e58c3}</Project>
+      <Name>Microsoft.Extensions.Configuration.Json</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Light native\Light.Universal\Light.Universal.vcxproj">
+      <Project>{ad168752-4263-4dfe-8438-0b6c21016ba4}</Project>
+      <Name>Light.Universal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Light.CueIndex\Light.CueIndex.csproj">
+      <Project>{e7df4356-f9ec-464a-a2a0-ef4798d2932e}</Project>
+      <Name>Light.CueIndex</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WindowsRuntimeEtwLoggerProvider\WindowsRuntimeEtwLoggerProvider.csproj">
+      <Project>{779348a3-0140-4093-b3c5-ee8ddde90784}</Project>
+      <Name>WindowsRuntimeEtwLoggerProvider</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="HtmlAgilityPack">
+      <Version>1.7.0</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.ApplicationInsights.WindowsApps">
+      <Version>1.1.1</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite">
+      <Version>1.1.2</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools">
+      <Version>1.1.1</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Caching.Memory">
+      <Version>1.1.2</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Configuration">
+      <Version>1.1.2</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions">
+      <Version>1.1.2</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables">
+      <Version>1.1.2</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Logging">
+      <Version>1.1.2</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug">
+      <Version>1.1.2</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Logging.TraceSource">
+      <Version>1.1.2</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
+      <Version>6.0.7</Version>
+    </PackageReference>
+    <PackageReference Include="MvvmLightLibs">
+      <Version>5.4.1</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>11.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="System.ValueTuple">
+      <Version>4.4.0</Version>
+    </PackageReference>
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
+    <VisualStudioVersion>14.0</VisualStudioVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'UnitTest|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\UnitTest\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <NoWarn>;2008</NoWarn>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'UnitTest|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\UnitTest\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'UnitTest|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\UnitTest\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <NoWarn>;2008</NoWarn>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release CLR|ARM'">
+    <OutputPath>bin\ARM\Release CLR\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP;RELEASE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release CLR|x64'">
+    <OutputPath>bin\x64\Release CLR\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP;RELEASE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release CLR|x86'">
+    <OutputPath>bin\x86\Release CLR\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP;RELEASE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release Store|ARM'">
+    <OutputPath>bin\ARM\Release Store\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP;STORE_RELEASE_REL;RELEASE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release Store|x64'">
+    <OutputPath>bin\x64\Release Store\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP;STORE_RELEASE_REL;RELEASE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release Store|x86'">
+    <OutputPath>bin\x86\Release Store\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP;STORE_RELEASE_REL;RELEASE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'EF Migration|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\EF Migration\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <NoWarn>;2008</NoWarn>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'EF Migration|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\EF Migration\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;NETFX_CORE;WINDOWS_UWP;EFCORE_MIGRATION</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'EF Migration|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\EF Migration\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;NETFX_CORE;WINDOWS_UWP;EFCORE_MIGRATION</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <NoWarn>;2008</NoWarn>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

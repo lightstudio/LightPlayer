@@ -1,0 +1,168 @@
+﻿<ContentDialog
+    x:Uid="ThumbnailSearchFlyout"
+    x:Class="Light.Flyout.ThumbnailSearchFlyout"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Light.Flyout"
+    xmlns:e="using:Light.Managed.Online"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:i="using:Microsoft.Xaml.Interactivity"
+    xmlns:c="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:ex="using:Light.Utilities.UserInterfaceExtensions"
+    mc:Ignorable="d"
+    Style="{StaticResource LightContentDialogStyle}"
+    Title="Search"
+    PrimaryButtonText="Select"
+    SecondaryButtonText="Cancel"
+    IsPrimaryButtonEnabled="{x:Bind ViewModel.PrimaryButtonEnabled, Mode=OneWay}"
+    PrimaryButtonClick="OnPrimaryButtonClick">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <RelativePanel 
+            Width="310"
+            Margin="0,10,0,0">
+            <AutoSuggestBox
+                x:Uid="AlbumNameTextBox"
+                x:Name="InputTitleAutoSuggestBox"
+                ex:IsVisible.Condition="{x:Bind ViewModel.AlbumTextBoxVisible}"
+                RelativePanel.AlignLeftWithPanel="True"
+                RelativePanel.AlignRightWithPanel="True"
+                PlaceholderText="Album" 
+                Text="{x:Bind ViewModel.Album, Mode=TwoWay}" 
+                Style="{StaticResource NoBorderAutoSuggestBox}">
+                <i:Interaction.Behaviors>
+                    <c:EventTriggerBehavior EventName="QuerySubmitted">
+                        <c:InvokeCommandAction Command="{Binding SearchCommand}" />
+                    </c:EventTriggerBehavior>
+                </i:Interaction.Behaviors>
+            </AutoSuggestBox>
+            <Grid
+                x:Name="InputArtistAutoSuggestBoxGroup"
+                Margin="0,5,0,0"
+                RelativePanel.Below="InputTitleAutoSuggestBox"
+                RelativePanel.AlignLeftWithPanel="True"
+                RelativePanel.AlignRightWithPanel="True">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="38"/>
+                </Grid.ColumnDefinitions>
+                <AutoSuggestBox 
+                    x:Uid="ArtistTextBox"
+                    PlaceholderText="Artist" 
+                    Text="{x:Bind ViewModel.Artist, Mode=TwoWay}" 
+                    QuerySubmitted="OnQuerySubmitted"
+                    Style="{StaticResource NoBorderAutoSuggestBox}">
+                </AutoSuggestBox>
+                <AppBarButton
+                    x:Name="SubmitQueryButton"
+                    Grid.Column="1"
+                    Margin="5,0,0,0"
+                    Width="32"
+                    Click="OnSearchClicked"
+                    Height="32" Style="{StaticResource IconButtonStyle}">
+                    <Button.Content>
+                        <SymbolIcon 
+                            Width="32"
+                            Height="32"
+                            Symbol="Find"/>
+                    </Button.Content>
+                </AppBarButton>
+            </Grid>
+            <ProgressBar 
+                Margin="0,10,0,0"
+                RelativePanel.Below="InputArtistAutoSuggestBoxGroup"
+                RelativePanel.AlignLeftWithPanel="True"
+                RelativePanel.AlignRightWithPanel="True"
+                IsIndeterminate="True" 
+                ex:IsVisible.Condition="{x:Bind ViewModel.IsBusy, Mode=OneWay}"
+                x:Name="LrcProgress"/>
+            <TextBlock 
+                Margin="0,10,0,0"
+                RelativePanel.Below="InputArtistAutoSuggestBoxGroup"
+                RelativePanel.AlignLeftWithPanel="True"
+                RelativePanel.AlignRightWithPanel="True"
+                ex:IsVisible.Inversion="{x:Bind ViewModel.IsBusy, Mode=OneWay}"
+                Text="{Binding ResultText, Mode=OneWay}"
+                Style="{StaticResource BaseTextBlockStyle}"
+                FontSize="16"
+                x:Name="SearchResultText"/>
+            <ListView
+                Margin="0,10,0,0"
+                RelativePanel.Below="SearchResultText"
+                RelativePanel.AlignLeftWithPanel="True"
+                RelativePanel.AlignRightWithPanel="True"
+                SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}"
+                x:Name="SearchCandidateListView"
+                SelectionMode="Single"
+                ItemContainerStyle="{StaticResource FolderListViewItemContainerTemplate}"
+                ItemsSource="{Binding SearchCandidates}">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="e:IEntityInfo">
+                        <StackPanel Orientation="Horizontal">
+                            <Image 
+                                Height="40"
+                                Width="40"
+                                Source="{Binding Thumbnail}"/>
+                            <StackPanel Margin="10,0,0,0">
+                                <TextBlock 
+                                    Text="{x:Bind AlbumName}"
+                                    ex:IsVisible.WhenNotEmpty="{x:Bind AlbumName}"
+                                    TextTrimming="CharacterEllipsis"
+                                    TextWrapping="NoWrap"
+                                    Style="{StaticResource BaseTextBlockStyle}" 
+                                    SelectionHighlightColor="{x:Null}" 
+                                    FontSize="16">
+                                    <ToolTipService.ToolTip>
+                                        <ToolTip Content="{x:Bind AlbumName}"/>
+                                    </ToolTipService.ToolTip>
+                                </TextBlock>
+                                <TextBlock 
+                                    TextTrimming="CharacterEllipsis"
+                                    TextWrapping="NoWrap"
+                                    Text="{x:Bind ArtistName}"
+                                    ex:IsVisible.WhenNotEmpty="{x:Bind AlbumName}"
+                                    Style="{StaticResource BodyTextBlockStyle}" 
+                                    SelectionHighlightColor="{x:Null}" 
+                                    Foreground="{ThemeResource AppBarToggleButtonCheckedPointerOverBackgroundThemeBrush}">
+                                    <ToolTipService.ToolTip>
+                                        <ToolTip Content="{x:Bind AlbumName}"/>
+                                    </ToolTipService.ToolTip>
+                                </TextBlock>
+                                <TextBlock 
+                                    Text="{x:Bind ArtistName}"
+                                    ex:IsVisible.WhenEmpty="{x:Bind AlbumName}"
+                                    TextTrimming="CharacterEllipsis"
+                                    TextWrapping="NoWrap"
+                                    Style="{StaticResource BaseTextBlockStyle}" 
+                                    SelectionHighlightColor="{x:Null}" 
+                                    FontSize="16">
+                                    <ToolTipService.ToolTip>
+                                        <ToolTip Content="{x:Bind ArtistName}"/>
+                                    </ToolTipService.ToolTip>
+                                </TextBlock>
+                            </StackPanel>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </RelativePanel>
+        <StackPanel
+            Grid.Row="1">
+            <HyperlinkButton 
+                x:Uid="ImportExtImageLink"
+                x:Name="ImportExtImageLink"
+                Content="Import image from disk"
+                Click="OnImportClick"/>
+            <HyperlinkButton 
+                x:Uid="ClearImageLink"
+                x:Name="ClearImageLink"
+                Content="Remove the image"
+                Click="OnClearClick"/>
+        </StackPanel>
+    </Grid>
+</ContentDialog>

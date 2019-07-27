@@ -1,0 +1,59 @@
+﻿<ContentDialog
+    x:Uid="FileOpenFailure"
+    x:Class="Light.Flyout.FileOpenFailure"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Light.Flyout"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="File access authorization"
+    Width="530"
+    AllowDrop="True"
+    DragEnter="OnDragEntered"
+    Drop="OnDrop"
+    SecondaryButtonText="Okay">
+
+    <RelativePanel Width="480">
+        <TextBlock
+            x:Name="FileOpenFailureDescription"
+            x:Uid="FileOpenFailureDescription"
+            RelativePanel.AlignTopWithPanel="True"
+            TextWrapping="Wrap"
+            Text="Light does not have access to these files or they do not exist. Please use file picker to authorize the access, or drag the file here."/>
+        <ListView
+            x:Name="ContentList"
+            Margin="0,5"
+            ItemsSource="{x:Bind _items}"
+            RelativePanel.Below="FileOpenFailureDescription"
+            RelativePanel.AlignBottomWithPanel="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <RelativePanel
+                        Width="465">
+                        <StackPanel
+                            RelativePanel.AlignLeftWithPanel="True"
+                            RelativePanel.AlignVerticalCenterWithPanel="True"
+                            RelativePanel.LeftOf="OpenFileSymbol"
+                            Orientation="Vertical">
+                            <TextBlock
+                                TextTrimming="CharacterEllipsis"
+                                Text="{Binding FileName}"/>
+                            <TextBlock
+                                TextTrimming="CharacterEllipsis"
+                                Text="{Binding ParentPath}"/>
+                        </StackPanel>
+                        <SymbolIcon
+                            x:Name="OpenFileSymbol"
+                            RelativePanel.AlignVerticalCenterWithPanel="True"
+                            RelativePanel.AlignRightWithPanel="True"
+                            Width="40"
+                            Height="40"
+                            Symbol="OpenFile"
+                            Tapped="OnSelectFileTapped"/>
+                    </RelativePanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </RelativePanel>
+</ContentDialog>

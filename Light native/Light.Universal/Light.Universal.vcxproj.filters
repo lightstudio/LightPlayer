@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Resources">
+      <UniqueIdentifier>9828b008-bc03-4aca-abb7-5fbcf4c1d042</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tga;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="BuiltInCodec">
+      <UniqueIdentifier>{cd4d80f7-bc5b-4dec-9c39-01e58d44037a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interfaces">
+      <UniqueIdentifier>{b5a2bd33-911e-4dae-830d-47bae15a9fe4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI">
+      <UniqueIdentifier>{808af21f-bee9-4138-a12d-d7a33aa1099e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Cue">
+      <UniqueIdentifier>{df906c6f-46ef-4eff-a7c0-1e1983417f3a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="BuiltInCodec\FfmpegCodec.cpp">
+      <Filter>BuiltInCodec</Filter>
+    </ClCompile>
+    <ClCompile Include="BuiltInCodec\FfmpegFileIO.cpp">
+      <Filter>BuiltInCodec</Filter>
+    </ClCompile>
+    <ClCompile Include="BuiltInCodec\FfmpegMediaFile.cpp">
+      <Filter>BuiltInCodec</Filter>
+    </ClCompile>
+    <ClCompile Include="BuiltInCodec\FfmpegMediaInfo.cpp">
+      <Filter>BuiltInCodec</Filter>
+    </ClCompile>
+    <ClCompile Include="BuiltInCodec\Interop.cpp">
+      <Filter>BuiltInCodec</Filter>
+    </ClCompile>
+    <ClCompile Include="pch.cpp" />
+    <ClCompile Include="StringUtils.cpp" />
+    <ClCompile Include="FileSystemFastPath.cpp" />
+    <ClCompile Include="BuiltInCodec\FfmpegAudioReader.cpp">
+      <Filter>BuiltInCodec</Filter>
+    </ClCompile>
+    <ClCompile Include="MemoryHelper.cpp" />
+    <ClCompile Include="NativeSettingsManager.cpp" />
+    <ClCompile Include="SampleRateHelper.cpp" />
+    <ClCompile Include="AudioIndexCue.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BuiltInCodec\FfmpegCodec.h">
+      <Filter>BuiltInCodec</Filter>
+    </ClInclude>
+    <ClInclude Include="BuiltInCodec\FfmpegFileIO.h">
+      <Filter>BuiltInCodec</Filter>
+    </ClInclude>
+    <ClInclude Include="BuiltInCodec\FfmpegMediaFile.h">
+      <Filter>BuiltInCodec</Filter>
+    </ClInclude>
+    <ClInclude Include="BuiltInCodec\FfmpegMediaInfo.h">
+      <Filter>BuiltInCodec</Filter>
+    </ClInclude>
+    <ClInclude Include="BuiltInCodec\StringUtils.h">
+      <Filter>BuiltInCodec</Filter>
+    </ClInclude>
+    <ClInclude Include="Interfaces\ICodec.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="Interfaces\IMediaFile.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="Interfaces\IMediaInfo.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="AsyncHelper.h" />
+    <ClInclude Include="InternalByteBuffer.h" />
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="BuiltInCodec\Interop.h">
+      <Filter>BuiltInCodec</Filter>
+    </ClInclude>
+    <ClInclude Include="BuiltInCodec\FfmpegAudioReader.h">
+      <Filter>BuiltInCodec</Filter>
+    </ClInclude>
+    <ClInclude Include="BuiltInCodec\AVDictionaryView.h">
+      <Filter>BuiltInCodec</Filter>
+    </ClInclude>
+    <ClInclude Include="PcmSampleInfo.h">
+      <Filter>BuiltInCodec</Filter>
+    </ClInclude>
+    <ClInclude Include="AsyncOperation.h" />
+    <ClInclude Include="ErrorHandling.h" />
+    <ClInclude Include="NativeSettingsManager.h" />
+    <ClInclude Include="SampleRateHelper.h" />
+    <ClInclude Include="AudioIndexCue.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+</Project>

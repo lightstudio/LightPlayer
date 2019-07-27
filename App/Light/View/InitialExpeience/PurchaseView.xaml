@@ -1,0 +1,34 @@
+﻿<Page
+    x:Class="Light.View.InitialExpeience.PurchaseView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel
+            Grid.Row="1"
+            VerticalAlignment="Bottom"
+            HorizontalAlignment="Center" Margin="0,10,0,15"
+        >
+            <TextBlock 
+                HorizontalAlignment="Center"
+                x:Uid="InitialProvisionTextBlock"
+                Text="Your trial period has ended. Purchase full version now!" 
+                Style="{StaticResource HeaderTextBlockStyle}"
+            />
+            <TextBlock
+                HorizontalAlignment="Center"
+                x:Uid="InitialProvisionSubTextBlock"
+                Text="With Light, focus on music again."
+                Style="{StaticResource BaseTextBlockStyle}"
+            />
+        </StackPanel>
+    </Grid>
+</Page>
+

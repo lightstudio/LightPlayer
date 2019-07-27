@@ -1,0 +1,79 @@
+﻿<UserControl
+    x:Class="Light.Controls.PlaylistListItemControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Light.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ex="using:Light.Utilities.UserInterfaceExtensions"
+    mc:Ignorable="d"
+    Loaded="OnLoaded"
+    Unloaded="OnUnloaded"
+    d:DesignHeight="50"
+    d:DesignWidth="360">
+
+    <Grid>
+        <SymbolIcon
+            Height="30"
+            Width="30"
+            Margin="10"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Symbol="List"/>
+        <StackPanel
+            Margin="50,5,0,5"
+            HorizontalAlignment="Stretch"
+            Orientation="Vertical">
+            <TextBlock 
+                Text="{x:Bind Title, Mode=OneWay}" 
+                TextTrimming="CharacterEllipsis"
+                MaxLines="1"
+                TextWrapping="NoWrap"
+                Style="{StaticResource BodyTextBlockStyle}"/>
+            <TextBlock 
+                MaxLines="1"
+                TextTrimming="CharacterEllipsis"
+                Text="{x:Bind Subtitle, Mode=OneWay}" 
+                TextWrapping="WrapWholeWords"
+                Style="{StaticResource BodyTextBlockStyle}" 
+                Foreground="{ThemeResource SubtitleForeground}"/>
+        </StackPanel>
+        <ex:MenuFlyoutService.MenuFlyout>
+            <MenuFlyout>
+                <MenuFlyoutItem 
+                    x:Uid="MenuPlayItem"
+                    Text="Play"
+                    Click="OnMenuPlayClicked">
+                </MenuFlyoutItem>
+                <MenuFlyoutItem 
+                    x:Uid="MenuAddToListItem"
+                    Text="Add to Playlist"
+                    Click="OnMenuAddClicked">
+                </MenuFlyoutItem>
+                <MenuFlyoutSeparator/>
+                <MenuFlyoutItem
+                    x:Uid="RenameItem"
+                    ex:IsVisible.Inversion="{x:Bind IsFavorite}"
+                    Text="Rename"
+                    Click="OnMenuRenameClicked"/>
+                <MenuFlyoutItem 
+                    Text="{x:Bind DeleteText}"
+                    Click="OnMenuDeleteClicked"/>
+                <MenuFlyoutItem 
+                    x:Uid="MenuShareItem"
+                    Text="Share"
+                    Click="OnMenuShareClicked">
+                </MenuFlyoutItem>
+                <MenuFlyoutSeparator/>
+                <MenuFlyoutSubItem
+                    x:Uid="MenuExportPlaylist"
+                    Text="Export as">
+                    <MenuFlyoutItem
+                        x:Uid="MenuExportM3u"
+                        Text="M3u Playlist"
+                        Click="OnExportM3uClicked"/>
+                </MenuFlyoutSubItem>
+            </MenuFlyout>
+        </ex:MenuFlyoutService.MenuFlyout>
+    </Grid>
+</UserControl>

@@ -1,0 +1,47 @@
+Microsoft FfmpegInterop
+Apache License 2.0
+https://github.com/Microsoft/FFmpegInterop/blob/master/LICENSE
+
+ChakraBridge
+Apache License 2.0
+https://github.com/deltakosh/JsBridge/blob/master/readme.md
+
+Microsoft .NET Core
+MIT License
+https://github.com/dotnet/core/blob/master/LICENSE.TXT
+
+Microsoft Entity Framework Core
+Apache License 2.0
+https://github.com/aspnet/EntityFramework/blob/dev/LICENSE.txt
+
+Newtonsoft.Json
+MIT License
+https://github.com/JamesNK/Newtonsoft.Json/blob/master/LICENSE.md
+
+MvvmLight
+MIT License
+http://mvvmlight.codeplex.com/license
+
+CueSharp
+BSD License
+https://wyday.com/cuesharp/
+
+Html Agility Pack
+Microsoft Public License (Ms-PL)
+http://htmlagilitypack.codeplex.com/license
+
+FFmpeg
+GNU LESSER GENERAL PUBLIC LICENSE
+https://ffmpeg.org/legal.html
+
+Mozilla Chardet
+GNU LESSER GENERAL PUBLIC LICENSE
+https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
+
+UWP Community Toolkit
+MIT License
+https://github.com/Microsoft/UWPCommunityToolkit/blob/dev/license.md
+
+Telerik UI Universal Windows Platform
+Apache License 2.0
+https://github.com/telerik/UI-For-UWP/blob/master/LICENSE.md

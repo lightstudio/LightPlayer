@@ -1,0 +1,387 @@
+﻿<local:MobileBasePage
+    x:Class="Light.Phone.View.MobileHomeView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Light.Phone.View"
+    xmlns:model="using:Light.Model" 
+    xmlns:c="using:Light.Controls"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:l="using:Light.Core"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    NavigationCacheMode="Required"
+    Loaded="OnLoaded"
+    Unloaded="OnUnloaded"
+    mc:Ignorable="d">
+    <Page.Transitions>
+        <TransitionCollection>
+            <NavigationThemeTransition>
+                <NavigationThemeTransition.DefaultNavigationTransitionInfo>
+                    <CommonNavigationTransitionInfo/>
+                </NavigationThemeTransition.DefaultNavigationTransitionInfo>
+            </NavigationThemeTransition>
+        </TransitionCollection>
+    </Page.Transitions>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid
+            x:Name="BackgroundImagePanel"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Top"
+            SizeChanged="OnBackgroundImagePanelSizeChanged">
+            <c:MediaThumbnail
+                x:Name="ArtistImage"
+                ThumbnailTag="{Binding BackgroundAlbumImageTag, Mode=OneWay}"
+                Stretch="UniformToFill"/>
+            <Rectangle
+                x:Name="ArtistImageForegroundGradient">
+                <Rectangle.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="{ThemeResource FillGradientStop0}" Offset="-0.5"/>
+                        <GradientStop Color="{ThemeResource FillGradientStop1}" Offset="1"/>
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+        </Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="17"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <TextBlock
+                Grid.Row="1"
+                FontSize="15"
+                Margin="12,0"
+                FontWeight="SemiBold"
+                VerticalAlignment="Top"
+                Text="LIGHT"/>
+            <Button
+                Grid.Row="1"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Right"
+                Margin="13,-3"
+                Style="{StaticResource PlaybackButtonStyle}"
+                Width="24"
+                Height="24"
+                Click="OnSearchClick">
+                <FontIcon
+                    FontSize="15"
+                    Glyph="&#xE094;" Margin="-4,0"/>
+                <ToolTipService.ToolTip>
+                    <ToolTip Content="Search" x:Uid="SearchButtonTooltip"/>
+                </ToolTipService.ToolTip>
+            </Button>
+            <Pivot
+                x:Name="MainPivot"
+                Grid.Row="2">
+                <PivotItem
+                    x:Uid="MyMusicHeader"
+                    Margin="10,0,0,0"
+                    Header="My Music">
+                    <ScrollViewer
+                        VerticalScrollBarVisibility="Hidden">
+                        <RelativePanel>
+                            <TextBlock 
+                                x:Uid="NowPlayingHeader"
+                                RelativePanel.AlignTopWithPanel="True"
+                                RelativePanel.AlignLeftWithPanel="True"
+                                Margin="2,60,0,10"
+                                x:Name="NowPlayingHeader"
+                                Text="Now Playing"/>
+                            <ListView 
+                                x:Name="NowPlayingList"
+                                RelativePanel.AlignLeftWithPanel="True"
+                                RelativePanel.AlignRightWithPanel="True"
+                                RelativePanel.Below="NowPlayingHeader"
+                                Loaded="OnNowPlayingListLoaded"
+                                Unloaded="OnNowPlayingListUnloaded"
+                                ItemsSource="{Binding NowPlayingTracks, Mode=OneWay}"
+                                Style="{StaticResource MobileHorizontalListViewStyle}"
+                                ScrollViewer.IsHorizontalScrollChainingEnabled="False"
+                                Height="130"
+                                Width="525">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate x:DataType="l:MusicPlaybackItem">
+                                        <StackPanel
+                                            Tapped="OnNextPlayItemTapped"
+                                            Background="Transparent"
+                                            Orientation="Vertical"
+                                            Margin="-9,0"
+                                            Height="130" 
+                                            Width="95">
+                                            <c:MediaThumbnail
+                                                VerticalAlignment="Top"
+                                                ThumbnailTag="{x:Bind AlbumImageTag}"
+                                                Width="95"
+                                                Height="95"/>
+                                            <TextBlock
+                                                FontSize="14"
+                                                Text="{x:Bind Title}"
+                                                TextTrimming="CharacterEllipsis"
+                                                Margin="0"/>
+                                            <TextBlock 
+                                                FontSize="12"
+                                                Text="{x:Bind Artist}"
+                                                TextTrimming="CharacterEllipsis"
+                                                Margin="0"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                            <Border
+                                RelativePanel.AlignRightWith="NowPlayingList"
+                                RelativePanel.AlignTopWith="NowPlayingList"
+                                Background="#333333"
+                                x:Name="NowPlayingReleaseBorder"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Width="95"
+                                Height="130">
+                                <FontIcon
+                                    x:Name="NowPlayingPullIcon"
+                                    Glyph="&#xE0A6;"
+                                    RenderTransformOrigin="0.5,0.5">
+                                    <FontIcon.RenderTransform>
+                                        <RotateTransform x:Name="NowPlayingPullIconTransform" Angle="0"/>
+                                    </FontIcon.RenderTransform>
+                                    <FontIcon.Resources>
+                                        <Storyboard x:Key="NowPlayingPullIconRotate">
+                                            <DoubleAnimation 
+                                                From="0" To="180"
+                                                Duration="0:0:0.2"
+                                                Storyboard.TargetName="NowPlayingPullIconTransform"
+                                                Storyboard.TargetProperty="Angle"/>
+                                        </Storyboard>
+                                    </FontIcon.Resources>
+                                </FontIcon>
+                            </Border>
+                            <TextBlock 
+                                x:Uid="RecentlyHeader"
+                                RelativePanel.Below="NowPlayingList"
+                                RelativePanel.AlignLeftWithPanel="True"
+                                Margin="2,30,0,10"
+                                x:Name="RecentlyHeader"
+                                Text="Recently"/>
+                            <ListView 
+                                x:Name="RecentlyList"
+                                Loaded="OnRecentlyListLoaded"
+                                Unloaded="OnRecentlyListUnloaded"
+                                RelativePanel.AlignLeftWithPanel="True"
+                                RelativePanel.AlignRightWithPanel="True"
+                                RelativePanel.Below="RecentlyHeader"
+                                ItemsSource="{Binding HistoryItems, Mode=OneWay}"
+                                Style="{StaticResource MobileHorizontalListViewStyle}"
+                                ScrollViewer.IsHorizontalScrollChainingEnabled="False"
+                                Height="130"
+                                Width="525">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate x:DataType="l:MusicPlaybackItem">
+                                        <StackPanel
+                                            Tapped="OnRecentItemTapped"
+                                            Background="Transparent"
+                                            Orientation="Vertical"
+                                            Margin="-9,0"
+                                            Height="130" 
+                                            Width="95">
+                                            <c:MediaThumbnail
+                                                VerticalAlignment="Top"
+                                                ThumbnailTag="{x:Bind AlbumImageTag}"
+                                                Width="95"
+                                                Height="95"/>
+                                            <TextBlock
+                                                FontSize="14"
+                                                Text="{x:Bind Title}"
+                                                TextTrimming="CharacterEllipsis"
+                                                Margin="0"/>
+                                            <TextBlock 
+                                                FontSize="12"
+                                                Text="{x:Bind Artist}"
+                                                TextTrimming="CharacterEllipsis"
+                                                Margin="0"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                            <Border
+                                RelativePanel.AlignRightWith="RecentlyList"
+                                RelativePanel.AlignTopWith="RecentlyList"
+                                Background="#333333"
+                                x:Name="RecentlyReleaseBorder"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Width="95"
+                                Height="130">
+                                <FontIcon
+                                    x:Name="RecentlyPullIcon"
+                                    Glyph="&#xE0A6;"
+                                    RenderTransformOrigin="0.5,0.5">
+                                    <FontIcon.RenderTransform>
+                                        <RotateTransform x:Name="RecentlyPullIconTransform" Angle="0"/>
+                                    </FontIcon.RenderTransform>
+                                    <FontIcon.Resources>
+                                        <Storyboard x:Key="RecentlyPullIconRotate">
+                                            <DoubleAnimation 
+                                                From="0" To="180"
+                                                Duration="0:0:0.2"
+                                                Storyboard.TargetName="RecentlyPullIconTransform"
+                                                Storyboard.TargetProperty="Angle"/>
+                                        </Storyboard>
+                                    </FontIcon.Resources>
+                                </FontIcon>
+                            </Border>
+                            <StackPanel
+                                RelativePanel.AlignHorizontalCenterWithPanel="True"
+                                RelativePanel.AlignVerticalCenterWithPanel="True"
+                                Orientation="Vertical"
+                                Visibility="Collapsed"
+                                x:Name="OpenLibraryPanel">
+                                <TextBlock
+                                    TextWrapping="Wrap"
+                                    TextAlignment="Center"
+                                    Margin="10"
+                                    Text="Play some music to get started."/>
+                                <Button
+                                    HorizontalAlignment="Center"
+                                    Content="Open library"
+                                    Click="OnOpenLibraryClick"/>
+                            </StackPanel>
+                        </RelativePanel>
+                    </ScrollViewer>
+                </PivotItem>
+                <PivotItem
+                    x:Uid="LibraryHeader"
+                    Header="Library">
+                    <Grid>
+                        <ListView
+                            Loaded="OnLibraryListViewLoaded"
+                            Unloaded="OnLibraryListViewUnloaded"
+                            x:Name="LibraryListView"
+                            SelectionMode="None"
+                            ItemsSource="{x:Bind RecentAlbums}">
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="ListViewItem">
+                                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                            <ListView.Header>
+                                <StackPanel
+                                    Margin="2,60,0,10"
+                                    Orientation="Vertical">
+                                    <TextBlock
+                                        x:Uid="DeviceText"
+                                        Margin="0,0,0,10"
+                                        FontSize="15"
+                                        Text="Device"/>
+                                    <c:MenuItemControl
+                                        x:Uid="PlaylistMenuItem"
+                                        Tapped="OnPlaylistTapped"
+                                        Glyph="&#xE90B;"
+                                        Text="Playlists"/>
+                                    <c:MenuItemControl
+                                        x:Uid="SongMenuItem"
+                                        Tapped="OnSongsTapped"
+                                        Glyph="&#xE8D6;"
+                                        Text="Songs"/>
+                                    <c:MenuItemControl
+                                        x:Uid="AlbumMenuItem"
+                                        Tapped="OnAlbumsTapped"
+                                        Glyph="&#xE93C;"
+                                        Text="Albums"/>
+                                    <c:MenuItemControl
+                                        x:Uid="ArtistMenuItem"
+                                        Tapped="OnArtistsTapped"
+                                        Glyph="&#xE8D4;"
+                                        Text="Artists"/>
+                                    <c:MenuItemControl
+                                        x:Uid="RecentlyMenuItem"
+                                        Tapped="OnRecentlyTapped"
+                                        Glyph="&#xE823;"
+                                        Text="Recently Listened"/>
+                                    <TextBlock
+                                        x:Uid="RecentlyAddedText"
+                                        Margin="0,20"
+                                        Text="Recently Added"/>
+                                </StackPanel>
+                            </ListView.Header>
+                            <ListView.ItemTemplate>
+                                <DataTemplate x:DataType="model:RecentlyAddedAlbumModel">
+                                    <StackPanel
+                                        Margin="-10,5,0,5"
+                                        Background="Transparent"
+                                        Orientation="Horizontal"
+                                        Tapped="OnRecentlyAddedItemTapped">
+                                        <c:MediaThumbnail
+                                            ThumbnailTag="{x:Bind Thumbnail}"
+                                            VerticalAlignment="Top"
+                                            Width="40"
+                                            Height="40"/>
+                                        <StackPanel
+                                            Margin="10,-2,0,0"
+                                            Orientation="Vertical">
+                                            <TextBlock
+                                                MaxLines="1"
+                                                TextWrapping="NoWrap"
+                                                Style="{StaticResource BaseTextBlockStyle}"
+                                                TextTrimming="CharacterEllipsis"
+                                                Text="{x:Bind Title}"/>
+                                            <TextBlock
+                                                MaxLines="1"
+                                                TextWrapping="NoWrap"
+                                                Style="{StaticResource BaseTextBlockStyle}"
+                                                Foreground="{ThemeResource SystemControlForegroundChromeDisabledLowBrush}"
+                                                TextTrimming="CharacterEllipsis"
+                                                Text="{x:Bind Artist}"/>
+                                            <TextBlock
+                                                MaxLines="1"
+                                                TextWrapping="NoWrap"
+                                                Style="{StaticResource BaseTextBlockStyle}"
+                                                Foreground="{ThemeResource SystemControlForegroundChromeDisabledLowBrush}"
+                                                Text="{x:Bind AddedDate}"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </Grid>
+                </PivotItem>
+                <PivotItem
+                    x:Uid="MoreHeader"
+                    Header="More">
+                    <StackPanel
+                        Margin="2,60,0,10"
+                        Orientation="Vertical">
+                        <c:MenuItemControl
+                            x:Uid="ShuffleAllMenuItem"
+                            Tapped="OnShuffleAllTapped"
+                            Glyph="&#xE8B1;"
+                            Text="Shuffle All"/>
+                        <!--<c:MenuItemControl
+                            Tapped="OnAddFilesTapped"
+                            Glyph="&#xE710;"
+                            Text="Add Files"/>-->
+                        <c:MenuItemControl
+                            x:Uid="RefreshLibraryMenuItem"
+                            Tapped="OnRefreshLibraryTapped"
+                            Glyph="&#xE895;"
+                            Text="Refresh Library"/>
+                        <c:MenuItemControl
+                            x:Uid="FeedbackMenuItem"
+                            Tapped="OnFeedbackTapped"
+                            Glyph="&#xED15;"
+                            Text="Feedback"/>
+                        <c:MenuItemControl
+                            x:Uid="SettingsMenuItem"
+                            Tapped="OnSettingsTapped"
+                            Glyph="&#xE713;"
+                            Text="Settings"/>
+                        <c:MenuItemControl
+                            x:Uid="AboutMenuItem"
+                            Tapped="OnAboutTapped"
+                            Glyph="&#xE783;"
+                            Text="About"/>
+                    </StackPanel>
+                </PivotItem>
+            </Pivot>
+        </Grid>
+    </Grid>
+</local:MobileBasePage>

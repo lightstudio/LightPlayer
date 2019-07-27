@@ -1,0 +1,34 @@
+﻿[
+  {
+    "market": "en-US",
+    "resTag": "AppleMusicMrktenUS"
+  },
+  {
+    "market": "en-GB",
+    "resTag": "AppleMusicMrktenGB"
+  },
+  {
+    "market": "en-AU",
+    "resTag": "AppleMusicMrktenAU"
+  },
+  {
+    "market": "ja-JP",
+    "resTag": "AppleMusicMrktjaJP"
+  },
+  {
+    "market": "zh-CN",
+    "resTag": "AppleMusicMrktzhCN"
+  },
+  {
+    "market": "zh-SG",
+    "resTag": "AppleMusicMrktzhSG"
+  },
+  {
+    "market": "zh-TW",
+    "resTag": "AppleMusicMrktzhTW"
+  },
+  {
+    "market": "zh-HK",
+    "resTag": "AppleMusicMrktzhHK"
+  }
+]

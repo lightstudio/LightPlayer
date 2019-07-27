@@ -1,0 +1,44 @@
+﻿
+
+1.Downloading lyrics
+
+using System;
+using System.IO;
+using Light.Lyrics.Downloader;
+using Light.Lyrics.Downloader.TTLyrics;
+using Light.Lyrics.Downloader.Gecimi;
+
+
+ILyricDownload downloadSource = new TTLrcDownloadSource();
+//returns a list of lyrics info
+var list = await downloadSource.LookupLrc("title", "singer");
+//MemoryStream is also okay.
+Stream fileStream = xxx.... ;
+//note: all the lrc files are encoded in UTF-8
+await downloadSource.DownloadLrcAsync(list[0], stream);
+fileStream.Dispose();
+
+2.Analyzing and displaying lyrics
+
+string lyricsString = xxx... ;
+var analyzer = new LrcAnalyzer(lyricsString);
+
+--or--
+
+Stream lyricsStream = xxx... ;
+var analyzer = new LrcAnalyzer(lyricsString); //this constructor will read the stream as UTF-8
+
+In Xaml add
+xmlns:lyrics="using:Light.Lyrics.Controls"
+
+<lyrics:ScrollLyricsDisplay.xaml Name="bldc" FontSize="20" HighlightTextBrush="Yellow" TextForegroundBrush="YellowGreen" Height="400"/>
+
+in code, you can switch lyrics using
+bldc.Lyrics = analyzer;
+
+//note: the control use DispatchTimer to refresh the lyrics every 50ms
+//by default. this can be changed.
+bldc.refreshInterval = TimeSpan.FromMilliseconds(100.0d);
+
+** Note: 1.DO NOT USE SynchronizedDisplayControl IN ANY RELEASE VERSION. **
+**       2.Need more Downloader.                                         **

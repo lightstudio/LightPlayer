@@ -1,0 +1,119 @@
+﻿<Page
+    x:Class="Light.View.Library.CommonGroupedGridView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:model="using:Light.Model"
+    xmlns:utilities="using:Light.Utilities"
+    xmlns:controls="using:Light.Controls"
+    xmlns:t="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:grouping="using:Light.Utilities.Grouping"
+    xmlns:userInterfaceExtensions="using:Light.Utilities.UserInterfaceExtensions"
+    NavigationCacheMode="Enabled"
+    Unloaded="OnUnloaded"
+    x:Name="GroupedPage"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <CollectionViewSource 
+            x:Name="GroupedCvs" />
+        <DataTemplate x:Key="ZoomedInGroupHeaderTemplate" x:DataType="grouping:IGroupedItems">
+            <TextBlock 
+                Text="{x:Bind Title, Mode=OneWay}" 
+                Foreground="{ThemeResource ApplicationForegroundThemeBrush}" 
+                Style="{StaticResource SubtitleTextBlockStyle}"/>
+        </DataTemplate>
+        <DataTemplate x:Key="ZoomedOutTemplate" x:DataType="ICollectionViewGroup">
+            <Grid
+                Background="{ThemeResource SystemControlBackgroundAccentBrush}"
+                Width="200"
+                Height="75">
+                <TextBlock 
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left"
+                    Text="{x:Bind Group.(grouping:IGroupedItems.Title), Mode=OneWay}" 
+                    TextWrapping="NoWrap"
+                    TextTrimming="CharacterEllipsis"
+                    MaxLines="1"
+                    FontSize="24" 
+                    Foreground="White" 
+                    Margin="15,-2,15,0" />
+            </Grid>
+        </DataTemplate>
+    </Page.Resources>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <!-- Grouped GridView -->
+        <SemanticZoom
+            Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+            <SemanticZoom.ZoomedInView>
+                <!-- Grouped Content -->
+                <t:AdaptiveGridView
+                    DesiredWidth="150"
+                    x:Name="ContentGridView"
+                    ItemsSource="{x:Bind GroupedCvs.View, Mode=OneWay}" 
+                    IsItemClickEnabled="True"
+                    ScrollViewer.IsHorizontalScrollChainingEnabled="False"
+                    IncrementalLoadingThreshold="-1"
+                    StretchContentForSingleRow="False"
+                    SelectionMode="None">
+                    <t:AdaptiveGridView.ItemTemplate>
+                        <DataTemplate x:DataType="model:CommonViewItemModel">
+                            <Viewbox
+                                Stretch="Uniform">
+                                <controls:LibraryTileControl />
+                            </Viewbox>
+                        </DataTemplate>
+                    </t:AdaptiveGridView.ItemTemplate>
+                    <GridView.GroupStyle>
+                        <GroupStyle 
+                            HeaderTemplate="{StaticResource ZoomedInGroupHeaderTemplate}" />
+                    </GridView.GroupStyle>
+                </t:AdaptiveGridView>
+            </SemanticZoom.ZoomedInView>
+            <SemanticZoom.ZoomedOutView>
+                <!-- Index -->
+                <GridView
+                    Margin="5"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    MaxHeight="800"
+                    MaxWidth="800"
+                    ScrollViewer.VerticalScrollBarVisibility="Auto"
+                    ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                    ItemTemplate="{StaticResource ZoomedOutTemplate}"
+                    ItemsSource="{x:Bind GroupedCvs.View.CollectionGroups, Mode=OneWay}" >
+                    <GridView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <ItemsWrapGrid MaximumRowsOrColumns="8"
+                                ItemWidth="200"
+                                ItemHeight="75" 
+                                Orientation="Horizontal"
+                                Margin="7.5"/>
+                        </ItemsPanelTemplate>
+                    </GridView.ItemsPanel>
+                </GridView>
+            </SemanticZoom.ZoomedOutView>
+        </SemanticZoom>
+        <!-- Empty collection placeholder -->
+        <controls:EmptyCollectionIndicator
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            userInterfaceExtensions:IsVisible.Condition="{x:Bind _vm.GroupedItems.IsEmpty, Mode=OneWay}" />
+        <!-- Progress Ring -->
+        <Grid
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            userInterfaceExtensions:IsVisible.Condition="{x:Bind _vm.IsLoading, Mode=OneWay}"
+            Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+            <ProgressRing 
+                Width="100" 
+                Height="100" 
+                IsActive="{x:Bind _vm.IsLoading, Mode=OneWay}" />
+        </Grid>
+    </Grid>
+</Page>
+

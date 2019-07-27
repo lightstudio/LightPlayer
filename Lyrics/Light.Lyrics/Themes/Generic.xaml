@@ -1,0 +1,31 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Light.Lyrics"
+    xmlns:ctrls="using:Light.Lyrics.Controls">
+
+    <Style TargetType="ctrls:LyricsPresenter">
+        <!--<Setter Property="Foreground" Value="{ThemeResource SystemControlDisabledAccentBrush}" />-->
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Grid>
+                        <ScrollViewer 
+                            Name="ScrollViewer" 
+                            IsEnabled="{Binding AllowScroll, RelativeSource={RelativeSource TemplatedParent}}" 
+                            FontSize="{TemplateBinding FontSize}"
+                            Foreground="{TemplateBinding Foreground}"
+                            HorizontalScrollMode="Disabled"
+                            VerticalScrollBarVisibility="Hidden">
+                            <StackPanel>
+                                <!--<Border x:Name="Top"/>-->
+                                <StackPanel Name="Container"/>
+                                <!--<Border x:Name="Bottom"/>-->
+                            </StackPanel>
+                        </ScrollViewer>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

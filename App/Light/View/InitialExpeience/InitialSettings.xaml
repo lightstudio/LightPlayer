@@ -1,0 +1,84 @@
+﻿<Page
+    x:Class="Light.View.InitialExpeience.InitialSettings"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:Light.Controls"
+    xmlns:shell="using:Light.Shell"
+    xmlns:ex="using:Light.Utilities.UserInterfaceExtensions"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <shell:PageTitleBar 
+            x:Name="TitleBar"
+            TitleBarForegroundColor="{ThemeResource TitleForeground}"
+            TitleBarBackgroundColor="{ThemeResource TitleBackground}" />
+    </Page.Resources>
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush
+                Stretch="UniformToFill" 
+                ImageSource="ms-appx:///Assets/IntroImage.jpg"
+                Opacity="1"/>
+        </Grid.Background>
+        <Grid
+            Background="{ThemeResource Background3}"
+            x:Name="BackgroundOverlay">
+            <ScrollViewer
+                x:Name="ContentScrollViewer"
+                HorizontalScrollBarVisibility="Disabled"
+                HorizontalScrollMode="Disabled">
+                <StackPanel
+                    Margin="20,25,20,50"
+                    HorizontalAlignment="Center"
+                    MaxWidth="840">
+                    <TextBlock
+                        x:Uid="InitialSettingsSubHeader"
+                        x:Name="SettingsIntroTextBlock"
+                        Margin="0,0,0,0"
+                        Style="{StaticResource BaseTextBlockStyle}"
+                        Text="Before we get started, please take some time reviewing the initial settings." />
+                    <controls:CommonSettings 
+                        Margin="0,5,0,0"
+                        IsInterfaceSettingsVisible="False"
+                        IsLibrarySettingsVisible="True"
+                        IsPlaybackAndLyricsSettingsVisible="True"
+                        IsPrivacySettingsVisible="True"
+                        IsDebugSettingsVisible="False"
+                        IsFullMetadataSettingsVisible="False"
+                        IsExtensionSettingsVisible="False"
+                        IsLyricSettingsVisible="True" />
+                    <ToggleSwitch 
+                        x:Name="EnableThirdPartyLyricsToggle"
+                        x:Uid="EnableThirdPartyLyricsToggle"
+                        Margin="0,10,0,0"
+                        IsOn="True"
+                        Header="Enable 3rd-party Lyrics Services"/>
+                    <TextBlock
+                        x:Uid="EnableThirdPartyLyricsReminder"
+                        HorizontalAlignment="Left"
+                        MaxWidth="500"
+                        Margin="0,5,0,10"
+                        ex:IsVisible.Condition="{x:Bind EnableThirdPartyLyricsToggle.IsOn, Mode=OneWay}"
+                        Text="Terms of Use from 3rd-party services may apply."
+                        Style="{StaticResource BodyTextBlockStyle}"/>
+                    <Button
+                        x:Name="FinishedSettingsButton"
+                        Width="125"
+                        HorizontalAlignment="Center"
+                        Margin="15,5,10,15"
+                        Click="OnFinishedSettingsButtonClicked">
+                        <Button.Content>
+                            <TextBlock
+                                x:Uid="Continue"
+                                Text="Continue"
+                                Style="{StaticResource BaseTextBlockStyle}"/>
+                        </Button.Content>
+                    </Button>
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</Page>

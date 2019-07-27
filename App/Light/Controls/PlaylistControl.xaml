@@ -1,0 +1,161 @@
+﻿<UserControl 
+    x:Class="Light.Controls.PlaylistControl" 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:local="using:Light.Controls" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:media="using:Windows.Media.Playback"
+    xmlns:light="using:Light.Core"
+    xmlns:converter1="using:Light.Converter"
+    xmlns:utilities1="using:Light.Utilities"
+    xmlns:userInterfaceExtensions="using:Light.Utilities.UserInterfaceExtensions"
+    mc:Ignorable="d"  
+    d:DesignHeight="300" 
+    d:DesignWidth="400"
+    Loaded="PlaylistControlEntity_Loaded"
+    KeyDown="OnKeyDown"
+    x:Name="PlaylistControlEntity">
+    <UserControl.Resources>
+        <converter1:MiliSecToNormalTimeConverter x:Name="MiliSecToNormalTimeConverter" />
+        <converter1:MediaSourceConverter x:Name="MediaSourceConverter" />
+        <local:PlayButtonCommand x:Name="PlayButtonCommand"/>
+        <local:DeleteButtonCommand x:Name="DeleteButtonCommand" Parent="{x:Bind}"/>
+        <local:SavePlaylistCommand x:Name="SavePlaylistCommand"/>
+    </UserControl.Resources>
+    <Grid>
+        <local:BackDrop 
+            x:Name="BackDrop"
+            BlurAmount="15"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            userInterfaceExtensions:IsVisible.Inversion="{x:Bind IsPlaylistPinned, Mode=OneWay}"/>
+        <Border
+            x:Name="BackgroundBorder"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            Background="{ThemeResource Background2}"
+            userInterfaceExtensions:IsVisible.Inversion="{x:Bind IsInNowPlayingView, Mode=OneWay}"/>
+        <Grid Canvas.ZIndex="255">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="47"/>
+                <RowDefinition />
+                <RowDefinition Height="60"/>
+            </Grid.RowDefinitions>
+            <Grid>
+                <TextBlock 
+                    x:Uid="PlaylistTextBox"
+                    FontSize="16"
+                    Grid.Row="0" 
+                    Text="NOW PLAYING"
+                    Style="{StaticResource TitleTextBlockStyle}" 
+                    FontWeight="Bold" 
+                    CharacterSpacing="75" 
+                    Margin="15,0,0,0" 
+                    VerticalAlignment="Center" />
+            </Grid>
+            <ListView 
+                x:Name="PlayItemsListView"
+                ReorderMode="Enabled"
+                CanReorderItems="True" 
+                CanDragItems="True" 
+                AllowDrop="True" 
+                DragEnter="OnPlayItemsListViewDragEnter"
+                Drop="OnPlayItemsListViewDrop"
+                ItemsSource="{x:Bind Playlist, Mode=OneWay}" 
+                Grid.Row="1" 
+                Padding="0,0,0,48" 
+                SelectionMode="None"
+                IsMultiSelectCheckBoxEnabled="{x:Bind EditToggleButton.IsChecked, Converter={StaticResource NullableBooleanToBooleanKey}, Mode=OneWay}" 
+                Margin="0,5,0,0">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="light:MusicPlaybackItem">
+                        <Grid
+                            Background="Transparent"
+                            DoubleTapped="OnMediaPlaybackItemDoubleTapped"
+                            Tapped="OnMediaPlaybackItemTapped">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="28" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <local:MediaPlaybackItemIndicator FontSize="20" Grid.Column="0" BackendField="{x:Bind}" />
+                            <StackPanel Grid.Column="1" Margin="5,0,5,0">
+                                <TextBlock
+                                    TextTrimming="CharacterEllipsis"
+                                    MaxLines="1"
+                                    Style="{StaticResource BaseTextBlockStyle}"
+                                    Text="{Binding Title, Mode=OneWay}" />
+                                <TextBlock
+                                    TextTrimming="CharacterEllipsis"
+                                    MaxLines="1"
+                                    Style="{StaticResource BaseTextBlockStyle}"
+                                    Foreground="{ThemeResource SystemControlForegroundChromeDisabledLowBrush}"
+                                    Text="{Binding Album}"/>
+                                <TextBlock
+                                    TextTrimming="CharacterEllipsis"
+                                    MaxLines="1"
+                                    Style="{StaticResource BaseTextBlockStyle}"
+                                    Foreground="{ThemeResource SystemControlForegroundChromeDisabledLowBrush}"
+                                    Text="{Binding Artist}"/>
+                            </StackPanel>
+                            <userInterfaceExtensions:MenuFlyoutService.MenuFlyout>
+                                <MenuFlyout>
+                                    <MenuFlyoutItem Text="Play" x:Uid="MenuPlayItem" Command="{StaticResource PlayButtonCommand}" CommandParameter="{x:Bind}" />
+                                    <MenuFlyoutSeparator />
+                                    <MenuFlyoutItem x:Uid="MenuDeleteItem" Text="Delete" Command="{StaticResource DeleteButtonCommand}" CommandParameter="{x:Bind}" />
+                                </MenuFlyout>
+                            </userInterfaceExtensions:MenuFlyoutService.MenuFlyout>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <RelativePanel
+                Grid.Row="3"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Margin="0,0,5,0">
+                <StackPanel
+                    Orientation="Horizontal" 
+                    Margin="0,0,2,0" 
+                    x:Name="EditToggleButtonPanel">
+                    <ToggleButton x:Name="EditToggleButton" Click="OnEditToggleButtonClicked" Margin="5,0,1,0" IsThreeState="False" IsChecked="False" Style="{StaticResource ToggleButtonStyle}" Width="42">
+                        <ToggleButton.Content>
+                            <SymbolIcon Symbol="Edit" />
+                        </ToggleButton.Content>
+                    </ToggleButton>
+                    <Button Margin="5,0,0,0" Style="{StaticResource ListViewButtonStyle}" userInterfaceExtensions:IsVisible.Condition="{x:Bind EditToggleButton.IsChecked, Mode=OneWay, Converter={StaticResource NullableBooleanToBooleanKey}}" Width="42"
+                            Command="{x:Bind DeleteButtonCommand}">
+                        <Button.Content>
+                            <SymbolIcon Symbol="Delete" />
+                        </Button.Content>
+                    </Button>
+                </StackPanel>
+                <Button
+                    RelativePanel.RightOf="EditToggleButtonPanel" 
+                    x:Name="SaveButton"
+                    Margin="5,0,0,0"
+                    Style="{StaticResource ListViewButtonStyle}" 
+                    Width="42">
+                    <Button.Content>
+                        <SymbolIcon Symbol="Save" />
+                    </Button.Content>
+                    <Button.Flyout>
+                        <Flyout Placement="Top" x:Name="SavePlaylistFlyout">
+                            <StackPanel Orientation="Vertical">
+                                <TextBox x:Uid="PlaylistNameTextBox" x:Name="PlaylistNameTextBox" Width="200" PlaceholderText="Playlist Name" />
+                                <Button x:Uid="SavePlaylistButton" HorizontalAlignment="Right" Margin="0,5,0,0" Content="Save" Command="{StaticResource SavePlaylistCommand}" CommandParameter="{x:Bind PlaylistNameTextBox.Text, Mode=OneWay}"/>
+                            </StackPanel>
+                        </Flyout>
+                    </Button.Flyout>
+                </Button>
+                <ToggleButton x:Name="PinToggleButton" RelativePanel.RightOf="SaveButton" Margin="5,0,0,0" Width="42" IsThreeState="False" Style="{StaticResource ToggleButtonStyle}"
+                              IsChecked="{x:Bind IsPlaylistPinned, Converter={StaticResource NullableBooleanToBooleanKey}, Mode=TwoWay}">
+                    <ToggleButton.Content>
+                        <SymbolIcon Symbol="Pin" />
+                    </ToggleButton.Content>
+                </ToggleButton>
+            </RelativePanel>
+        </Grid>
+    </Grid>
+
+</UserControl>

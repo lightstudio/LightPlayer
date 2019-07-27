@@ -1,0 +1,73 @@
+nuget {
+   nuspec {
+      id = ffmpeg-compact;
+      version : 3.0.2.0;
+      title: FFmpeg;
+      authors: FFmpeg Community;
+      owners: FFmpeg Community;
+      licenseUrl: "https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html";
+      iconUrl: "http://ffmpeg.org/favicon.ico";
+      requireLicenseAcceptance:true;
+      summary: FFmpeg LGPL static library package for Windows Store;
+      description: @"FFmpeg LGPL static library package for Windows Store";
+      releaseNotes: "";
+      projectUrl: "https://ffmpeg.org";
+      copyright: GNU Lesser General Public License (LGPL) version 2.1;
+      tags: { ffmpeg };
+   };
+ 
+    files {
+        nestedInclude: {
+            #destination = ${d_include};
+            x86_compact\include\*\*"
+        };
+        [x86,release] {
+            lib: { 
+		        x86_compact\lib\libavcodec.a;
+                x86_compact\lib\libavutil.a;
+                x86_compact\lib\libswresample.a;
+                x86_compact\lib\libavformat.a;				
+		    }
+        };
+        [x86,debug] {
+            lib: { 
+		        x86_compact_debug\lib\libavcodec.a;
+                x86_compact_debug\lib\libavutil.a;
+                x86_compact_debug\lib\libswresample.a;
+                x86_compact_debug\lib\libavformat.a;				
+		    }
+        };
+        [arm,release] {
+    		lib: { 
+		        arm_compact\lib\libavcodec.a;
+                arm_compact\lib\libavutil.a;
+                arm_compact\lib\libswresample.a;
+                arm_compact\lib\libavformat.a;				
+		    }
+        };
+        [arm,debug] {
+    		lib: { 
+		        arm_compact_debug\lib\libavcodec.a;
+                arm_compact_debug\lib\libavutil.a;
+                arm_compact_debug\lib\libswresample.a;
+                arm_compact_debug\lib\libavformat.a;				
+		    }
+        };
+        [x64,release] {
+    		lib: { 
+		        x64_compact\lib\libavcodec.a;
+                x64_compact\lib\libavutil.a;
+                x64_compact\lib\libswresample.a;
+                x64_compact\lib\libavformat.a;				
+		    }
+        };
+        [x64,debug] {
+    		lib: { 
+		        x64_compact_debug\lib\libavcodec.a;
+                x64_compact_debug\lib\libavutil.a;
+                x64_compact_debug\lib\libswresample.a;
+                x64_compact_debug\lib\libavformat.a;				
+		    }
+        };
+    };
+}

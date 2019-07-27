@@ -1,0 +1,59 @@
+﻿<ContentDialog
+    x:Uid="LibraryWarningDialog"
+    x:Class="Light.Flyout.LibraryWarningDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Light.Flyout"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ex="using:Light.Utilities.UserInterfaceExtensions"
+    mc:Ignorable="d"
+    Title="Something happened"
+    SecondaryButtonText="OK">
+
+    <RelativePanel
+        Width="300">
+        <TextBlock
+            FontSize="13"
+            Margin="0,10,0,0"
+            TextWrapping="Wrap"
+            x:Uid="LibraryScanErrorDesc"
+            x:Name="LibraryScanErrorDesc"
+            Text="During the last media library scan, we failed to add these files to the library."
+            RelativePanel.AlignTopWithPanel="True"/>
+        <ListView
+            RelativePanel.Below="LibraryScanErrorDesc"
+            Margin="0,15,0,0"
+            ItemsSource="{x:Bind Warnings}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel
+                        Width="270"
+                        Background="Transparent"
+                        Orientation="Vertical">
+                        <ex:MenuFlyoutService.MenuFlyout>
+                            <MenuFlyout>
+                                <MenuFlyoutItem
+                                    x:Uid="MenuOpenFileLoc"
+                                    Text="Open File Location"
+                                    Click="OnOpenFileClick"/>
+                            </MenuFlyout>
+                        </ex:MenuFlyoutService.MenuFlyout>
+                        <ToolTipService.ToolTip>
+                            <ToolTip Content="{Binding FullPath}"/>
+                        </ToolTipService.ToolTip>
+                        <TextBlock
+                            TextTrimming="CharacterEllipsis"
+                            Style="{StaticResource BaseTextBlockStyle}" 
+                            Text="{Binding FileName}"/>
+                        <TextBlock 
+                            TextWrapping="Wrap"
+                            Style="{StaticResource BodyTextBlockStyle}" 
+                            Foreground="{ThemeResource AppBarToggleButtonCheckedPointerOverBackgroundThemeBrush}"
+                            Text="{Binding ExceptionMessage}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </RelativePanel>
+</ContentDialog>

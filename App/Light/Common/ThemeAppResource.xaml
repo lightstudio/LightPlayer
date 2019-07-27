@@ -1,0 +1,43 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Light.Common">
+    <ResourceDictionary.ThemeDictionaries>
+        <ResourceDictionary x:Key="Dark">
+            <SolidColorBrush x:Key="Background0" Color="#FF000000" />
+            <SolidColorBrush x:Key="Background1" Color="#FF181819" />
+            <SolidColorBrush x:Key="Background2" Color="#99000000" />
+            <SolidColorBrush x:Key="Background3" Color="#C8000000" />
+            <SolidColorBrush x:Key="Background4" Color="#FF1A1A1A" />
+            <SolidColorBrush x:Key="GroupTitleForeground" Color="#FFA0A0A0" />
+            <SolidColorBrush x:Key="OverlayBackground" Color="#7F3F3E3E" />
+            <SolidColorBrush x:Key="SubtitleForeground" Color="#FFB7B7B7" />
+            <SolidColorBrush x:Key="ListViewContainerEvenBrush" Color="#FF0C0C0C" />
+            <Color x:Key="FillGradientStop0">#00000000</Color>
+            <Color x:Key="FillGradientStop1">#FF000000</Color>
+            <Color x:Key="TitleBackground">#FF181819</Color>
+            <Color x:Key="TitleForeground">#FFFFFFFF</Color>
+            <Color x:Key="BackDropColor">#BB000000</Color>
+            <Color x:Key="BackDropColor2">#88000000</Color>
+            <Color x:Key="SystemButtonBackgroundColor">#00FFFFFF</Color>
+        </ResourceDictionary>
+        <ResourceDictionary x:Key="Light">
+            <SolidColorBrush x:Key="Background0" Color="#FFFFFFFF" />
+            <SolidColorBrush x:Key="Background1" Color="#FFE7E7E6" />
+            <SolidColorBrush x:Key="Background2" Color="#99FFFFFF" />
+            <SolidColorBrush x:Key="Background3" Color="#C8FFFFFF" />
+            <SolidColorBrush x:Key="Background4" Color="#FFF2F2F2" />
+            <SolidColorBrush x:Key="GroupTitleForeground" Color="#FF5F5F5F" />
+            <SolidColorBrush x:Key="OverlayBackground" Color="#7FC1C2C2" />
+            <SolidColorBrush x:Key="SubtitleForeground" Color="#FF494949" />
+            <SolidColorBrush x:Key="ListViewContainerEvenBrush" Color="#FFF3F3F3" />
+            <Color x:Key="FillGradientStop0">#00FFFFFF</Color>
+            <Color x:Key="FillGradientStop1">#FFFFFFFF</Color>
+            <Color x:Key="TitleBackground">#FFE7E7E6</Color>
+            <Color x:Key="TitleForeground">#FF000000</Color>
+            <Color x:Key="BackDropColor">#BBFFFFFF</Color>
+            <Color x:Key="BackDropColor2">#88FFFFFF</Color>
+            <Color x:Key="SystemButtonBackgroundColor">#00000000</Color>
+        </ResourceDictionary>
+    </ResourceDictionary.ThemeDictionaries>
+</ResourceDictionary>
